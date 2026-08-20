@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NIA DATING ❤️ | Meet • Match • Chat</title>
+<title>NIA DATING ❤️ | Login • Match • Chat</title>
 
 <style>
 *{
@@ -14,13 +13,13 @@ padding:0;
 font-family:Arial,sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 background:#0b0b0f;
-color:white;
+color:#fff;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 header{
@@ -38,9 +37,9 @@ backdrop-filter:blur(15px);
 
 .logo{
 color:#ff4f87;
-text-decoration:none;
-font-size:22px;
+font-size:21px;
 font-weight:bold;
+text-decoration:none;
 }
 
 nav{
@@ -64,7 +63,7 @@ color:#ff6b9c;
 
 .join-btn{
 background:#ff4f87;
-color:#fff!important;
+color:white!important;
 }
 
 .hero{
@@ -106,7 +105,6 @@ color:#ff4f87;
 color:#aaa;
 line-height:1.7;
 margin-bottom:25px;
-max-width:550px;
 }
 
 .btn{
@@ -197,14 +195,10 @@ background:linear-gradient(135deg,#39202e,#181820);
 padding:17px;
 }
 
-.profile-info h3{
-margin-bottom:7px;
-}
-
 .location{
 color:#999;
 font-size:13px;
-margin-bottom:8px;
+margin:8px 0;
 }
 
 .bio{
@@ -371,10 +365,6 @@ color:#888;
 font-size:11px;
 }
 
-.green-dot{
-color:#66e3a1;
-}
-
 .chat-window{
 flex:1;
 display:flex;
@@ -424,6 +414,7 @@ padding:10px 13px;
 border-radius:15px;
 font-size:14px;
 line-height:1.4;
+word-wrap:break-word;
 }
 
 .message.me{
@@ -447,13 +438,10 @@ text-align:right;
 }
 
 .typing{
-align-self:flex-start;
-background:#292932;
-padding:10px 14px;
-border-radius:15px;
+display:none;
+padding:8px 20px;
 color:#aaa;
 font-size:12px;
-display:none;
 }
 
 .chat-input{
@@ -489,7 +477,6 @@ font-size:18px;
 
 .premium{
 background:linear-gradient(135deg,#221722,#111116);
-border-top:1px solid #3c2634;
 }
 
 .premium-box{
@@ -521,7 +508,7 @@ display:none;
 position:fixed;
 inset:0;
 z-index:5000;
-background:rgba(0,0,0,.88);
+background:rgba(0,0,0,.9);
 align-items:center;
 justify-content:center;
 padding:20px;
@@ -683,7 +670,7 @@ height:650px;
 }
 
 .chat-list{
-width:95px;
+width:90px;
 }
 
 .chat-user{
@@ -728,8 +715,7 @@ max-width:85%;
 <a
 href="#"
 class="join-btn"
-id="authButton"
-onclick="openAuth('signup');return false;">
+id="authButton">
 JISAJILI
 </a>
 
@@ -771,9 +757,7 @@ tafuta mtu anayekufaa na anza mazungumzo.
 
 <section class="section discover" id="discover">
 
-<h2>
-❤️ Discover People
-</h2>
+<h2>❤️ Discover People</h2>
 
 <p class="section-text">
 Gundua watu wapya na bonyeza LIKE kupata match.
@@ -794,9 +778,7 @@ id="discoverGrid">
 
 <section class="section matches" id="matches">
 
-<h2>
-💕 Your Matches
-</h2>
+<h2>💕 Your Matches</h2>
 
 <p class="section-text">
 Watu uliowapenda na kuwa-match nao.
@@ -812,9 +794,7 @@ id="matchesGrid">
 
 <section class="section chat-section" id="chat">
 
-<h2>
-💬 Messages
-</h2>
+<h2>💬 Messages</h2>
 
 <p class="section-text">
 Ongea na watu ambao ume-match nao.
@@ -828,8 +808,7 @@ Ongea na watu ambao ume-match nao.
 💬 CHATS
 </div>
 
-<div id="chatUsers">
-</div>
+<div id="chatUsers"></div>
 
 </div>
 
@@ -885,7 +864,7 @@ id="typing">
 
 <form
 class="chat-input"
-onsubmit="sendMessage(event)">
+id="chatForm">
 
 <input
 id="messageInput"
@@ -919,10 +898,6 @@ type="submit">
 Unlock More Connections
 </h2>
 
-<p class="section-text">
-Pata features zaidi za NIA DATING.
-</p>
-
 <div class="price">
 TZS 5,000 / Month
 </div>
@@ -939,9 +914,7 @@ TZS 5,000 / Month
 <button
 class="btn primary"
 onclick="openPremium()">
-
 💎 GET PREMIUM
-
 </button>
 
 </div>
@@ -950,17 +923,13 @@ onclick="openPremium()">
 
 
 <footer>
-
 © 2026 NIA DATING ❤️
-
 <br>
-
 Meet • Match • Connect
-
 </footer>
 
 
-<!-- LOGIN + SIGNUP -->
+<!-- AUTH -->
 
 <div
 class="modal"
@@ -984,14 +953,11 @@ id="authSubtitle">
 Tengeneza account yako ya NIA DATING
 </p>
 
-<form
-onsubmit="handleAuth(event)">
+<form id="authForm">
 
 <div id="signupFields">
 
-<label>
-Jina
-</label>
+<label>Jina</label>
 
 <input
 id="authName"
@@ -1000,9 +966,7 @@ placeholder="Jina lako">
 
 </div>
 
-<label>
-Email
-</label>
+<label>Email</label>
 
 <input
 id="authEmail"
@@ -1010,9 +974,7 @@ type="email"
 placeholder="example@email.com"
 required>
 
-<label>
-Password
-</label>
+<label>Password</label>
 
 <input
 id="authPassword"
@@ -1022,11 +984,9 @@ required>
 
 <button
 class="submit"
-type="submit"
-id="authSubmit">
-
+id="authSubmit"
+type="submit">
 CREATE ACCOUNT
-
 </button>
 
 </form>
@@ -1038,9 +998,8 @@ Tayari una account?
 </span>
 
 <button
-type="button"
 id="authSwitch"
-onclick="switchAuth()">
+type="button">
 LOGIN
 </button>
 
@@ -1080,12 +1039,11 @@ onclick="closeMatch()">
 
 <script>
 
-/* ======================================
-DATA
-====================================== */
+/* ===============================
+PROFILES
+=============================== */
 
 const profiles=[
-
 {
 id:"asha",
 name:"Asha",
@@ -1094,7 +1052,6 @@ location:"Dar es Salaam",
 emoji:"👩",
 bio:"Napenda music, travel na relationship ya kweli."
 },
-
 {
 id:"zainab",
 name:"Zainab",
@@ -1103,7 +1060,6 @@ location:"Mwanza",
 emoji:"👩",
 bio:"Friendly, mcheshi na napenda adventure."
 },
-
 {
 id:"neema",
 name:"Neema",
@@ -1112,7 +1068,6 @@ location:"Arusha",
 emoji:"👩",
 bio:"Looking for serious relationship."
 },
-
 {
 id:"kevin",
 name:"Kevin",
@@ -1121,7 +1076,6 @@ location:"Dar es Salaam",
 emoji:"👨",
 bio:"Football, music na good conversations."
 },
-
 {
 id:"juma",
 name:"Juma",
@@ -1130,7 +1084,6 @@ location:"Dodoma",
 emoji:"👨",
 bio:"Travel, movies na good vibes."
 },
-
 {
 id:"mariam",
 name:"Mariam",
@@ -1139,73 +1092,52 @@ location:"Zanzibar",
 emoji:"👩",
 bio:"Love, respect and honest communication."
 }
-
 ];
 
 
-let liked=
-JSON.parse(
-localStorage.getItem("niaLiked") || "[]"
+/* ===============================
+DATA
+=============================== */
+
+let liked=JSON.parse(
+localStorage.getItem("niaLiked")||"[]"
 );
 
-let passed=
-JSON.parse(
-localStorage.getItem("niaPassed") || "[]"
+let passed=JSON.parse(
+localStorage.getItem("niaPassed")||"[]"
 );
 
-let matched=
-JSON.parse(
-localStorage.getItem("niaMatched") || "[]"
+let matched=JSON.parse(
+localStorage.getItem("niaMatched")||"[]"
 );
 
 let currentChat=null;
-
 let authMode="signup";
 
 
-/* ======================================
+/* ===============================
 AUTH
-====================================== */
+=============================== */
 
 function getUsers(){
 
 return JSON.parse(
-localStorage.getItem("niaUsers") || "[]"
+localStorage.getItem("niaUsers")||"[]"
 );
 
 }
 
-
-function getCurrentUser(){
+function currentUser(){
 
 return JSON.parse(
-localStorage.getItem("niaCurrentUser") || "null"
+localStorage.getItem("niaCurrentUser")||"null"
 );
 
 }
 
-
-function saveUsers(users){
-
-localStorage.setItem(
-"niaUsers",
-JSON.stringify(users)
-);
-
-}
-
-
-function isLoggedIn(){
-
-return !!getCurrentUser();
-
-}
-
-
-function openAuth(mode="signup"){
+function openAuth(mode){
 
 authMode=mode;
-
 updateAuthUI();
 
 document
@@ -1213,7 +1145,6 @@ document
 .classList.add("active");
 
 }
-
 
 function closeAuth(){
 
@@ -1223,8 +1154,72 @@ document
 
 }
 
+function updateAuthUI(){
 
-function switchAuth(){
+let signup=
+authMode==="signup";
+
+document.getElementById("authTitle")
+.textContent=
+signup?"Jisajili ❤️":"Karibu tena ❤️";
+
+document.getElementById("authSubtitle")
+.textContent=
+signup
+?"Tengeneza account yako ya NIA DATING"
+:"Ingia kwenye account yako";
+
+document.getElementById("authSubmit")
+.textContent=
+signup?"CREATE ACCOUNT":"LOGIN";
+
+document.getElementById("signupFields")
+.style.display=
+signup?"block":"none";
+
+document.getElementById("authSwitchText")
+.textContent=
+signup
+?"Tayari una account?"
+:"Huna account?";
+
+document.getElementById("authSwitch")
+.textContent=
+signup?"LOGIN":"JISAJILI";
+
+}
+
+
+document
+.getElementById("authButton")
+.addEventListener("click",function(e){
+
+e.preventDefault();
+
+if(currentUser()){
+
+if(confirm("Unataka kutoka kwenye account?")){
+
+localStorage.removeItem("niaCurrentUser");
+
+updateAuthButton();
+
+alert("👋 Umetoka kwenye account.");
+
+}
+
+}else{
+
+openAuth("signup");
+
+}
+
+});
+
+
+document
+.getElementById("authSwitch")
+.addEventListener("click",function(){
 
 authMode=
 authMode==="signup"
@@ -1233,104 +1228,105 @@ authMode==="signup"
 
 updateAuthUI();
 
-}
+});
 
 
-function updateAuthUI(){
+document
+.getElementById("authForm")
+.addEventListener("submit",function(e){
 
-const title=
-document.getElementById("authTitle");
+e.preventDefault();
 
-const subtitle=
-document.getElementById("authSubtitle");
+let users=getUsers();
 
-const submit=
-document.getElementById("authSubmit");
-
-const fields=
-document.getElementById("signupFields");
-
-const text=
-document.getElementById("authSwitchText");
-
-const button=
-document.getElementById("authSwitch");
-
-
-if(authMode==="signup"){
-
-title.textContent="Jisajili ❤️";
-
-subtitle.textContent=
-"Tengeneza account yako ya NIA DATING";
-
-submit.textContent=
-"CREATE ACCOUNT";
-
-fields.style.display="block";
-
-text.textContent=
-"Tayari una account?";
-
-button.textContent="LOGIN";
-
-}else{
-
-title.textContent=
-"Karibu tena ❤️";
-
-subtitle.textContent=
-"Ingia kwenye account yako ya NIA DATING";
-
-submit.textContent="LOGIN";
-
-fields.style.display="none";
-
-text.textContent=
-"Huna account?";
-
-button.textContent="JISAJILI";
-
-}
-
-}
-
-
-function handleAuth(event){
-
-event.preventDefault();
-
-const email=
+let email=
 document.getElementById("authEmail")
-.value
-.trim()
+.value.trim()
 .toLowerCase();
 
-const password=
+let password=
 document.getElementById("authPassword")
 .value;
 
-const users=getUsers();
-
-
 if(authMode==="login"){
 
-const user=
-users.find(
-u=>
-u.email===email &&
+let user=users.find(
+u=>u.email===email &&
 u.password===password
 );
 
 if(!user){
 
-alert(
-"❌ Email au password sio sahihi."
-);
+alert("❌ Email au password sio sahihi.");
 
 return;
 
 }
+
+localStorage.setItem(
+"niaCurrentUser",
+JSON.stringify({
+name:user.name,
+email:user.email,
+id:user.id
+})
+);
+
+closeAuth();
+updateAuthButton();
+
+alert("❤️ Karibu tena "+user.name+"!");
+
+return;
+
+}
+
+
+let name=
+document.getElementById("authName")
+.value.trim();
+
+if(name.length<2){
+
+alert("❌ Weka jina lako.");
+
+return;
+
+}
+
+if(password.length<6){
+
+alert("❌ Password iwe angalau characters 6.");
+
+return;
+
+}
+
+if(users.some(u=>u.email===email)){
+
+alert("⚠️ Email tayari ipo.");
+
+authMode="login";
+
+updateAuthUI();
+
+return;
+
+}
+
+let user={
+id:"user_"+Date.now(),
+name:name,
+email:email,
+password:password
+};
+
+users.push(user);
+
+localStorage.setItem(
+"niaUsers",
+JSON.stringify(users)
+);
 
 localStorage.setItem(
 "niaCurrentUser",
@@ -1342,214 +1338,63 @@ email:user.email
 );
 
 closeAuth();
-
 updateAuthButton();
 
 alert(
-"❤️ Karibu tena, "+
-user.name+"!"
+"🎉 Account imetengenezwa!\n\nKaribu "+name+" ❤️"
 );
 
-return;
+});
 
-}
-
-
-const name=
-document.getElementById("authName")
-.value
-.trim();
-
-
-if(name.length<2){
-
-alert(
-"❌ Tafadhali weka jina sahihi."
-);
-
-return;
-
-}
-
-
-if(password.length<6){
-
-alert(
-"❌ Password iwe na angalau characters 6."
-);
-
-return;
-
-}
-
-
-if(users.some(u=>u.email===email)){
-
-alert(
-"⚠️ Email hii tayari imesajiliwa."
-);
-
-authMode="login";
-
-updateAuthUI();
-
-return;
-
-}
-
-
-const newUser={
-
-id:"user_"+Date.now(),
-
-name:name,
-
-email:email,
-
-password:password,
-
-createdAt:new Date().toISOString()
-
-};
-
-
-users.push(newUser);
-
-saveUsers(users);
-
-
-localStorage.setItem(
-"niaCurrentUser",
-JSON.stringify({
-id:newUser.id,
-name:newUser.name,
-email:newUser.email
-})
-);
-
-
-closeAuth();
-
-updateAuthButton();
-
-alert(
-"🎉 Account imetengenezwa!\n\n"+
-"Karibu NIA DATING, "+
-name+" ❤️"
-);
-
-}
-
-
-/* ======================================
-AUTH BUTTON
-====================================== */
 
 function updateAuthButton(){
 
-const button=
+let btn=
 document.getElementById("authButton");
 
-const user=
-getCurrentUser();
-
+let user=currentUser();
 
 if(user){
 
-button.textContent=
-"👤 "+user.name;
-
-button.classList.remove(
-"join-btn"
-);
-
-button.onclick=function(){
-
-logoutUser();
-
-};
+btn.textContent="👤 "+user.name;
 
 }else{
 
-button.textContent=
-"JISAJILI";
-
-button.classList.add(
-"join-btn"
-);
-
-button.onclick=function(){
-
-openAuth("signup");
-
-};
+btn.textContent="JISAJILI";
 
 }
 
 }
 
 
-function logoutUser(){
-
-const user=getCurrentUser();
-
-if(!user)return;
-
-if(
-confirm(
-"👤 "+user.name+
-"\n\nUnataka kutoka kwenye account?"
-)
-){
-
-localStorage.removeItem(
-"niaCurrentUser"
-);
-
-updateAuthButton();
-
-alert(
-"👋 Umetoka kwenye account."
-);
-
-}
-
-}
-
-
-/* ======================================
+/* ===============================
 DISCOVER
-====================================== */
+=============================== */
 
 function showProfiles(){
 
-const search=
-document
-.getElementById("search")
-.value
-.toLowerCase();
+let search=
+document.getElementById("search")
+.value.toLowerCase();
 
-const grid=
+let grid=
 document.getElementById("discoverGrid");
 
-const filtered=
+let list=
 profiles.filter(p=>{
 
-if(liked.includes(p.id))
-return false;
-
-if(passed.includes(p.id))
-return false;
+if(liked.includes(p.id))return false;
+if(passed.includes(p.id))return false;
 
 return(
-p.name.toLowerCase().includes(search) ||
+p.name.toLowerCase().includes(search)||
 p.location.toLowerCase().includes(search)
 );
 
 });
 
 
-if(filtered.length===0){
+if(!list.length){
 
 grid.innerHTML=`
 
@@ -1557,32 +1402,24 @@ grid.innerHTML=`
 grid-column:1/-1;
 text-align:center;
 padding:50px;
-color:#888;
-">
+color:#888">
 
-<div style="font-size:50px;">
+<div style="font-size:50px">
 💔
 </div>
 
-<h3 style="color:white;">
+<h3 style="color:white">
 Hakuna profiles
 </h3>
 
-<p>
-Jaribu search nyingine.
-</p>
-
-</div>
-
-`;
+</div>`;
 
 return;
 
 }
 
 
-grid.innerHTML=
-filtered.map(p=>`
+grid.innerHTML=list.map(p=>`
 
 <div class="profile-card">
 
@@ -1592,9 +1429,7 @@ ${p.emoji}
 
 <div class="profile-info">
 
-<h3>
-${p.name}, ${p.age}
-</h3>
+<h3>${p.name}, ${p.age}</h3>
 
 <div class="location">
 📍 ${p.location}
@@ -1639,24 +1474,29 @@ onclick="viewProfile('${p.id}')">
 }
 
 
-/* ======================================
+document
+.getElementById("search")
+.addEventListener(
+"input",
+showProfiles
+);
+
+
+/* ===============================
 LIKE
-====================================== */
+=============================== */
 
 function likeProfile(id){
 
-if(!isLoggedIn()){
+if(!currentUser()){
 
-alert(
-"🔐 Login kwanza ili ku-LIKE."
-);
+alert("🔐 Login kwanza.");
 
 openAuth("login");
 
 return;
 
 }
-
 
 if(!liked.includes(id)){
 
@@ -1669,7 +1509,6 @@ JSON.stringify(liked)
 
 }
 
-
 if(!matched.includes(id)){
 
 matched.push(id);
@@ -1679,40 +1518,35 @@ localStorage.setItem(
 JSON.stringify(matched)
 );
 
-const profile=
-profiles.find(p=>p.id===id);
+let p=
+profiles.find(x=>x.id===id);
 
-showMatch(profile);
+showMatch(p);
 
 }
 
 showProfiles();
-
 showMatches();
-
 loadChatUsers();
 
 }
 
 
-/* ======================================
+/* ===============================
 PASS
-====================================== */
+=============================== */
 
 function passProfile(id){
 
-if(!isLoggedIn()){
+if(!currentUser()){
 
-alert(
-"🔐 Login kwanza."
-);
+alert("🔐 Login kwanza.");
 
 openAuth("login");
 
 return;
 
 }
-
 
 if(!passed.includes(id)){
 
@@ -1730,22 +1564,21 @@ showProfiles();
 }
 
 
-/* ======================================
+/* ===============================
 MATCHES
-====================================== */
+=============================== */
 
 function showMatches(){
 
-const grid=
+let grid=
 document.getElementById("matchesGrid");
 
-const list=
+let list=
 matched
 .map(id=>profiles.find(p=>p.id===id))
 .filter(Boolean);
 
-
-if(list.length===0){
+if(!list.length){
 
 grid.innerHTML=`
 
@@ -1753,34 +1586,23 @@ grid.innerHTML=`
 grid-column:1/-1;
 text-align:center;
 padding:40px;
-background:#15151c;
-border-radius:16px;
-color:#888;
-">
+color:#888">
 
-<div style="font-size:45px;">
+<div style="font-size:45px">
 💕
 </div>
 
-<h3 style="color:white;">
+<h3 style="color:white">
 Bado huna match
 </h3>
 
-<p>
-Like profile kupata match.
-</p>
-
-</div>
-
-`;
+</div>`;
 
 return;
 
 }
 
-
-grid.innerHTML=
-list.map(p=>`
+grid.innerHTML=list.map(p=>`
 
 <div class="match-card">
 
@@ -1788,13 +1610,9 @@ list.map(p=>`
 ${p.emoji}
 </div>
 
-<h3>
-${p.name}, ${p.age}
-</h3>
+<h3>${p.name}, ${p.age}</h3>
 
-<p>
-📍 ${p.location}
-</p>
+<p>📍 ${p.location}</p>
 
 <button
 class="chat-btn"
@@ -1809,46 +1627,40 @@ onclick="openChat('${p.id}')">
 }
 
 
-/* ======================================
+/* ===============================
 CHAT USERS
-====================================== */
+=============================== */
 
 function loadChatUsers(){
 
-const container=
+let box=
 document.getElementById("chatUsers");
 
-const list=
+let list=
 matched
 .map(id=>profiles.find(p=>p.id===id))
 .filter(Boolean);
 
+if(!list.length){
 
-if(list.length===0){
-
-container.innerHTML=`
+box.innerHTML=`
 
 <div style="
-padding:25px 10px;
+padding:25px;
 text-align:center;
 color:#777;
-font-size:11px;
-">
+font-size:11px">
 
 💕<br><br>
 Hakuna matches bado.
 
-</div>
-
-`;
+</div>`;
 
 return;
 
 }
 
-
-container.innerHTML=
-list.map(p=>`
+box.innerHTML=list.map(p=>`
 
 <div
 class="chat-user"
@@ -1860,12 +1672,10 @@ ${p.emoji}
 
 <div class="chat-user-info">
 
-<h4>
-${p.name}
-</h4>
+<h4>${p.name}</h4>
 
 <p>
-<span class="green-dot">●</span>
+<span style="color:#66e3a1">●</span>
 Online
 </p>
 
@@ -1878,17 +1688,15 @@ Online
 }
 
 
-/* ======================================
+/* ===============================
 OPEN CHAT
-====================================== */
+=============================== */
 
 function openChat(id){
 
-if(!isLoggedIn()){
+if(!currentUser()){
 
-alert(
-"🔐 Login kwanza ili kutumia CHAT."
-);
+alert("🔐 Login kwanza ili kutumia chat.");
 
 openAuth("login");
 
@@ -1896,23 +1704,28 @@ return;
 
 }
 
+if(!matched.includes(id)){
 
-const profile=
-profiles.find(p=>p.id===id);
+alert("❤️ Like profile kwanza.");
 
-if(!profile)return;
+return;
+
+}
+
+let p=
+profiles.find(x=>x.id===id);
+
+if(!p)return;
 
 currentChat=id;
 
 document
 .getElementById("chatName")
-.textContent=
-profile.name;
+.textContent=p.name;
 
 document
 .getElementById("chatAvatar")
-.textContent=
-profile.emoji;
+.textContent=p.emoji;
 
 loadMessages(id);
 
@@ -1925,53 +1738,54 @@ behavior:"smooth"
 }
 
 
-/* ======================================
-MESSAGES
-====================================== */
+/* ===============================
+MESSAGE STORAGE
+=============================== */
 
 function getMessages(id){
 
 return JSON.parse(
 localStorage.getItem(
-"niaChat_"+id
-) || "[]"
+"niaMessages_"+id
+)||"[]"
 );
 
 }
 
-
 function saveMessages(id,messages){
 
 localStorage.setItem(
-"niaChat_"+id,
+"niaMessages_"+id,
 JSON.stringify(messages)
 );
 
 }
 
 
+/* ===============================
+LOAD MESSAGES
+=============================== */
+
 function loadMessages(id){
 
-const container=
+let box=
 document.getElementById("messages");
 
-const messages=
+let messages=
 getMessages(id);
 
+if(!messages.length){
 
-if(messages.length===0){
+let p=
+profiles.find(x=>x.id===id);
 
-const p=
-profiles.find(p=>p.id===id);
-
-container.innerHTML=`
+box.innerHTML=`
 
 <div style="
 margin:auto;
 text-align:center;
 color:#777;
-font-size:13px;
-">
+font-size:13px">
 
 ❤️ Ume-match na ${p.name}
 
@@ -1979,16 +1793,13 @@ font-size:13px;
 
 Anza mazungumzo.
 
-</div>
-
-`;
+</div>`;
 
 return;
 
 }
 
-
-container.innerHTML=
+box.innerHTML=
 messages.map(m=>`
 
 <div class="message ${m.sender}">
@@ -2004,252 +1815,273 @@ ${m.sender==="me"?" ✓✓":""}
 
 `).join("");
 
-
-container.scrollTop=
-container.scrollHeight;
+box.scrollTop=box.scrollHeight;
 
 }
 
 
-/* ======================================
+/* ===============================
 SMART AUTO REPLY
-====================================== */
+=============================== */
 
-function getAutoReply(text){
+function autoReply(text){
 
-const msg=
+let msg=
 text.toLowerCase().trim();
 
 
+/* SALAMU */
+
 if(
-msg.includes("hello") ||
-msg.includes("hi") ||
-msg.includes("hey") ||
-msg.includes("habari") ||
-msg.includes("mambo") ||
-msg.includes("hujambo")
+/^(hi|hello|hey|habari|mambo|hujambo)\b/.test(msg)
 ){
 
-return [
+return randomReply([
 "❤️ Hi! Habari yako?",
-"😊 Hey! Nimefurahi umeandika.",
-"💕 Hello! Uko poa?",
-"😍 Hi, nimefurahi kukuona."
-][Math.floor(Math.random()*4)];
+"😊 Hey! Uko poa?",
+"💕 Hello! Nimefurahi umeandika.",
+"🥰 Hi, nimefurahi kukuona."
+]);
 
 }
 
 
+/* UKOJE */
+
 if(
-msg.includes("ukoje") ||
-msg.includes("upoje") ||
-msg.includes("hali yako") ||
+msg.includes("ukoje")||
+msg.includes("upoje")||
+msg.includes("hali yako")||
 msg.includes("unaendeleaje")
 ){
 
-return [
+return randomReply([
 "😊 Nipo vizuri kabisa, wewe je?",
 "❤️ Niko poa sana. Asante kwa kuniuliza.",
 "🥰 Niko vizuri, nimefurahi kuongea na wewe.",
-"💕 Niko fresh kabisa."
-][Math.floor(Math.random()*4)];
+"💕 Nipo fresh kabisa."
+]);
 
 }
 
 
+/* NAKUPENDA */
+
 if(
-msg.includes("nakupenda") ||
-msg.includes("i love you") ||
+msg.includes("nakupenda")||
+msg.includes("i love you")||
 msg.includes("love you")
 ){
 
-return [
+return randomReply([
 "❤️ Awww... na mimi nakupenda.",
 "🥰 Umenifanya nitabasamu sana.",
-"💕 Hilo ndilo nililotaka kusikia.",
+"💕 Hilo ni tamu kusikia.",
 "😍 Na mimi nina feelings kwako."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* NAKUMISS */
+
 if(
-msg.includes("nakumiss") ||
-msg.includes("nimekumiss") ||
+msg.includes("nakumiss")||
+msg.includes("nimekumiss")||
 msg.includes("miss you")
 ){
 
-return [
+return randomReply([
 "🥺 Na mimi nimekumiss sana.",
-"❤️ Awww, ningependa ungekuwa hapa.",
-"💕 Nilikuwa nakuwaza pia.",
+"❤️ Nilikuwa nakuwaza pia.",
+"💕 Awww, nimekumiss pia.",
 "😍 Basi tuongee zaidi."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* UNAFANYA NINI */
+
 if(
-msg.includes("unafanya nini") ||
-msg.includes("unafanya nn") ||
+msg.includes("unafanya nini")||
+msg.includes("unafanya nn")||
 msg.includes("what are you doing")
 ){
 
-return [
+return randomReply([
 "😊 Nipo hapa naongea na wewe.",
 "❤️ Nimekaa tu, sasa nimepata company yako.",
 "💕 Nilikuwa nasubiri ujumbe wako.",
 "🥰 Kwa sasa naongea na wewe."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* UPO WAPI */
+
 if(
-msg.includes("upo wapi") ||
-msg.includes("uko wapi") ||
+msg.includes("uko wapi")||
+msg.includes("upo wapi")||
 msg.includes("where are you")
 ){
 
-return [
+return randomReply([
 "😊 Nipo hapa tu, wewe uko wapi?",
-"💕 Nipo online kwenye NIA DATING.",
+"💕 Nipo online NIA DATING.",
 "❤️ Nipo sehemu yangu, wewe uko wapi?",
 "🥰 Muhimu ni kwamba niko hapa."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* JINA */
+
 if(
-msg.includes("unaitwa nani") ||
-msg.includes("jina lako") ||
+msg.includes("jina lako")||
+msg.includes("unaitwa nani")||
 msg.includes("what is your name")
 ){
 
-return [
+return randomReply([
 "❤️ Unaweza kuniita NIA.",
 "😊 Jina langu ni NIA.",
-"💕 Mimi ni NIA, nimefurahi kukutana na wewe."
-][Math.floor(Math.random()*3)];
+"💕 Mimi ni NIA."
+]);
 
 }
 
 
+/* MREMBO */
+
 if(
-msg.includes("mrembo") ||
-msg.includes("beautiful") ||
-msg.includes("pretty") ||
+msg.includes("mrembo")||
+msg.includes("beautiful")||
+msg.includes("pretty")||
 msg.includes("cute")
 ){
 
-return [
+return randomReply([
 "🥰 Awww, asante sana.",
 "❤️ Umenifanya niwe shy.",
 "😊 Wewe pia unaonekana vizuri.",
-"💕 Maneno yako ni matamu sana."
-][Math.floor(Math.random()*4)];
+"💕 Maneno yako ni matamu."
+]);
 
 }
 
 
+/* GOOD MORNING */
+
 if(
-msg.includes("good morning") ||
-msg.includes("morning") ||
+msg.includes("good morning")||
+msg.includes("morning")||
 msg.includes("asubuhi njema")
 ){
 
-return [
+return randomReply([
 "🌅 Good morning ❤️ Umeamkaje?",
 "🥰 Asubuhi njema! Uwe na siku nzuri.",
-"💕 Morning! Nilifurahi kuona ujumbe wako.",
+"💕 Morning! Nimefurahi kuona ujumbe wako.",
 "❤️ Good morning dear."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* GOOD NIGHT */
+
 if(
-msg.includes("good night") ||
-msg.includes("usiku mwema") ||
+msg.includes("good night")||
+msg.includes("usiku mwema")||
 msg.includes("lala salama")
 ){
 
-return [
+return randomReply([
 "🌙 Usiku mwema ❤️ Lala salama.",
 "🥰 Good night! Tutaongea kesho.",
 "💕 Lala vizuri.",
 "❤️ Good night dear."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* ASANTE */
+
 if(
-msg.includes("asante") ||
-msg.includes("thanks") ||
+msg.includes("asante")||
+msg.includes("thanks")||
 msg.includes("thank you")
 ){
 
-return [
+return randomReply([
 "❤️ Karibu sana.",
 "😊 Usijali kabisa.",
 "💕 Anytime.",
 "🥰 Ni furaha yangu."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* SAMAHANI */
+
 if(
-msg.includes("samahani") ||
+msg.includes("samahani")||
 msg.includes("sorry")
 ){
 
-return [
+return randomReply([
 "❤️ Hakuna shida.",
 "😊 Usijali, kila kitu kiko sawa.",
 "💕 It's okay.",
 "🥰 Usifikirie sana."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* TUKUTANE */
+
 if(
-msg.includes("tukutane") ||
-msg.includes("meet") ||
-msg.includes("kuonana")
+msg.includes("tukutane")||
+msg.includes("kuonana")||
+msg.includes("meet")
 ){
 
-return [
+return randomReply([
 "😍 Ningependa tukutane siku moja.",
 "💕 Kwanza tujuane vizuri.",
 "😊 Hilo ni wazo zuri.",
 "❤️ Tutapanga muda mzuri."
-][Math.floor(Math.random()*4)];
+]);
 
 }
 
 
+/* WHATSAPP */
+
 if(
-msg.includes("number") ||
-msg.includes("namba") ||
-msg.includes("whatsapp")
+msg.includes("whatsapp")||
+msg.includes("namba yako")||
+msg.includes("namba")
 ){
 
-return [
+return randomReply([
 "😊 Tuendelee kwanza kujuana hapa.",
-"💕 Namba tutabadilishana tukishazoeana.",
+"💕 Tutabadilishana namba tukishazoeana.",
 "❤️ Hebu tuongee hapa kwanza."
-][Math.floor(Math.random()*3)];
+]);
 
 }
 
 
 /* DEFAULT */
 
-return [
+return randomReply([
 "😊 Interesting! Niambie zaidi.",
 "❤️ Nimekusikia, endelea kuniambia.",
 "💕 Kweli? Nieleze zaidi.",
@@ -2258,25 +2090,35 @@ return [
 "❤️ Endelea kuongea, niko hapa.",
 "💕 Nimefurahi umeandika.",
 "😍 Tell me more..."
-][Math.floor(Math.random()*8)];
+]);
 
 }
 
 
-/* ======================================
+function randomReply(array){
+
+return array[
+Math.floor(
+Math.random()*array.length
+)
+];
+
+}
+
+
+/* ===============================
 SEND MESSAGE
-====================================== */
+=============================== */
 
-function sendMessage(event){
+document
+.getElementById("chatForm")
+.addEventListener("submit",function(e){
 
-event.preventDefault();
+e.preventDefault();
 
+if(!currentUser()){
 
-if(!isLoggedIn()){
-
-alert(
-"🔐 Login kwanza."
-);
+alert("🔐 Login kwanza.");
 
 openAuth("login");
 
@@ -2284,31 +2126,27 @@ return;
 
 }
 
-
 if(!currentChat){
 
-alert(
-"❤️ Chagua match kwanza."
-);
+alert("❤️ Chagua match kwanza.");
 
 return;
 
 }
 
-
-const input=
+let input=
 document.getElementById("messageInput");
 
-const text=
+let text=
 input.value.trim();
 
 if(!text)return;
 
 
-const messages=
+let messages=
 getMessages(currentChat);
 
-const time=
+let now=
 new Date().toLocaleTimeString(
 [],
 {
@@ -2318,16 +2156,15 @@ minute:"2-digit"
 );
 
 
+/* USER MESSAGE */
+
 messages.push({
 
 sender:"me",
-
 text:text,
-
-time:time
+time:now
 
 });
-
 
 saveMessages(
 currentChat,
@@ -2341,34 +2178,29 @@ loadMessages(currentChat);
 
 /* TYPING */
 
-const typing=
+let typing=
 document.getElementById("typing");
 
 typing.style.display="block";
 
 
-/* SMART AUTO REPLY */
+/* AUTO REPLY */
 
-setTimeout(()=>{
+setTimeout(function(){
 
 typing.style.display="none";
 
+let reply=
+autoReply(text);
 
-const replies=
+let newMessages=
 getMessages(currentChat);
 
-const replyText=
-getAutoReply(text);
-
-
-replies.push({
+newMessages.push({
 
 sender:"them",
-
-text:replyText,
-
-time:
-new Date().toLocaleTimeString(
+text:reply,
+time:new Date().toLocaleTimeString(
 [],
 {
 hour:"2-digit",
@@ -2378,62 +2210,54 @@ minute:"2-digit"
 
 });
 
-
 saveMessages(
 currentChat,
-replies
+newMessages
 );
 
 loadMessages(currentChat);
 
 },1500);
 
-}
+});
 
 
-/* ======================================
+/* ===============================
 VIEW PROFILE
-====================================== */
+=============================== */
 
 function viewProfile(id){
 
-const p=
-profiles.find(
-profile=>profile.id===id
-);
+let p=
+profiles.find(x=>x.id===id);
 
 if(!p)return;
 
 alert(
-p.name+
-", "+
-p.age+
-"\n\n"+
-"📍 "+p.location+
-"\n\n"+
-"❤️ "+p.bio
+p.name+", "+p.age+
+"\n\n📍 "+p.location+
+"\n\n❤️ "+p.bio
 );
 
 }
 
 
-/* ======================================
-MATCH
-====================================== */
+/* ===============================
+MATCH POPUP
+=============================== */
 
-function showMatch(profile){
+function showMatch(p){
 
 document
 .getElementById("matchText")
 .textContent=
-`Wewe na ${profile.name} mme-match! ❤️`;
+"Wewe na "+p.name+" mme-match! ❤️";
 
 document
 .getElementById("matchPopup")
 .classList.add("active");
 
 }
-
 
 function closeMatch(){
 
@@ -2444,17 +2268,15 @@ document
 }
 
 
-/* ======================================
+/* ===============================
 PREMIUM
-====================================== */
+=============================== */
 
 function openPremium(){
 
-if(!isLoggedIn()){
+if(!currentUser()){
 
-alert(
-"🔐 Login kwanza ili kupata PREMIUM."
-);
+alert("🔐 Login kwanza ili kupata Premium.");
 
 openAuth("login");
 
@@ -2471,31 +2293,32 @@ alert(
 }
 
 
-/* ======================================
-SEARCH
-====================================== */
+/* ===============================
+ESCAPE HTML
+=============================== */
 
-document
-.getElementById("search")
-.addEventListener(
-"input",
-showProfiles
-);
+function escapeHTML(text){
+
+let div=
+document.createElement("div");
+
+div.textContent=text;
+
+return div.innerHTML;
+
+}
 
 
-/* ======================================
+/* ===============================
 START
-====================================== */
+=============================== */
 
 showProfiles();
-
 showMatches();
-
 loadChatUsers();
-
 updateAuthButton();
 
 </script>
 
 </body>
-  </html>
+</html>
