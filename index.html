@@ -20,8 +20,10 @@
 
     body {
       background: #0b0b0f;
-      color: white;
+      color: #fff;
     }
+
+    /* ================= HEADER ================= */
 
     header {
       position: sticky;
@@ -30,29 +32,30 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 6%;
-      background: rgba(11, 11, 15, 0.96);
+      padding: 15px 6%;
+      background: rgba(11,11,15,.96);
       border-bottom: 1px solid #29202b;
+      backdrop-filter: blur(15px);
     }
 
     .logo {
-      font-size: 24px;
-      font-weight: bold;
       color: #ff4f87;
       text-decoration: none;
+      font-size: 23px;
+      font-weight: bold;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 5px;
     }
 
     nav a {
-      text-decoration: none;
       color: #ddd;
-      font-size: 13px;
-      padding: 9px 11px;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 9px 10px;
       border-radius: 8px;
     }
 
@@ -66,14 +69,21 @@
       color: white !important;
     }
 
+    /* ================= HERO ================= */
+
     .hero {
-      min-height: 520px;
+      min-height: 540px;
       display: flex;
       align-items: center;
       padding: 70px 8%;
       background:
-        linear-gradient(90deg, #0b0b0f 5%, rgba(11,11,15,.88) 40%, rgba(11,11,15,.25)),
-        radial-gradient(circle at right, rgba(255,79,135,.2), transparent 35%);
+        radial-gradient(circle at 80% 35%,
+        rgba(255,79,135,.25),
+        transparent 30%),
+        linear-gradient(90deg,
+        #0b0b0f 10%,
+        #101016 60%,
+        #1b1118);
     }
 
     .hero-content {
@@ -82,17 +92,17 @@
 
     .badge {
       display: inline-block;
+      padding: 8px 14px;
+      border-radius: 30px;
       background: rgba(255,79,135,.12);
       border: 1px solid rgba(255,79,135,.4);
       color: #ff8db2;
-      padding: 8px 14px;
-      border-radius: 30px;
       font-size: 12px;
       margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 55px;
+      font-size: 58px;
       line-height: 1.05;
       margin-bottom: 20px;
     }
@@ -102,10 +112,10 @@
     }
 
     .hero p {
-      color: #b9b9c0;
-      line-height: 1.7;
+      color: #aaa;
       font-size: 16px;
-      max-width: 540px;
+      line-height: 1.7;
+      max-width: 550px;
       margin-bottom: 28px;
     }
 
@@ -115,7 +125,8 @@
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      margin: 5px 8px 5px 0;
+      margin: 5px 7px 5px 0;
+      cursor: pointer;
     }
 
     .primary {
@@ -124,12 +135,14 @@
     }
 
     .secondary {
-      border: 1px solid #4a4146;
       color: white;
+      border: 1px solid #4a4146;
     }
 
+    /* ================= SECTIONS ================= */
+
     .section {
-      padding: 60px 7%;
+      padding: 65px 7%;
     }
 
     .section h2 {
@@ -142,9 +155,12 @@
       margin-bottom: 30px;
     }
 
+    /* ================= PROFILES ================= */
+
     .profiles {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
       gap: 18px;
     }
 
@@ -163,11 +179,14 @@
 
     .profile-photo {
       height: 220px;
-      background: linear-gradient(135deg, #34202c, #181820);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 60px;
+      font-size: 65px;
+      background:
+        linear-gradient(135deg,
+        #34202c,
+        #181820);
     }
 
     .profile-info {
@@ -188,8 +207,13 @@
       margin-top: 10px;
     }
 
+    /* ================= PREMIUM ================= */
+
     .premium {
-      background: linear-gradient(135deg, #221722, #15151c);
+      background:
+        linear-gradient(135deg,
+        #221722,
+        #111116);
       border-top: 1px solid #3c2634;
       border-bottom: 1px solid #3c2634;
     }
@@ -197,26 +221,28 @@
     .premium-box {
       max-width: 700px;
       margin: auto;
+      padding: 40px 25px;
       text-align: center;
       background: #18151c;
       border: 1px solid #4d2638;
       border-radius: 20px;
-      padding: 40px 25px;
     }
 
     .premium-price {
-      font-size: 34px;
       color: #ff6b9c;
-      margin: 18px 0;
+      font-size: 34px;
       font-weight: bold;
+      margin: 18px 0;
     }
 
     .features {
       list-style: none;
-      margin: 25px 0;
       color: #bbb;
       line-height: 2;
+      margin: 25px 0;
     }
+
+    /* ================= FOOTER ================= */
 
     footer {
       text-align: center;
@@ -225,13 +251,14 @@
       border-top: 1px solid #25252d;
     }
 
-    /* SIGNUP MODAL */
+    /* ================= MODAL ================= */
+
     .modal {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 5000;
-      background: rgba(0,0,0,.85);
+      background: rgba(0,0,0,.88);
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -245,19 +272,24 @@
       position: relative;
       width: 100%;
       max-width: 420px;
-      padding: 28px;
+      padding: 30px;
       background: #17171e;
       border: 1px solid #39303a;
-      border-radius: 18px;
+      border-radius: 20px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.7);
     }
 
     .close {
       position: absolute;
       right: 18px;
-      top: 10px;
+      top: 8px;
       color: #aaa;
-      font-size: 28px;
+      font-size: 30px;
       cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ff4f87;
     }
 
     .modal-box h2 {
@@ -265,11 +297,11 @@
       margin-bottom: 8px;
     }
 
-    .modal-box > p {
+    .modal-subtitle {
       text-align: center;
       color: #999;
       font-size: 13px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     label {
@@ -280,7 +312,7 @@
 
     input {
       width: 100%;
-      padding: 13px;
+      padding: 14px;
       border-radius: 9px;
       border: 1px solid #333;
       background: #0d0d12;
@@ -304,25 +336,88 @@
       cursor: pointer;
     }
 
-    #message {
-      margin-top: 15px;
+    .submit-btn:hover {
+      background: #ff3677;
+    }
+
+    .switch {
       text-align: center;
-      color: #ff8db2;
+      margin-top: 18px;
+      color: #999;
       font-size: 13px;
     }
 
-    @media (max-width: 700px) {
+    .switch a {
+      color: #ff6b9c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    /* ================= ACCOUNT ================= */
+
+    .account-box {
+      text-align: center;
+    }
+
+    .account-avatar {
+      width: 85px;
+      height: 85px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      background: linear-gradient(135deg,#ff4f87,#7c3aed);
+    }
+
+    .account-box h2 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .account-email {
+      color: #999;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .logout-btn {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ff4f87;
+      background: transparent;
+      color: #ff6b9c;
+      border-radius: 9px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:700px) {
+
       header {
-        padding: 14px 4%;
+        padding: 13px 4%;
       }
 
       .logo {
-        font-size: 18px;
+        font-size: 17px;
+      }
+
+      nav {
+        gap: 2px;
       }
 
       nav a {
-        padding: 7px 6px;
-        font-size: 10px;
+        font-size: 9px;
+        padding: 7px 5px;
       }
 
       h1 {
@@ -330,16 +425,29 @@
       }
 
       .hero {
-        min-height: 480px;
-        padding: 50px 7%;
+        min-height: 500px;
+        padding: 55px 7%;
       }
 
-      .profiles {
-        grid-template-columns: repeat(2, 1fr);
+      .hero p {
+        font-size: 14px;
       }
 
       .section {
         padding: 45px 5%;
+      }
+
+      .profiles {
+        grid-template-columns: repeat(2,1fr);
+        gap: 12px;
+      }
+
+      .profile-photo {
+        height: 180px;
+      }
+
+      .modal-box {
+        padding: 25px 20px;
       }
     }
   </style>
@@ -347,167 +455,852 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
-  <a href="#home" class="logo">❤️ NIA DATING</a>
+
+  <a href="#home" class="logo">
+    ❤️ NIA DATING
+  </a>
 
   <nav>
-    <a href="#home">HOME</a>
-    <a href="#discover">DISCOVER</a>
-    <a href="#premium">PREMIUM</a>
-    <a href="#" class="join-btn" onclick="openSignup()">JISAJILI</a>
+
+    <a href="#home">
+      HOME
+    </a>
+
+    <a href="#discover">
+      DISCOVER
+    </a>
+
+    <a href="#premium">
+      PREMIUM
+    </a>
+
+    <a href="#" id="authButton"
+       class="join-btn"
+       onclick="openSignup(); return false;">
+      JISAJILI
+    </a>
+
   </nav>
+
 </header>
 
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="badge">❤️ MEET • MATCH • CONNECT</div>
 
-    <h1>Find Someone <span>Special</span></h1>
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      ❤️ MEET • MATCH • CONNECT
+    </div>
+
+    <h1>
+      Find Someone
+      <span>Special</span>
+    </h1>
 
     <p>
-      Karibu NIA DATING. Kutana na watu wapya, tengeneza connections
+      Karibu NIA DATING.
+      Kutana na watu wapya, tengeneza connections
       na ugundue matches zinazokufaa.
     </p>
 
-    <a href="#" onclick="openSignup()" class="btn primary">
+    <a href="#"
+       onclick="openSignup(); return false;"
+       class="btn primary">
       JISAJILI BURE
     </a>
 
-    <a href="#discover" class="btn secondary">
+    <a href="#discover"
+       class="btn secondary">
       DISCOVER PEOPLE
     </a>
+
   </div>
+
 </section>
 
+
+<!-- ================= DISCOVER ================= -->
+
 <section class="section" id="discover">
-  <h2>❤️ Discover People</h2>
-  <p class="section-text">Gundua watu wapya kwenye NIA DATING.</p>
+
+  <h2>
+    ❤️ Discover People
+  </h2>
+
+  <p class="section-text">
+    Gundua watu wapya kwenye NIA DATING.
+  </p>
 
   <div class="profiles">
 
     <div class="profile-card">
-      <div class="profile-photo">👩</div>
-      <div class="profile-info">
-        <h3>Member, 24</h3>
-        <p>Dar es Salaam</p>
-        <p class="online">● Online now</p>
+
+      <div class="profile-photo">
+        👩
       </div>
+
+      <div class="profile-info">
+        <h3>
+          Member, 24
+        </h3>
+
+        <p>
+          Dar es Salaam
+        </p>
+
+        <p class="online">
+          ● Online now
+        </p>
+      </div>
+
     </div>
 
-    <div class="profile-card">
-      <div class="profile-photo">👨</div>
-      <div class="profile-info">
-        <h3>Member, 27</h3>
-        <p>Arusha</p>
-        <p class="online">● Online now</p>
-      </div>
-    </div>
 
     <div class="profile-card">
-      <div class="profile-photo">👩</div>
-      <div class="profile-info">
-        <h3>Member, 23</h3>
-        <p>Mwanza</p>
-        <p class="online">● Online now</p>
+
+      <div class="profile-photo">
+        👨
       </div>
+
+      <div class="profile-info">
+        <h3>
+          Member, 27
+        </h3>
+
+        <p>
+          Arusha
+        </p>
+
+        <p class="online">
+          ● Online now
+        </p>
+      </div>
+
     </div>
 
+
     <div class="profile-card">
-      <div class="profile-photo">👨</div>
-      <div class="profile-info">
-        <h3>Member, 29</h3>
-        <p>Dodoma</p>
-        <p class="online">● Online now</p>
+
+      <div class="profile-photo">
+        👩
       </div>
+
+      <div class="profile-info">
+        <h3>
+          Member, 23
+        </h3>
+
+        <p>
+          Mwanza
+        </p>
+
+        <p class="online">
+          ● Online now
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="profile-card">
+
+      <div class="profile-photo">
+        👨
+      </div>
+
+      <div class="profile-info">
+        <h3>
+          Member, 29
+        </h3>
+
+        <p>
+          Dodoma
+        </p>
+
+        <p class="online">
+          ● Online now
+        </p>
+      </div>
+
     </div>
 
   </div>
+
 </section>
 
+
+<!-- ================= PREMIUM ================= -->
+
 <section class="section premium" id="premium">
+
   <div class="premium-box">
 
-    <div class="badge">💎 NIA PREMIUM</div>
+    <div class="badge">
+      💎 NIA PREMIUM
+    </div>
 
-    <h2>Unlock More Connections</h2>
+    <h2>
+      Unlock More Connections
+    </h2>
 
     <p class="section-text">
       Upgrade account yako upate features zaidi.
     </p>
 
-    <div class="premium-price">TZS 5,000 / Month</div>
+    <div class="premium-price">
+      TZS 5,000 / Month
+    </div>
 
     <ul class="features">
-      <li>❤️ Unlimited Likes</li>
-      <li>👀 See Who Likes You</li>
-      <li>🚀 Profile Boost</li>
-      <li>💬 More Matching Features</li>
+
+      <li>
+        ❤️ Unlimited Likes
+      </li>
+
+      <li>
+        👀 See Who Likes You
+      </li>
+
+      <li>
+        🚀 Profile Boost
+      </li>
+
+      <li>
+        💬 More Matching Features
+      </li>
+
     </ul>
 
-    <a href="#" onclick="openSignup()" class="btn primary">
+    <a href="#"
+       onclick="openSignup(); return false;"
+       class="btn primary">
       GET PREMIUM
     </a>
 
   </div>
+
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
-  © 2026 NIA DATING ❤️ • Meet • Match • Connect
+
+  © 2026 NIA DATING ❤️
+  <br>
+  Meet • Match • Connect
+
 </footer>
 
-<div class="modal" id="signupModal">
+
+<!-- ================= AUTH MODAL ================= -->
+
+<div class="modal" id="authModal">
 
   <div class="modal-box">
-    <span class="close" onclick="closeSignup()">×</span>
 
-    <h2>Jisajili ❤️</h2>
+    <span class="close"
+          onclick="closeAuth()">
+      ×
+    </span>
 
-    <p>Tengeneza account yako ya NIA DATING</p>
+    <h2 id="authTitle">
+      Jisajili ❤️
+    </h2>
 
-    <form onsubmit="registerUser(event)">
+    <p class="modal-subtitle"
+       id="authSubtitle">
+      Tengeneza account yako ya NIA DATING
+    </p>
 
-      <label>Jina</label>
-      <input type="text" id="name" placeholder="Jina lako" required>
 
-      <label>Email</label>
-      <input type="email" id="email" placeholder="example@email.com" required>
+    <form id="authForm"
+          onsubmit="registerUser(event)">
 
-      <label>Password</label>
-      <input type="password" id="password" placeholder="Weka password" required>
+      <!-- NAME -->
 
-      <button type="submit" class="submit-btn">
+      <div id="nameGroup">
+
+        <label>
+          Jina
+        </label>
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Jina lako"
+          required>
+
+      </div>
+
+
+      <!-- EMAIL -->
+
+      <label>
+        Email
+      </label>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="example@email.com"
+        required>
+
+
+      <!-- PASSWORD -->
+
+      <label>
+        Password
+      </label>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Weka password"
+        minlength="6"
+        required>
+
+
+      <!-- BUTTON -->
+
+      <button
+        type="submit"
+        class="submit-btn"
+        id="authSubmit">
+
         CREATE ACCOUNT
+
       </button>
+
+
+      <!-- MESSAGE -->
 
       <div id="message"></div>
 
+
+      <!-- SWITCH -->
+
+      <div class="switch"
+           id="switchText">
+
+        Una account tayari?
+
+        <a href="#"
+           onclick="showLogin(); return false;">
+          LOGIN
+        </a>
+
+      </div>
+
     </form>
+
   </div>
 
 </div>
 
+
+<!-- ================= ACCOUNT MODAL ================= -->
+
+<div class="modal"
+     id="accountModal">
+
+  <div class="modal-box account-box">
+
+    <span class="close"
+          onclick="closeAccount()">
+      ×
+    </span>
+
+    <div class="account-avatar">
+      👤
+    </div>
+
+    <h2 id="accountName">
+      User
+    </h2>
+
+    <p class="account-email"
+       id="accountEmail">
+      user@email.com
+    </p>
+
+    <button
+      class="logout-btn"
+      onclick="logoutUser()">
+
+      🚪 LOGOUT
+
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
-  function openSignup() {
-    document.getElementById("signupModal").classList.add("active");
-  }
 
-  function closeSignup() {
-    document.getElementById("signupModal").classList.remove("active");
-  }
+/* =====================================================
+   NIA DATING LOGIN & SIGNUP SYSTEM
+   ===================================================== */
 
-  function registerUser(event) {
-    event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const message = document.getElementById("message");
+/* ================= OPEN SIGNUP ================= */
+
+function openSignup() {
+
+  document
+    .getElementById("authModal")
+    .classList.add("active");
+
+  showSignup();
+
+}
+
+
+/* ================= CLOSE AUTH ================= */
+
+function closeAuth() {
+
+  document
+    .getElementById("authModal")
+    .classList.remove("active");
+
+}
+
+
+/* ================= SIGNUP PAGE ================= */
+
+function showSignup() {
+
+  document.getElementById("authTitle")
+    .textContent = "Jisajili ❤️";
+
+  document.getElementById("authSubtitle")
+    .textContent =
+    "Tengeneza account yako ya NIA DATING";
+
+  document.getElementById("nameGroup")
+    .style.display = "block";
+
+  document.getElementById("authSubmit")
+    .textContent = "CREATE ACCOUNT";
+
+  document.getElementById("switchText")
+    .innerHTML =
+    `Una account tayari?
+     <a href="#"
+     onclick="showLogin(); return false;">
+     LOGIN
+     </a>`;
+
+  document.getElementById("authForm")
+    .onsubmit = registerUser;
+
+  document.getElementById("message")
+    .textContent = "";
+
+}
+
+
+/* ================= LOGIN PAGE ================= */
+
+function showLogin() {
+
+  document
+    .getElementById("authModal")
+    .classList.add("active");
+
+  document.getElementById("authTitle")
+    .textContent = "Karibu tena ❤️";
+
+  document.getElementById("authSubtitle")
+    .textContent =
+    "Login kwenye account yako ya NIA DATING";
+
+  document.getElementById("nameGroup")
+    .style.display = "none";
+
+  document.getElementById("authSubmit")
+    .textContent = "LOGIN";
+
+  document.getElementById("switchText")
+    .innerHTML =
+    `Huna account?
+     <a href="#"
+     onclick="showSignup(); return false;">
+     JISAJILI
+     </a>`;
+
+  document.getElementById("authForm")
+    .onsubmit = loginUser;
+
+  document.getElementById("message")
+    .textContent = "";
+
+}
+
+
+/* ================= REGISTER ================= */
+
+function registerUser(event) {
+
+  event.preventDefault();
+
+  const name =
+    document.getElementById("name")
+    .value.trim();
+
+  const email =
+    document.getElementById("email")
+    .value.trim()
+    .toLowerCase();
+
+  const password =
+    document.getElementById("password")
+    .value;
+
+  const message =
+    document.getElementById("message");
+
+
+  let users =
+    JSON.parse(
+      localStorage.getItem("niaUsers")
+    ) || [];
+
+
+  /* CHECK EMAIL */
+
+  const exists =
+    users.find(
+      user => user.email === email
+    );
+
+
+  if (exists) {
+
+    message.style.color =
+      "#ff6b6b";
 
     message.textContent =
-      "❤️ Karibu NIA DATING, " + name + "! Account yako imeandaliwa.";
+      "❌ Email hii tayari imesajiliwa.";
 
-    event.target.reset();
+    return;
 
-    setTimeout(closeSignup, 2500);
   }
+
+
+  /* CREATE USER */
+
+  const user = {
+
+    id: Date.now(),
+
+    name: name,
+
+    email: email,
+
+    password: password,
+
+    joined:
+      new Date().toISOString()
+
+  };
+
+
+  users.push(user);
+
+
+  localStorage.setItem(
+    "niaUsers",
+    JSON.stringify(users)
+  );
+
+
+  /* LOGIN AUTOMATICALLY */
+
+  localStorage.setItem(
+    "niaCurrentUser",
+
+    JSON.stringify({
+
+      id: user.id,
+
+      name: user.name,
+
+      email: user.email
+
+    })
+
+  );
+
+
+  message.style.color =
+    "#66e3a1";
+
+  message.textContent =
+    "❤️ Account imetengenezwa! Karibu "
+    + name;
+
+
+  document
+    .getElementById("authForm")
+    .reset();
+
+
+  setTimeout(function() {
+
+    closeAuth();
+
+    updateAuthButton();
+
+  }, 1200);
+
+}
+
+
+/* ================= LOGIN ================= */
+
+function loginUser(event) {
+
+  event.preventDefault();
+
+  const email =
+    document.getElementById("email")
+    .value.trim()
+    .toLowerCase();
+
+  const password =
+    document.getElementById("password")
+    .value;
+
+  const message =
+    document.getElementById("message");
+
+
+  let users =
+    JSON.parse(
+      localStorage.getItem("niaUsers")
+    ) || [];
+
+
+  const user =
+    users.find(
+      user =>
+        user.email === email &&
+        user.password === password
+    );
+
+
+  if (!user) {
+
+    message.style.color =
+      "#ff6b6b";
+
+    message.textContent =
+      "❌ Email au password si sahihi.";
+
+    return;
+
+  }
+
+
+  localStorage.setItem(
+    "niaCurrentUser",
+
+    JSON.stringify({
+
+      id: user.id,
+
+      name: user.name,
+
+      email: user.email
+
+    })
+
+  );
+
+
+  message.style.color =
+    "#66e3a1";
+
+  message.textContent =
+    "❤️ Login successful! Karibu "
+    + user.name;
+
+
+  document
+    .getElementById("authForm")
+    .reset();
+
+
+  setTimeout(function() {
+
+    closeAuth();
+
+    updateAuthButton();
+
+  }, 1000);
+
+}
+
+
+/* ================= ACCOUNT ================= */
+
+function openAccount() {
+
+  const currentUser =
+    JSON.parse(
+      localStorage.getItem("niaCurrentUser")
+    );
+
+
+  if (!currentUser) {
+
+    openSignup();
+
+    return;
+
+  }
+
+
+  document.getElementById("accountName")
+    .textContent =
+    currentUser.name;
+
+
+  document.getElementById("accountEmail")
+    .textContent =
+    currentUser.email;
+
+
+  document
+    .getElementById("accountModal")
+    .classList.add("active");
+
+}
+
+
+/* ================= CLOSE ACCOUNT ================= */
+
+function closeAccount() {
+
+  document
+    .getElementById("accountModal")
+    .classList.remove("active");
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+function logoutUser() {
+
+  localStorage.removeItem(
+    "niaCurrentUser"
+  );
+
+  closeAccount();
+
+  updateAuthButton();
+
+  alert(
+    "Umetoka kwenye account yako ❤️"
+  );
+
+}
+
+
+/* ================= HEADER ================= */
+
+function updateAuthButton() {
+
+  const currentUser =
+    JSON.parse(
+      localStorage.getItem("niaCurrentUser")
+    );
+
+  const button =
+    document.getElementById("authButton");
+
+
+  if (currentUser) {
+
+    button.textContent =
+      "👤 " + currentUser.name;
+
+    button.onclick =
+      function(event) {
+
+        event.preventDefault();
+
+        openAccount();
+
+      };
+
+  } else {
+
+    button.textContent =
+      "JISAJILI";
+
+    button.onclick =
+      function(event) {
+
+        event.preventDefault();
+
+        openSignup();
+
+      };
+
+  }
+
+}
+
+
+/* ================= OUTSIDE CLICK ================= */
+
+document
+  .getElementById("authModal")
+  .addEventListener(
+    "click",
+    function(event) {
+
+      if (event.target === this) {
+
+        closeAuth();
+
+      }
+
+    }
+  );
+
+
+document
+  .getElementById("accountModal")
+  .addEventListener(
+    "click",
+    function(event) {
+
+      if (event.target === this) {
+
+        closeAccount();
+
+      }
+
+    }
+  );
+
+
+/* ================= START ================= */
+
+updateAuthButton();
+
 </script>
 
 </body>
