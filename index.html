@@ -4,529 +4,583 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NIA DATING ❤️ | Meet, Match & Connect</title>
+<title>NIA DATING ❤️ | Meet • Match • Connect</title>
 
 <style>
-
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-background:#0b0b0f;
-color:white;
+  background:#0b0b0f;
+  color:#fff;
 }
 
 /* HEADER */
-
 header{
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 6%;
-background:rgba(11,11,15,.96);
-border-bottom:1px solid #29202b;
-backdrop-filter:blur(15px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 6%;
+  background:rgba(11,11,15,.97);
+  border-bottom:1px solid #29202b;
+  backdrop-filter:blur(15px);
 }
 
 .logo{
-font-size:22px;
-font-weight:bold;
-color:#ff4f87;
-text-decoration:none;
+  color:#ff4f87;
+  font-size:22px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 nav{
-display:flex;
-align-items:center;
-gap:5px;
+  display:flex;
+  gap:5px;
+  align-items:center;
 }
 
 nav a{
-color:#ddd;
-text-decoration:none;
-font-size:12px;
-padding:9px 10px;
-border-radius:8px;
+  color:#ddd;
+  text-decoration:none;
+  font-size:12px;
+  padding:9px 10px;
+  border-radius:8px;
 }
 
 nav a:hover{
-background:#21151c;
-color:#ff6b9c;
+  background:#21151c;
+  color:#ff6b9c;
 }
 
 .join-btn{
-background:#ff4f87;
-color:white!important;
+  background:#ff4f87;
+  color:#fff!important;
 }
 
 /* HERO */
-
 .hero{
-min-height:540px;
-display:flex;
-align-items:center;
-padding:70px 8%;
-background:
-radial-gradient(circle at 80% 35%,rgba(255,79,135,.25),transparent 30%),
-linear-gradient(90deg,#0b0b0f,#101016,#1b1118);
+  min-height:500px;
+  display:flex;
+  align-items:center;
+  padding:70px 8%;
+  background:
+    radial-gradient(circle at 80% 30%,rgba(255,79,135,.25),transparent 30%),
+    linear-gradient(90deg,#0b0b0f,#141017);
 }
 
 .hero-content{
-max-width:650px;
+  max-width:650px;
 }
 
 .badge{
-display:inline-block;
-background:rgba(255,79,135,.12);
-border:1px solid rgba(255,79,135,.4);
-color:#ff8db2;
-padding:8px 14px;
-border-radius:30px;
-font-size:12px;
-margin-bottom:20px;
+  display:inline-block;
+  background:rgba(255,79,135,.12);
+  border:1px solid rgba(255,79,135,.4);
+  color:#ff8db2;
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:12px;
+  margin-bottom:20px;
 }
 
 h1{
-font-size:58px;
-line-height:1.05;
-margin-bottom:20px;
+  font-size:56px;
+  line-height:1.05;
+  margin-bottom:20px;
 }
 
 h1 span{
-color:#ff4f87;
+  color:#ff4f87;
 }
 
 .hero p{
-color:#aaa;
-line-height:1.7;
-font-size:16px;
-max-width:550px;
-margin-bottom:28px;
+  color:#aaa;
+  line-height:1.7;
+  max-width:550px;
+  margin-bottom:25px;
 }
 
 .btn{
-display:inline-block;
-padding:14px 23px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-margin:5px 7px 5px 0;
-cursor:pointer;
+  display:inline-block;
+  padding:13px 21px;
+  border-radius:10px;
+  border:none;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+  margin:5px;
 }
 
 .primary{
-background:#ff4f87;
-color:white;
+  background:#ff4f87;
+  color:#fff;
 }
 
 .secondary{
-border:1px solid #4a4146;
-color:white;
+  background:transparent;
+  border:1px solid #4a4146;
+  color:#fff;
 }
 
-/* SECTIONS */
-
+/* SECTION */
 .section{
-padding:65px 7%;
+  padding:60px 7%;
 }
 
 .section h2{
-font-size:30px;
-margin-bottom:10px;
+  font-size:30px;
+  margin-bottom:10px;
 }
 
 .section-text{
-color:#999;
-margin-bottom:30px;
+  color:#999;
+  margin-bottom:25px;
 }
 
-/* PROFILES */
-
-.profiles{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:18px;
+/* DISCOVER */
+.discover-section{
+  background:#0f0f14;
 }
 
+.search-box{
+  width:100%;
+  max-width:450px;
+  padding:14px;
+  background:#15151c;
+  border:1px solid #333;
+  color:white;
+  border-radius:10px;
+  outline:none;
+  margin-bottom:30px;
+}
+
+.search-box:focus{
+  border-color:#ff4f87;
+}
+
+.discover-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+}
+
+/* PROFILE CARD */
 .profile-card{
-background:#15151c;
-border:1px solid #282832;
-border-radius:16px;
-overflow:hidden;
-transition:.3s;
+  background:#15151c;
+  border:1px solid #292932;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.3s;
 }
 
 .profile-card:hover{
-transform:translateY(-6px);
-border-color:#ff4f87;
+  transform:translateY(-6px);
+  border-color:#ff4f87;
+  box-shadow:0 15px 40px rgba(255,79,135,.12);
 }
 
 .profile-photo{
-height:220px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:65px;
-background:linear-gradient(135deg,#34202c,#181820);
+  height:280px;
+  background:linear-gradient(135deg,#34202c,#181820);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:80px;
+  overflow:hidden;
+}
+
+.profile-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .profile-info{
-padding:15px;
+  padding:18px;
 }
 
 .profile-info h3{
-margin-bottom:7px;
+  margin-bottom:7px;
 }
 
-.profile-info p{
-color:#999;
-font-size:13px;
+.location{
+  color:#999;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.bio{
+  color:#aaa;
+  font-size:13px;
+  line-height:1.5;
+  min-height:40px;
 }
 
 .online{
-color:#66e3a1!important;
-margin-top:10px;
+  color:#66e3a1;
+  font-size:12px;
+  margin-top:10px;
+}
+
+.profile-actions{
+  display:flex;
+  gap:8px;
+  margin-top:16px;
+}
+
+.profile-actions button{
+  flex:1;
+  padding:11px;
+  border:none;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.like{
+  background:#ff4f87;
+  color:white;
+}
+
+.pass{
+  background:#292932;
+  color:#ddd;
+}
+
+.view{
+  width:100%;
+  margin-top:8px;
+  padding:10px;
+  border:1px solid #444;
+  background:transparent;
+  color:#fff;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+/* EMPTY */
+.empty{
+  display:none;
+  text-align:center;
+  padding:50px 20px;
+  background:#15151c;
+  border-radius:18px;
+  border:1px solid #292932;
+}
+
+.empty-icon{
+  font-size:50px;
+  margin-bottom:15px;
+}
+
+/* MATCHES */
+.matches-section{
+  background:#111116;
+}
+
+.matches-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.match-card{
+  text-align:center;
+  padding:20px;
+  background:#18151c;
+  border:1px solid #4d2638;
+  border-radius:16px;
+}
+
+.match-avatar{
+  width:85px;
+  height:85px;
+  border-radius:50%;
+  margin:auto;
+  background:linear-gradient(135deg,#ff4f87,#7c3aed);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  overflow:hidden;
+}
+
+.match-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.match-card h3{
+  margin-top:12px;
+}
+
+.match-card p{
+  color:#999;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.chat-btn{
+  margin-top:14px;
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:#ff4f87;
+  color:white;
+  cursor:pointer;
 }
 
 /* PREMIUM */
-
 .premium{
-background:linear-gradient(135deg,#221722,#111116);
-border-top:1px solid #3c2634;
-border-bottom:1px solid #3c2634;
+  background:linear-gradient(135deg,#221722,#111116);
+  border-top:1px solid #3c2634;
 }
 
 .premium-box{
-max-width:700px;
-margin:auto;
-padding:40px 25px;
-text-align:center;
-background:#18151c;
-border:1px solid #4d2638;
-border-radius:20px;
+  max-width:700px;
+  margin:auto;
+  padding:40px 25px;
+  text-align:center;
+  background:#18151c;
+  border:1px solid #4d2638;
+  border-radius:20px;
 }
 
-.premium-price{
-font-size:34px;
-font-weight:bold;
-color:#ff6b9c;
-margin:18px 0;
+.price{
+  color:#ff6b9c;
+  font-size:34px;
+  font-weight:bold;
+  margin:18px 0;
 }
 
 .features{
-list-style:none;
-color:#bbb;
-line-height:2;
-margin:25px 0;
+  list-style:none;
+  color:#bbb;
+  line-height:2;
+  margin:20px 0;
 }
 
 /* FOOTER */
-
 footer{
-text-align:center;
-padding:30px;
-color:#777;
-border-top:1px solid #25252d;
+  text-align:center;
+  padding:30px;
+  color:#777;
+  border-top:1px solid #25252d;
 }
 
-/* MODALS */
-
+/* MODAL */
 .modal{
-display:none;
-position:fixed;
-inset:0;
-z-index:5000;
-background:rgba(0,0,0,.88);
-align-items:center;
-justify-content:center;
-padding:20px;
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  background:rgba(0,0,0,.88);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
 .modal.active{
-display:flex;
+  display:flex;
 }
 
 .modal-box{
-position:relative;
-width:100%;
-max-width:430px;
-max-height:90vh;
-overflow-y:auto;
-padding:30px;
-background:#17171e;
-border:1px solid #39303a;
-border-radius:20px;
-box-shadow:0 20px 70px rgba(0,0,0,.7);
+  position:relative;
+  width:100%;
+  max-width:430px;
+  max-height:90vh;
+  overflow:auto;
+  padding:28px;
+  background:#17171e;
+  border:1px solid #39303a;
+  border-radius:20px;
 }
 
 .close{
-position:absolute;
-right:18px;
-top:8px;
-color:#aaa;
-font-size:30px;
-cursor:pointer;
-}
-
-.close:hover{
-color:#ff4f87;
+  position:absolute;
+  right:18px;
+  top:8px;
+  font-size:30px;
+  color:#aaa;
+  cursor:pointer;
 }
 
 .modal-box h2{
-text-align:center;
-margin-bottom:8px;
+  text-align:center;
+  margin-bottom:8px;
 }
 
 .modal-subtitle{
-text-align:center;
-color:#999;
-font-size:13px;
-margin-bottom:22px;
+  text-align:center;
+  color:#999;
+  font-size:13px;
+  margin-bottom:20px;
 }
 
 label{
-display:block;
-margin:14px 0 7px;
-font-size:13px;
+  display:block;
+  margin:14px 0 7px;
+  font-size:13px;
 }
 
-input,
-select,
-textarea{
-width:100%;
-padding:13px;
-border-radius:9px;
-border:1px solid #333;
-background:#0d0d12;
-color:white;
-outline:none;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-border-color:#ff4f87;
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  border-radius:9px;
+  border:1px solid #333;
+  background:#0d0d12;
+  color:white;
+  outline:none;
 }
 
 textarea{
-min-height:100px;
-resize:vertical;
+  min-height:100px;
+  resize:vertical;
 }
 
-.submit-btn{
-width:100%;
-margin-top:22px;
-padding:14px;
-border:none;
-border-radius:9px;
-background:#ff4f87;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
-.submit-btn:hover{
-background:#ff3677;
-}
-
-.switch{
-text-align:center;
-margin-top:18px;
-color:#999;
-font-size:13px;
-}
-
-.switch a{
-color:#ff6b9c;
-font-weight:bold;
-text-decoration:none;
+.submit{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  border:none;
+  border-radius:9px;
+  background:#ff4f87;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 .message{
-text-align:center;
-margin-top:15px;
-font-size:13px;
+  text-align:center;
+  margin-top:12px;
+  font-size:13px;
 }
 
-/* ACCOUNT */
-
-.account-box{
-text-align:center;
+/* PROFILE VIEW MODAL */
+.view-profile{
+  text-align:center;
 }
 
-.account-avatar{
-width:90px;
-height:90px;
-margin:0 auto 15px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:42px;
-background:linear-gradient(135deg,#ff4f87,#7c3aed);
-overflow:hidden;
+.big-avatar{
+  width:140px;
+  height:140px;
+  margin:auto;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff4f87,#7c3aed);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:65px;
+  overflow:hidden;
 }
 
-.account-avatar img{
-width:100%;
-height:100%;
-object-fit:cover;
+.big-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.account-email{
-color:#999;
-font-size:13px;
-margin-bottom:20px;
+.profile-details{
+  margin-top:20px;
+  text-align:left;
+  background:#101016;
+  padding:16px;
+  border-radius:12px;
 }
 
-.profile-summary{
-background:#101016;
-border:1px solid #292932;
-border-radius:12px;
-padding:15px;
-margin:15px 0;
-text-align:left;
+.profile-details p{
+  color:#aaa;
+  font-size:14px;
+  line-height:1.8;
 }
 
-.profile-summary p{
-color:#aaa;
-font-size:13px;
-line-height:1.7;
+/* MATCH POPUP */
+.match-popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9000;
+  background:rgba(0,0,0,.93);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
-.logout-btn{
-width:100%;
-padding:13px;
-border:1px solid #ff4f87;
-background:transparent;
-color:#ff6b9c;
-border-radius:9px;
-cursor:pointer;
-font-weight:bold;
-margin-top:10px;
+.match-popup.active{
+  display:flex;
 }
 
-/* PROFILE PHOTO */
-
-.photo-preview{
-text-align:center;
-margin-top:15px;
+.match-box{
+  width:100%;
+  max-width:400px;
+  text-align:center;
+  padding:40px 25px;
+  background:linear-gradient(135deg,#24151e,#15151c);
+  border:1px solid #ff4f87;
+  border-radius:25px;
 }
 
-.photo-preview img{
-width:120px;
-height:120px;
-object-fit:cover;
-border-radius:50%;
-border:3px solid #ff4f87;
+.match-title{
+  color:#ff6b9c;
+  font-size:40px;
+  margin-bottom:15px;
 }
 
-/* USER PROFILE CARD */
-
-.my-profile{
-display:none;
-}
-
-.my-profile-card{
-max-width:500px;
-margin:auto;
-background:#15151c;
-border:1px solid #332532;
-border-radius:20px;
-padding:25px;
-text-align:center;
-}
-
-.my-profile-photo{
-width:130px;
-height:130px;
-border-radius:50%;
-margin:auto;
-background:linear-gradient(135deg,#ff4f87,#7c3aed);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:60px;
-overflow:hidden;
-}
-
-.my-profile-photo img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.my-profile-card h3{
-margin-top:15px;
-}
-
-.my-profile-card p{
-color:#999;
-margin-top:7px;
-font-size:14px;
+.match-box p{
+  color:#bbb;
+  line-height:1.6;
 }
 
 /* MOBILE */
-
 @media(max-width:700px){
 
-header{
-padding:13px 4%;
-}
+  header{
+    padding:13px 4%;
+  }
 
-.logo{
-font-size:17px;
-}
+  .logo{
+    font-size:17px;
+  }
 
-nav{
-gap:2px;
-}
+  nav a{
+    font-size:9px;
+    padding:7px 5px;
+  }
 
-nav a{
-font-size:9px;
-padding:7px 5px;
-}
+  h1{
+    font-size:40px;
+  }
 
-h1{
-font-size:40px;
-}
+  .hero{
+    padding:55px 7%;
+  }
 
-.hero{
-min-height:500px;
-padding:55px 7%;
-}
+  .section{
+    padding:45px 5%;
+  }
 
-.hero p{
-font-size:14px;
-}
+  .discover-grid{
+    grid-template-columns:1fr;
+  }
 
-.section{
-padding:45px 5%;
-}
-
-.profiles{
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.profile-photo{
-height:180px;
-}
-
-.modal-box{
-padding:25px 20px;
-}
+  .profile-photo{
+    height:320px;
+  }
 
 }
 
@@ -535,8 +589,7 @@ padding:25px 20px;
 
 <body>
 
-
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -546,20 +599,15 @@ padding:25px 20px;
 
 <nav>
 
-<a href="#home">
-HOME
-</a>
+<a href="#home">HOME</a>
 
-<a href="#discover">
-DISCOVER
-</a>
+<a href="#discover">DISCOVER</a>
 
-<a href="#premium">
-PREMIUM
-</a>
+<a href="#matches">MATCHES</a>
 
-<a href="#" id="authButton"
-class="join-btn"
+<a href="#premium">PREMIUM</a>
+
+<a href="#" class="join-btn"
 onclick="openSignup();return false;">
 JISAJILI
 </a>
@@ -569,7 +617,7 @@ JISAJILI
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -585,20 +633,19 @@ Find Someone
 </h1>
 
 <p>
-Karibu NIA DATING.
-Kutana na watu wapya, tengeneza connections
-na ugundue matches zinazokufaa.
+Karibu NIA DATING. Kutana na watu wapya,
+tafuta mtu anayekufaa na tengeneza
+connection ya kweli.
 </p>
 
-<a href="#"
-onclick="openSignup();return false;"
+<a href="#discover"
 class="btn primary">
-JISAJILI BURE
+❤️ DISCOVER PEOPLE
 </a>
 
-<a href="#discover"
+<a href="#premium"
 class="btn secondary">
-DISCOVER PEOPLE
+💎 PREMIUM
 </a>
 
 </div>
@@ -606,9 +653,10 @@ DISCOVER PEOPLE
 </section>
 
 
-<!-- ================= DISCOVER ================= -->
+<!-- DISCOVER -->
 
-<section class="section" id="discover">
+<section class="section discover-section"
+id="discover">
 
 <h2>
 ❤️ Discover People
@@ -618,150 +666,61 @@ DISCOVER PEOPLE
 Gundua watu wapya kwenye NIA DATING.
 </p>
 
-<div class="profiles">
+<input
+type="text"
+class="search-box"
+id="search"
+placeholder="🔎 Tafuta jina, location..."
+oninput="showProfiles()">
 
-<div class="profile-card">
-
-<div class="profile-photo">
-👩
+<div
+class="discover-grid"
+id="discoverGrid">
 </div>
 
-<div class="profile-info">
+<div
+class="empty"
+id="empty">
+
+<div class="empty-icon">
+💔
+</div>
 
 <h3>
-Member, 24
+Hakuna profile iliyopatikana
 </h3>
 
-<p>
-Dar es Salaam
+<p style="color:#999;margin-top:10px;">
+Jaribu kutafuta jina au location nyingine.
 </p>
-
-<p class="online">
-● Online now
-</p>
-
-</div>
-
-</div>
-
-
-<div class="profile-card">
-
-<div class="profile-photo">
-👨
-</div>
-
-<div class="profile-info">
-
-<h3>
-Member, 27
-</h3>
-
-<p>
-Arusha
-</p>
-
-<p class="online">
-● Online now
-</p>
-
-</div>
-
-</div>
-
-
-<div class="profile-card">
-
-<div class="profile-photo">
-👩
-</div>
-
-<div class="profile-info">
-
-<h3>
-Member, 23
-</h3>
-
-<p>
-Mwanza
-</p>
-
-<p class="online">
-● Online now
-</p>
-
-</div>
-
-</div>
-
-
-<div class="profile-card">
-
-<div class="profile-photo">
-👨
-</div>
-
-<div class="profile-info">
-
-<h3>
-Member, 29
-</h3>
-
-<p>
-Dodoma
-</p>
-
-<p class="online">
-● Online now
-</p>
-
-</div>
-
-</div>
 
 </div>
 
 </section>
 
 
-<!-- ================= MY PROFILE ================= -->
+<!-- MATCHES -->
 
-<section class="section my-profile"
-id="myProfileSection">
+<section class="section matches-section"
+id="matches">
 
-<div class="my-profile-card">
+<h2>
+💕 Your Matches
+</h2>
 
-<div class="my-profile-photo"
-id="myProfilePhoto">
-👤
-</div>
-
-<h3 id="myProfileName">
-My Profile
-</h3>
-
-<p id="myProfileInfo">
-Create your profile
+<p class="section-text">
+Profiles ulizo-match zitaonekana hapa.
 </p>
 
-<p id="myProfileBio">
-Tell people about yourself.
-</p>
-
-<br>
-
-<button
-class="submit-btn"
-onclick="openProfile()">
-✏️ EDIT PROFILE
-</button>
-
+<div
+class="matches-grid"
+id="matchesGrid">
 </div>
 
 </section>
 
 
-<!-- ================= PREMIUM ================= -->
+<!-- PREMIUM -->
 
 <section class="section premium"
 id="premium">
@@ -777,45 +736,34 @@ Unlock More Connections
 </h2>
 
 <p class="section-text">
-Upgrade account yako upate features zaidi.
+Pata features zaidi za NIA DATING.
 </p>
 
-<div class="premium-price">
+<div class="price">
 TZS 5,000 / Month
 </div>
 
 <ul class="features">
 
-<li>
-❤️ Unlimited Likes
-</li>
-
-<li>
-👀 See Who Likes You
-</li>
-
-<li>
-🚀 Profile Boost
-</li>
-
-<li>
-💬 More Matching Features
-</li>
+<li>❤️ Unlimited Likes</li>
+<li>👀 See Who Likes You</li>
+<li>🚀 Profile Boost</li>
+<li>💬 Premium Chat</li>
 
 </ul>
 
-<a href="#"
-onclick="openSignup();return false;"
-class="btn primary">
-GET PREMIUM
-</a>
+<button
+class="btn primary"
+onclick="openSignup()">
+💎 GET PREMIUM
+</button>
 
 </div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -828,96 +776,71 @@ Meet • Match • Connect
 </footer>
 
 
-<!-- ================= LOGIN/SIGNUP MODAL ================= -->
+<!-- SIGNUP MODAL -->
 
-<div class="modal" id="authModal">
+<div
+class="modal"
+id="signupModal">
 
 <div class="modal-box">
 
 <span class="close"
-onclick="closeAuth()">
+onclick="closeSignup()">
 ×
 </span>
 
-<h2 id="authTitle">
+<h2>
 Jisajili ❤️
 </h2>
 
-<p class="modal-subtitle"
-id="authSubtitle">
-Tengeneza account yako ya NIA DATING
+<p class="modal-subtitle">
+Tengeneza account yako
 </p>
 
-
-<form id="authForm"
-onsubmit="registerUser(event)">
-
-
-<div id="nameGroup">
+<form
+onsubmit="signup(event)">
 
 <label>
 Jina
 </label>
 
 <input
+id="signupName"
 type="text"
-id="name"
 placeholder="Jina lako"
 required>
-
-</div>
-
 
 <label>
 Email
 </label>
 
 <input
+id="signupEmail"
 type="email"
-id="email"
 placeholder="example@email.com"
 required>
-
 
 <label>
 Password
 </label>
 
 <input
+id="signupPassword"
 type="password"
-id="password"
-placeholder="Weka password"
+placeholder="Password"
 minlength="6"
 required>
 
-
 <button
-type="submit"
-class="submit-btn"
-id="authSubmit">
-
+class="submit"
+type="submit">
 CREATE ACCOUNT
-
 </button>
 
-
-<div id="authMessage"
+<div
+id="signupMessage"
 class="message">
 </div>
-
-
-<div class="switch"
-id="switchText">
-
-Una account tayari?
-
-<a href="#"
-onclick="showLogin();return false;">
-LOGIN
-</a>
-
-</div>
-
 
 </form>
 
@@ -926,235 +849,88 @@ LOGIN
 </div>
 
 
-<!-- ================= ACCOUNT MODAL ================= -->
+<!-- VIEW PROFILE -->
 
-<div class="modal"
-id="accountModal">
-
-<div class="modal-box account-box">
-
-<span class="close"
-onclick="closeAccount()">
-×
-</span>
-
-<div class="account-avatar"
-id="accountAvatar">
-👤
-</div>
-
-<h2 id="accountName">
-User
-</h2>
-
-<p class="account-email"
-id="accountEmail">
-user@email.com
-</p>
-
-
-<div class="profile-summary">
-
-<p>
-<strong>Age:</strong>
-<span id="accountAge">Not set</span>
-</p>
-
-<p>
-<strong>Gender:</strong>
-<span id="accountGender">Not set</span>
-</p>
-
-<p>
-<strong>Location:</strong>
-<span id="accountLocation">Not set</span>
-</p>
-
-<p>
-<strong>Looking for:</strong>
-<span id="accountLooking">Not set</span>
-</p>
-
-<p>
-<strong>About:</strong>
-<span id="accountBio">Not set</span>
-</p>
-
-</div>
-
-
-<button
-class="submit-btn"
-onclick="closeAccount();openProfile();">
-👤 CREATE / EDIT PROFILE
-</button>
-
-
-<button
-class="logout-btn"
-onclick="logoutUser()">
-🚪 LOGOUT
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================= CREATE PROFILE MODAL ================= -->
-
-<div class="modal"
+<div
+class="modal"
 id="profileModal">
 
-<div class="modal-box">
+<div class="modal-box view-profile">
 
 <span class="close"
 onclick="closeProfile()">
 ×
 </span>
 
-<h2>
-Create Profile ❤️
+<div
+class="big-avatar"
+id="viewAvatar">
+👤
+</div>
+
+<h2
+id="viewName"
+style="margin-top:15px;">
+Profile
 </h2>
 
-<p class="modal-subtitle">
-Jaza taarifa zako ili watu wakujue zaidi
+<div class="profile-details">
+
+<p>
+📍 <strong>Location:</strong>
+<span id="viewLocation"></span>
 </p>
 
+<p>
+🎂 <strong>Age:</strong>
+<span id="viewAge"></span>
+</p>
 
-<form
-id="profileForm"
-onsubmit="saveProfile(event)">
+<p>
+❤️ <strong>Looking for:</strong>
+<span id="viewLooking"></span>
+</p>
 
+<p>
+📝 <strong>About:</strong>
+<span id="viewBio"></span>
+</p>
 
-<label>
-Jina
-</label>
-
-<input
-type="text"
-id="profileName"
-placeholder="Jina lako"
-required>
-
-
-<label>
-Umri
-</label>
-
-<input
-type="number"
-id="profileAge"
-placeholder="Mfano: 25"
-min="18"
-max="80"
-required>
-
-
-<label>
-Jinsia
-</label>
-
-<select id="profileGender"
-required>
-
-<option value="">
-Chagua jinsia
-</option>
-
-<option value="Mwanaume">
-Mwanaume
-</option>
-
-<option value="Mwanamke">
-Mwanamke
-</option>
-
-</select>
-
-
-<label>
-Location
-</label>
-
-<input
-type="text"
-id="profileLocation"
-placeholder="Mfano: Dar es Salaam"
-required>
-
-
-<label>
-Unatafuta nini?
-</label>
-
-<select id="profileLooking"
-required>
-
-<option value="">
-Chagua
-</option>
-
-<option value="Dating">
-Dating
-</option>
-
-<option value="Relationship">
-Relationship
-</option>
-
-<option value="Marriage">
-Marriage
-</option>
-
-<option value="Friendship">
-Friendship
-</option>
-
-</select>
-
-
-<label>
-About Me
-</label>
-
-<textarea
-id="profileBio"
-placeholder="Jiambie kidogo..."
-maxlength="300"
-required>
-</textarea>
-
-
-<label>
-Profile Photo
-</label>
-
-<input
-type="file"
-id="profilePhoto"
-accept="image/*">
-
-
-<div class="photo-preview"
-id="photoPreview">
 </div>
-
 
 <button
-type="submit"
-class="submit-btn">
-SAVE PROFILE ❤️
+class="submit"
+id="viewLikeButton">
+❤️ LIKE
 </button>
 
+</div>
 
-<div
-id="profileMessage"
-class="message">
 </div>
 
 
-</form>
+<!-- MATCH POPUP -->
+
+<div
+class="match-popup"
+id="matchPopup">
+
+<div class="match-box">
+
+<div class="match-title">
+IT'S A MATCH! ❤️
+</div>
+
+<p id="matchText">
+Mnaendana!
+</p>
+
+<button
+class="btn primary"
+style="margin-top:25px;"
+onclick="closeMatch()">
+CONTINUE
+</button>
 
 </div>
 
@@ -1163,514 +939,353 @@ class="message">
 
 <script>
 
-/* =====================================================
-   NIA DATING SYSTEM
-===================================================== */
+/* =========================================
+NIA DATING DISCOVER SYSTEM
+========================================= */
 
 
-/* ================= SIGNUP ================= */
+/* SAMPLE PROFILES */
 
-function openSignup(){
+const sampleProfiles=[
 
-document
-.getElementById("authModal")
-.classList.add("active");
+{
+id:"p1",
+name:"Asha",
+age:24,
+location:"Dar es Salaam",
+looking:"Relationship",
+bio:"Napenda music, travel na kujenga relationship ya kweli.",
+emoji:"👩"
+},
 
-showSignup();
+{
+id:"p2",
+name:"Zainab",
+age:22,
+location:"Mwanza",
+looking:"Dating",
+bio:"Mcheshi, friendly na napenda kukutana na watu wapya.",
+emoji:"👩"
+},
 
+{
+id:"p3",
+name:"Neema",
+age:25,
+location:"Arusha",
+looking:"Marriage",
+bio:"Natafuta mtu serious ambaye tunaweza kujenga future pamoja.",
+emoji:"👩"
+},
+
+{
+id:"p4",
+name:"Kevin",
+age:27,
+location:"Dar es Salaam",
+looking:"Relationship",
+bio:"Football, music na good vibes. Looking for someone special.",
+emoji:"👨"
+},
+
+{
+id:"p5",
+name:"Juma",
+age:29,
+location:"Dodoma",
+looking:"Dating",
+bio:"Simple guy mwenye napenda adventure na travel.",
+emoji:"👨"
+},
+
+{
+id:"p6",
+name:"Mariam",
+age:23,
+location:"Zanzibar",
+looking:"Relationship",
+bio:"Love, respect and honest communication ndio muhimu kwangu.",
+emoji:"👩"
+},
+
+{
+id:"p7",
+name:"Brian",
+age:26,
+location:"Mbeya",
+looking:"Dating",
+bio:"Coffee, movies na good conversations.",
+emoji:"👨"
+},
+
+{
+id:"p8",
+name:"Halima",
+age:28,
+location:"Tanga",
+looking:"Marriage",
+bio:"Natafuta relationship yenye respect na future nzuri.",
+emoji:"👩"
 }
 
-
-/* ================= CLOSE AUTH ================= */
-
-function closeAuth(){
-
-document
-.getElementById("authModal")
-.classList.remove("active");
-
-}
+];
 
 
-/* ================= SHOW SIGNUP ================= */
+/* USER DATA */
 
-function showSignup(){
+let likes=
+JSON.parse(localStorage.getItem("niaLikes")||"[]");
 
-document.getElementById("authTitle")
-.textContent="Jisajili ❤️";
+let passes=
+JSON.parse(localStorage.getItem("niaPasses")||"[]");
 
-document.getElementById("authSubtitle")
-.textContent=
-"Tengeneza account yako ya NIA DATING";
-
-document.getElementById("nameGroup")
-.style.display="block";
-
-document.getElementById("authSubmit")
-.textContent="CREATE ACCOUNT";
-
-document.getElementById("switchText")
-.innerHTML=
-`Una account tayari?
-<a href="#"
-onclick="showLogin();return false;">
-LOGIN
-</a>`;
-
-document.getElementById("authForm")
-.onsubmit=registerUser;
-
-document.getElementById("authMessage")
-.textContent="";
-
-}
+let matches=
+JSON.parse(localStorage.getItem("niaMatches")||"[]");
 
 
-/* ================= SHOW LOGIN ================= */
+/* SHOW PROFILES */
 
-function showLogin(){
+function showProfiles(){
 
-document
-.getElementById("authModal")
-.classList.add("active");
+const grid=
+document.getElementById("discoverGrid");
 
-document.getElementById("authTitle")
-.textContent="Karibu tena ❤️";
+const empty=
+document.getElementById("empty");
 
-document.getElementById("authSubtitle")
-.textContent=
-"Login kwenye account yako ya NIA DATING";
-
-document.getElementById("nameGroup")
-.style.display="none";
-
-document.getElementById("authSubmit")
-.textContent="LOGIN";
-
-document.getElementById("switchText")
-.innerHTML=
-`Huna account?
-<a href="#"
-onclick="showSignup();return false;">
-JISAJILI
-</a>`;
-
-document.getElementById("authForm")
-.onsubmit=loginUser;
-
-document.getElementById("authMessage")
-.textContent="";
-
-}
+const search=
+document.getElementById("search")
+.value
+.toLowerCase()
+.trim();
 
 
-/* ================= REGISTER ================= */
+let profiles=
+sampleProfiles.filter(profile=>{
 
-function registerUser(event){
+if(likes.includes(profile.id))return false;
 
-event.preventDefault();
+if(passes.includes(profile.id))return false;
 
-const name=
-document.getElementById("name")
-.value.trim();
+if(search==="")return true;
 
-const email=
-document.getElementById("email")
-.value.trim()
-.toLowerCase();
-
-const password=
-document.getElementById("password")
-.value;
-
-const message=
-document.getElementById("authMessage");
-
-let users=
-JSON.parse(
-localStorage.getItem("niaUsers")
-)||[];
-
-
-const exists=
-users.find(
-user=>user.email===email
+return(
+profile.name.toLowerCase().includes(search)||
+profile.location.toLowerCase().includes(search)||
+profile.looking.toLowerCase().includes(search)
 );
 
+});
 
-if(exists){
 
-message.style.color="#ff6b6b";
+if(profiles.length===0){
 
-message.textContent=
-"❌ Email hii tayari imesajiliwa.";
+grid.innerHTML="";
+
+empty.style.display="block";
 
 return;
 
 }
 
-
-const user={
-
-id:Date.now(),
-
-name:name,
-
-email:email,
-
-password:password,
-
-joined:new Date().toISOString()
-
-};
+empty.style.display="none";
 
 
-users.push(user);
+grid.innerHTML=
+profiles.map(profile=>`
 
+<div class="profile-card">
 
-localStorage.setItem(
-"niaUsers",
-JSON.stringify(users)
+<div class="profile-photo">
+
+<div style="
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:100px;
+background:
+linear-gradient(
+135deg,
+#39202e,
+#181820
 );
+">
+${profile.emoji}
+</div>
 
+</div>
 
-localStorage.setItem(
-"niaCurrentUser",
+<div class="profile-info">
 
-JSON.stringify({
+<h3>
+${profile.name}, ${profile.age}
+</h3>
 
-id:user.id,
+<div class="location">
+📍 ${profile.location}
+</div>
 
-name:user.name,
+<div class="bio">
+${profile.bio}
+</div>
 
-email:user.email
+<div class="online">
+● Online now
+</div>
 
-})
+<div class="profile-actions">
 
-);
+<button
+class="pass"
+onclick="passProfile('${profile.id}')">
+❌ PASS
+</button>
 
+<button
+class="like"
+onclick="likeProfile('${profile.id}')">
+❤️ LIKE
+</button>
 
-message.style.color="#66e3a1";
+</div>
 
-message.textContent=
-"❤️ Account imetengenezwa! Karibu "
-+name;
+<button
+class="view"
+onclick="viewProfile('${profile.id}')">
+👀 VIEW PROFILE
+</button>
 
+</div>
 
-document
-.getElementById("authForm")
-.reset();
+</div>
 
-
-setTimeout(()=>{
-
-closeAuth();
-
-updateAuthButton();
-
-openProfile();
-
-},1200);
+`).join("");
 
 }
 
 
-/* ================= LOGIN ================= */
+/* LIKE */
 
-function loginUser(event){
-
-event.preventDefault();
-
-const email=
-document.getElementById("email")
-.value.trim()
-.toLowerCase();
-
-const password=
-document.getElementById("password")
-.value;
-
-const message=
-document.getElementById("authMessage");
-
-let users=
-JSON.parse(
-localStorage.getItem("niaUsers")
-)||[];
-
-
-const user=
-users.find(
-user=>
-user.email===email &&
-user.password===password
-);
-
-
-if(!user){
-
-message.style.color="#ff6b6b";
-
-message.textContent=
-"❌ Email au password si sahihi.";
-
-return;
-
-}
-
-
-localStorage.setItem(
-"niaCurrentUser",
-
-JSON.stringify({
-
-id:user.id,
-
-name:user.name,
-
-email:user.email
-
-})
-
-);
-
-
-message.style.color="#66e3a1";
-
-message.textContent=
-"❤️ Login successful! Karibu "
-+user.name;
-
-
-document
-.getElementById("authForm")
-.reset();
-
-
-setTimeout(()=>{
-
-closeAuth();
-
-updateAuthButton();
-
-openProfile();
-
-},1000);
-
-}
-
-
-/* ================= UPDATE HEADER ================= */
-
-function updateAuthButton(){
-
-const user=
-JSON.parse(
-localStorage.getItem("niaCurrentUser")
-);
-
-const button=
-document.getElementById("authButton");
-
-
-if(user){
-
-button.textContent=
-"👤 "+user.name;
-
-button.onclick=function(e){
-
-e.preventDefault();
-
-openAccount();
-
-};
-
-}else{
-
-button.textContent="JISAJILI";
-
-button.onclick=function(e){
-
-e.preventDefault();
-
-openSignup();
-
-};
-
-}
-
-}
-
-
-/* ================= ACCOUNT ================= */
-
-function openAccount(){
-
-const user=
-JSON.parse(
-localStorage.getItem("niaCurrentUser")
-);
-
-if(!user){
-
-openSignup();
-
-return;
-
-}
-
-
-const profiles=
-JSON.parse(
-localStorage.getItem("niaProfiles")
-)||{};
+function likeProfile(id){
 
 const profile=
-profiles[user.id];
-
-
-document.getElementById("accountName")
-.textContent=user.name;
-
-document.getElementById("accountEmail")
-.textContent=user.email;
-
-
-if(profile){
-
-document.getElementById("accountAge")
-.textContent=profile.age;
-
-document.getElementById("accountGender")
-.textContent=profile.gender;
-
-document.getElementById("accountLocation")
-.textContent=profile.location;
-
-document.getElementById("accountLooking")
-.textContent=profile.looking;
-
-document.getElementById("accountBio")
-.textContent=profile.bio;
-
-
-if(profile.photo){
-
-document.getElementById("accountAvatar")
-.innerHTML=
-`<img src="${profile.photo}">`;
-
-}
-
-}
-
-
-document
-.getElementById("accountModal")
-.classList.add("active");
-
-}
-
-
-/* ================= CLOSE ACCOUNT ================= */
-
-function closeAccount(){
-
-document
-.getElementById("accountModal")
-.classList.remove("active");
-
-}
-
-
-/* ================= LOGOUT ================= */
-
-function logoutUser(){
-
-localStorage.removeItem(
-"niaCurrentUser"
+sampleProfiles.find(
+p=>p.id===id
 );
 
-closeAccount();
+if(!profile)return;
 
-updateAuthButton();
 
-alert(
-"Umetoka kwenye account yako ❤️"
+/*
+Kwa demo:
+tukipenda profile tunaiondoa
+kwenye Discover na kuiweka
+kwenye Matches.
+*/
+
+if(!likes.includes(id)){
+
+likes.push(id);
+
+localStorage.setItem(
+"niaLikes",
+JSON.stringify(likes)
 );
 
 }
 
 
-/* ================= OPEN PROFILE ================= */
+/*
+Demo match
+*/
 
-function openProfile(){
+if(!matches.includes(id)){
 
-const user=
-JSON.parse(
-localStorage.getItem("niaCurrentUser")
+matches.push(id);
+
+localStorage.setItem(
+"niaMatches",
+JSON.stringify(matches)
 );
 
-if(!user){
+showMatch(profile);
 
-openSignup();
+}
 
-return;
+showProfiles();
+
+showMatches();
 
 }
 
 
-const profiles=
-JSON.parse(
-localStorage.getItem("niaProfiles")
-)||{};
+/* PASS */
+
+function passProfile(id){
+
+if(!passes.includes(id)){
+
+passes.push(id);
+
+localStorage.setItem(
+"niaPasses",
+JSON.stringify(passes)
+);
+
+}
+
+showProfiles();
+
+}
+
+
+/* VIEW PROFILE */
+
+function viewProfile(id){
 
 const profile=
-profiles[user.id];
+sampleProfiles.find(
+p=>p.id===id
+);
+
+if(!profile)return;
 
 
-document.getElementById("profileName")
-.value=
-profile?.name||user.name;
+document.getElementById("viewName")
+.textContent=
+profile.name+", "+profile.age;
 
-document.getElementById("profileAge")
-.value=
-profile?.age||"";
+document.getElementById("viewLocation")
+.textContent=
+profile.location;
 
-document.getElementById("profileGender")
-.value=
-profile?.gender||"";
+document.getElementById("viewAge")
+.textContent=
+profile.age;
 
-document.getElementById("profileLocation")
-.value=
-profile?.location||"";
+document.getElementById("viewLooking")
+.textContent=
+profile.looking;
 
-document.getElementById("profileLooking")
-.value=
-profile?.looking||"";
+document.getElementById("viewBio")
+.textContent=
+profile.bio;
 
-document.getElementById("profileBio")
-.value=
-profile?.bio||"";
-
-
-if(profile?.photo){
-
-document.getElementById("photoPreview")
+document.getElementById("viewAvatar")
 .innerHTML=
-`<img src="${profile.photo}">`;
-
-}else{
-
-document.getElementById("photoPreview")
-.innerHTML="";
-
-}
+profile.emoji;
 
 
-document.getElementById("profileMessage")
-.textContent="";
+document.getElementById("viewLikeButton")
+.onclick=function(){
+
+closeProfile();
+
+likeProfile(profile.id);
+
+};
 
 
 document
@@ -1679,8 +1294,6 @@ document
 
 }
 
-
-/* ================= CLOSE PROFILE ================= */
 
 function closeProfile(){
 
@@ -1691,258 +1304,197 @@ document
 }
 
 
-/* ================= PHOTO PREVIEW ================= */
+/* MATCHES */
 
-document
-.getElementById("profilePhoto")
-.addEventListener(
-"change",
-function(){
+function showMatches(){
 
-const file=this.files[0];
-
-if(!file)return;
-
-const reader=
-new FileReader();
-
-reader.onload=function(e){
-
-document.getElementById("photoPreview")
-.innerHTML=
-`<img src="${e.target.result}">`;
-
-};
-
-reader.readAsDataURL(file);
-
-});
+const grid=
+document.getElementById("matchesGrid");
 
 
-/* ================= SAVE PROFILE ================= */
+if(matches.length===0){
 
-function saveProfile(event){
+grid.innerHTML=`
 
-event.preventDefault();
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:40px;
+background:#15151c;
+border-radius:16px;
+border:1px solid #292932;
+">
 
+<div style="font-size:45px;">
+💕
+</div>
 
-const user=
-JSON.parse(
-localStorage.getItem("niaCurrentUser")
-);
+<h3 style="margin-top:10px;">
+Bado huna matches
+</h3>
 
+<p style="
+color:#999;
+margin-top:8px;
+">
+Like profiles ili kupata match.
+</p>
 
-if(!user){
+</div>
 
-alert(
-"Tafadhali login kwanza."
-);
+`;
 
 return;
 
 }
 
 
+const matchedProfiles=
+matches
+.map(id=>
+sampleProfiles.find(
+p=>p.id===id
+)
+)
+.filter(Boolean);
+
+
+grid.innerHTML=
+matchedProfiles.map(profile=>`
+
+<div class="match-card">
+
+<div class="match-avatar">
+
+${profile.emoji}
+
+</div>
+
+<h3>
+${profile.name}
+</h3>
+
+<p>
+${profile.age} • ${profile.location}
+</p>
+
+<button
+class="chat-btn"
+onclick="openChat('${profile.name}')">
+💬 CHAT
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* CHAT */
+
+function openChat(name){
+
+alert(
+"💬 Chat na "+name+
+" itaongezwa kwenye hatua inayofuata."
+);
+
+}
+
+
+/* MATCH POPUP */
+
+function showMatch(profile){
+
+document.getElementById("matchText")
+.textContent=
+`❤️ Wewe na ${profile.name} mme-match!`;
+
+document
+.getElementById("matchPopup")
+.classList.add("active");
+
+}
+
+
+function closeMatch(){
+
+document
+.getElementById("matchPopup")
+.classList.remove("active");
+
+}
+
+
+/* SIGNUP */
+
+function openSignup(){
+
+document
+.getElementById("signupModal")
+.classList.add("active");
+
+}
+
+
+function closeSignup(){
+
+document
+.getElementById("signupModal")
+.classList.remove("active");
+
+}
+
+
+function signup(event){
+
+event.preventDefault();
+
+
 const name=
-document.getElementById("profileName")
+document.getElementById("signupName")
 .value.trim();
 
-const age=
-document.getElementById("profileAge")
-.value;
-
-const gender=
-document.getElementById("profileGender")
-.value;
-
-const location=
-document.getElementById("profileLocation")
+const email=
+document.getElementById("signupEmail")
 .value.trim();
 
-const looking=
-document.getElementById("profileLooking")
-.value;
+document.getElementById("signupMessage")
+style.color="#66e3a1";
 
-const bio=
-document.getElementById("profileBio")
-.value.trim();
-
-const photoInput=
-document.getElementById("profilePhoto");
-
-
-let profiles=
-JSON.parse(
-localStorage.getItem("niaProfiles")
-)||{};
-
-
-function finishSave(photo){
-
-profiles[user.id]={
-
-id:user.id,
-
-name:name,
-
-age:age,
-
-gender:gender,
-
-location:location,
-
-looking:looking,
-
-bio:bio,
-
-photo:photo||"",
-
-updated:new Date().toISOString()
-
-};
+document.getElementById("signupMessage")
+.textContent=
+"❤️ Karibu NIA DATING, "+name+"!";
 
 
 localStorage.setItem(
-"niaProfiles",
-JSON.stringify(profiles)
+"niaUser",
+JSON.stringify({
+name:name,
+email:email
+})
 );
 
 
-document.getElementById("profileMessage")
-.style.color="#66e3a1";
-
-document.getElementById("profileMessage")
-.textContent=
-"❤️ Profile yako imehifadhiwa!";
-
-
-updateMyProfile();
-
-
-setTimeout(()=>{
-
-closeProfile();
-
-},1200);
+setTimeout(
+closeSignup,
+1500
+);
 
 }
 
 
-if(photoInput.files[0]){
-
-const reader=
-new FileReader();
-
-reader.onload=function(e){
-
-finishSave(e.target.result);
-
-};
-
-reader.readAsDataURL(
-photoInput.files[0]
-);
-
-}else{
-
-const oldPhoto=
-profiles[user.id]
-?profiles[user.id].photo
-:"";
-
-finishSave(oldPhoto);
-
-}
-
-}
-
-
-/* ================= UPDATE MY PROFILE ================= */
-
-function updateMyProfile(){
-
-const user=
-JSON.parse(
-localStorage.getItem("niaCurrentUser")
-);
-
-if(!user)return;
-
-
-const profiles=
-JSON.parse(
-localStorage.getItem("niaProfiles")
-)||{};
-
-const profile=
-profiles[user.id];
-
-
-if(!profile)return;
-
+/* OUTSIDE CLICK */
 
 document
-.getElementById("myProfileSection")
-.style.display="block";
-
-
-document.getElementById("myProfileName")
-.textContent=
-profile.name+", "+profile.age;
-
-
-document.getElementById("myProfileInfo")
-.textContent=
-profile.location+
-" • "+
-profile.gender+
-" • Looking for "+
-profile.looking;
-
-
-document.getElementById("myProfileBio")
-.textContent=
-profile.bio;
-
-
-if(profile.photo){
-
-document.getElementById("myProfilePhoto")
-.innerHTML=
-`<img src="${profile.photo}">`;
-
-}
-
-}
-
-
-/* ================= OUTSIDE CLICK ================= */
-
-document
-.getElementById("authModal")
+.getElementById("signupModal")
 .addEventListener(
 "click",
 function(e){
 
 if(e.target===this){
-
-closeAuth();
-
-}
-
-});
-
-
-document
-.getElementById("accountModal")
-.addEventListener(
-"click",
-function(e){
-
-if(e.target===this){
-
-closeAccount();
-
+closeSignup();
 }
 
 });
@@ -1955,21 +1507,32 @@ document
 function(e){
 
 if(e.target===this){
-
 closeProfile();
-
 }
 
 });
 
 
-/* ================= START ================= */
+document
+.getElementById("matchPopup")
+.addEventListener(
+"click",
+function(e){
 
-updateAuthButton();
+if(e.target===this){
+closeMatch();
+}
 
-updateMyProfile();
+});
+
+
+/* START */
+
+showProfiles();
+
+showMatches();
 
 </script>
 
 </body>
-  </html>
+</html>
