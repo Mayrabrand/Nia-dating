@@ -4,699 +4,712 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NIA DATING ❤️ | Match & Chat</title>
+<title>NIA DATING ❤️ | Meet • Match • Chat</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
 }
 
 html{
-  scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-  background:#0b0b0f;
-  color:white;
+background:#0b0b0f;
+color:white;
 }
 
-/* HEADER */
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 6%;
-  background:rgba(11,11,15,.96);
-  border-bottom:1px solid #29202b;
-  backdrop-filter:blur(15px);
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 6%;
+background:rgba(11,11,15,.96);
+border-bottom:1px solid #29202b;
+backdrop-filter:blur(15px);
 }
 
 .logo{
-  color:#ff4f87;
-  text-decoration:none;
-  font-size:22px;
-  font-weight:bold;
+color:#ff4f87;
+text-decoration:none;
+font-size:22px;
+font-weight:bold;
 }
 
 nav{
-  display:flex;
-  gap:5px;
+display:flex;
+gap:5px;
+align-items:center;
 }
 
 nav a{
-  color:#ddd;
-  text-decoration:none;
-  font-size:12px;
-  padding:9px 10px;
-  border-radius:8px;
+color:#ddd;
+text-decoration:none;
+font-size:12px;
+padding:9px 10px;
+border-radius:8px;
 }
 
 nav a:hover{
-  background:#21151c;
-  color:#ff6b9c;
+background:#21151c;
+color:#ff6b9c;
 }
 
 .join-btn{
-  background:#ff4f87;
-  color:#fff!important;
+background:#ff4f87;
+color:#fff!important;
 }
 
-/* HERO */
 .hero{
-  min-height:480px;
-  display:flex;
-  align-items:center;
-  padding:60px 8%;
-  background:
-  radial-gradient(circle at 80% 30%,rgba(255,79,135,.25),transparent 30%),
-  linear-gradient(90deg,#0b0b0f,#151018);
+min-height:480px;
+display:flex;
+align-items:center;
+padding:60px 8%;
+background:
+radial-gradient(circle at 80% 30%,rgba(255,79,135,.25),transparent 30%),
+linear-gradient(90deg,#0b0b0f,#151018);
 }
 
 .hero-content{
-  max-width:650px;
+max-width:650px;
 }
 
 .badge{
-  display:inline-block;
-  background:rgba(255,79,135,.12);
-  border:1px solid rgba(255,79,135,.4);
-  color:#ff8db2;
-  padding:8px 14px;
-  border-radius:30px;
-  font-size:12px;
-  margin-bottom:20px;
+display:inline-block;
+background:rgba(255,79,135,.12);
+border:1px solid rgba(255,79,135,.4);
+color:#ff8db2;
+padding:8px 14px;
+border-radius:30px;
+font-size:12px;
+margin-bottom:20px;
 }
 
 h1{
-  font-size:55px;
-  line-height:1.05;
-  margin-bottom:20px;
+font-size:55px;
+line-height:1.05;
+margin-bottom:20px;
 }
 
 h1 span{
-  color:#ff4f87;
+color:#ff4f87;
 }
 
 .hero p{
-  color:#aaa;
-  line-height:1.7;
-  margin-bottom:25px;
-  max-width:550px;
+color:#aaa;
+line-height:1.7;
+margin-bottom:25px;
+max-width:550px;
 }
 
 .btn{
-  display:inline-block;
-  padding:13px 21px;
-  border-radius:10px;
-  border:none;
-  text-decoration:none;
-  font-weight:bold;
-  cursor:pointer;
-  margin:5px;
+display:inline-block;
+padding:13px 21px;
+border-radius:10px;
+border:none;
+text-decoration:none;
+font-weight:bold;
+cursor:pointer;
+margin:5px;
 }
 
 .primary{
-  background:#ff4f87;
-  color:#fff;
+background:#ff4f87;
+color:#fff;
 }
 
 .secondary{
-  background:transparent;
-  border:1px solid #444;
-  color:white;
+background:transparent;
+border:1px solid #444;
+color:white;
 }
 
-/* SECTION */
 .section{
-  padding:55px 7%;
+padding:55px 7%;
 }
 
 .section h2{
-  font-size:30px;
-  margin-bottom:10px;
+font-size:30px;
+margin-bottom:10px;
 }
 
 .section-text{
-  color:#999;
-  margin-bottom:25px;
+color:#999;
+margin-bottom:25px;
 }
 
-/* DISCOVER */
 .discover{
-  background:#0f0f14;
+background:#0f0f14;
 }
 
 .search{
-  width:100%;
-  max-width:450px;
-  padding:14px;
-  border-radius:10px;
-  background:#15151c;
-  color:white;
-  border:1px solid #333;
-  outline:none;
-  margin-bottom:25px;
+width:100%;
+max-width:450px;
+padding:14px;
+border-radius:10px;
+background:#15151c;
+color:white;
+border:1px solid #333;
+outline:none;
+margin-bottom:25px;
 }
 
 .search:focus{
-  border-color:#ff4f87;
+border-color:#ff4f87;
 }
 
 .discover-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
 }
 
 .profile-card{
-  background:#15151c;
-  border:1px solid #292932;
-  border-radius:18px;
-  overflow:hidden;
-  transition:.3s;
+background:#15151c;
+border:1px solid #292932;
+border-radius:18px;
+overflow:hidden;
+transition:.3s;
 }
 
 .profile-card:hover{
-  transform:translateY(-5px);
-  border-color:#ff4f87;
+transform:translateY(-5px);
+border-color:#ff4f87;
 }
 
 .profile-photo{
-  height:270px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:90px;
-  background:linear-gradient(135deg,#39202e,#181820);
+height:270px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:90px;
+background:linear-gradient(135deg,#39202e,#181820);
 }
 
 .profile-info{
-  padding:17px;
+padding:17px;
 }
 
 .profile-info h3{
-  margin-bottom:7px;
+margin-bottom:7px;
 }
 
 .location{
-  color:#999;
-  font-size:13px;
-  margin-bottom:8px;
+color:#999;
+font-size:13px;
+margin-bottom:8px;
 }
 
 .bio{
-  color:#aaa;
-  font-size:13px;
-  line-height:1.5;
+color:#aaa;
+font-size:13px;
+line-height:1.5;
 }
 
 .online{
-  color:#66e3a1;
-  font-size:12px;
-  margin-top:10px;
+color:#66e3a1;
+font-size:12px;
+margin-top:10px;
 }
 
 .actions{
-  display:flex;
-  gap:8px;
-  margin-top:15px;
+display:flex;
+gap:8px;
+margin-top:15px;
 }
 
 .actions button{
-  flex:1;
-  border:0;
-  padding:11px;
-  border-radius:9px;
-  cursor:pointer;
-  font-weight:bold;
+flex:1;
+border:0;
+padding:11px;
+border-radius:9px;
+cursor:pointer;
+font-weight:bold;
 }
 
 .pass{
-  background:#292932;
-  color:white;
+background:#292932;
+color:white;
 }
 
 .like{
-  background:#ff4f87;
-  color:white;
+background:#ff4f87;
+color:white;
 }
 
 .view{
-  width:100%;
-  margin-top:8px;
-  padding:10px;
-  border-radius:9px;
-  border:1px solid #444;
-  background:transparent;
-  color:white;
-  cursor:pointer;
+width:100%;
+margin-top:8px;
+padding:10px;
+border-radius:9px;
+border:1px solid #444;
+background:transparent;
+color:white;
+cursor:pointer;
 }
 
-/* MATCHES */
 .matches{
-  background:#111116;
+background:#111116;
 }
 
 .matches-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:15px;
 }
 
 .match-card{
-  background:#18151c;
-  border:1px solid #4d2638;
-  border-radius:16px;
-  padding:20px;
-  text-align:center;
+background:#18151c;
+border:1px solid #4d2638;
+border-radius:16px;
+padding:20px;
+text-align:center;
 }
 
 .avatar{
-  width:85px;
-  height:85px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#ff4f87,#7c3aed);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:40px;
-  margin:auto;
+width:85px;
+height:85px;
+border-radius:50%;
+background:linear-gradient(135deg,#ff4f87,#7c3aed);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+margin:auto;
 }
 
 .match-card h3{
-  margin-top:12px;
+margin-top:12px;
 }
 
 .match-card p{
-  color:#999;
-  font-size:12px;
-  margin-top:5px;
+color:#999;
+font-size:12px;
+margin-top:5px;
 }
 
 .chat-btn{
-  width:100%;
-  margin-top:14px;
-  padding:10px;
-  border:0;
-  border-radius:9px;
-  background:#ff4f87;
-  color:white;
-  cursor:pointer;
-  font-weight:bold;
+width:100%;
+margin-top:14px;
+padding:10px;
+border:0;
+border-radius:9px;
+background:#ff4f87;
+color:white;
+cursor:pointer;
+font-weight:bold;
 }
 
-/* CHAT */
 .chat-section{
-  background:#0b0b0f;
+background:#0b0b0f;
 }
 
 .chat-container{
-  max-width:900px;
-  margin:auto;
-  height:600px;
-  display:flex;
-  background:#15151c;
-  border:1px solid #292932;
-  border-radius:20px;
-  overflow:hidden;
+max-width:900px;
+margin:auto;
+height:600px;
+display:flex;
+background:#15151c;
+border:1px solid #292932;
+border-radius:20px;
+overflow:hidden;
 }
 
-/* CHAT LIST */
 .chat-list{
-  width:280px;
-  border-right:1px solid #292932;
-  overflow-y:auto;
+width:280px;
+border-right:1px solid #292932;
+overflow-y:auto;
 }
 
 .chat-list-title{
-  padding:18px;
-  border-bottom:1px solid #292932;
-  font-weight:bold;
+padding:18px;
+border-bottom:1px solid #292932;
+font-weight:bold;
 }
 
 .chat-user{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px;
-  cursor:pointer;
-  border-bottom:1px solid #22222a;
+display:flex;
+align-items:center;
+gap:12px;
+padding:14px;
+cursor:pointer;
+border-bottom:1px solid #22222a;
 }
 
 .chat-user:hover{
-  background:#201820;
+background:#201820;
 }
 
 .chat-avatar{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#ff4f87,#7c3aed);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
+width:48px;
+height:48px;
+border-radius:50%;
+background:linear-gradient(135deg,#ff4f87,#7c3aed);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
 }
 
 .chat-user-info{
-  flex:1;
+flex:1;
 }
 
 .chat-user-info h4{
-  margin-bottom:5px;
+margin-bottom:5px;
 }
 
 .chat-user-info p{
-  color:#888;
-  font-size:11px;
+color:#888;
+font-size:11px;
 }
 
 .green-dot{
-  color:#66e3a1;
+color:#66e3a1;
 }
 
-/* CHAT WINDOW */
 .chat-window{
-  flex:1;
-  display:flex;
-  flex-direction:column;
+flex:1;
+display:flex;
+flex-direction:column;
 }
 
 .chat-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:15px;
-  border-bottom:1px solid #292932;
+display:flex;
+align-items:center;
+gap:12px;
+padding:15px;
+border-bottom:1px solid #292932;
 }
 
 .chat-header-avatar{
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#ff4f87,#7c3aed);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:23px;
+width:45px;
+height:45px;
+border-radius:50%;
+background:linear-gradient(135deg,#ff4f87,#7c3aed);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:23px;
 }
 
 .chat-header-info h3{
-  margin-bottom:4px;
+margin-bottom:4px;
 }
 
 .chat-header-info p{
-  color:#66e3a1;
-  font-size:11px;
+color:#66e3a1;
+font-size:11px;
 }
 
-/* MESSAGES */
 .messages{
-  flex:1;
-  overflow-y:auto;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+flex:1;
+overflow-y:auto;
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
 .message{
-  max-width:75%;
-  padding:10px 13px;
-  border-radius:15px;
-  font-size:14px;
-  line-height:1.4;
+max-width:75%;
+padding:10px 13px;
+border-radius:15px;
+font-size:14px;
+line-height:1.4;
 }
 
 .message.me{
-  align-self:flex-end;
-  background:#ff4f87;
-  border-bottom-right-radius:4px;
+align-self:flex-end;
+background:#ff4f87;
+border-bottom-right-radius:4px;
 }
 
 .message.them{
-  align-self:flex-start;
-  background:#292932;
-  border-bottom-left-radius:4px;
+align-self:flex-start;
+background:#292932;
+border-bottom-left-radius:4px;
 }
 
 .message-time{
-  display:block;
-  font-size:9px;
-  opacity:.65;
-  margin-top:5px;
-  text-align:right;
+display:block;
+font-size:9px;
+opacity:.65;
+margin-top:5px;
+text-align:right;
 }
 
-/* CHAT INPUT */
+.typing{
+align-self:flex-start;
+background:#292932;
+padding:10px 14px;
+border-radius:15px;
+color:#aaa;
+font-size:12px;
+display:none;
+}
+
 .chat-input{
-  display:flex;
-  gap:8px;
-  padding:12px;
-  border-top:1px solid #292932;
+display:flex;
+gap:8px;
+padding:12px;
+border-top:1px solid #292932;
 }
 
 .chat-input input{
-  flex:1;
-  padding:13px;
-  border-radius:10px;
-  border:1px solid #333;
-  background:#0d0d12;
-  color:white;
-  outline:none;
+flex:1;
+padding:13px;
+border-radius:10px;
+border:1px solid #333;
+background:#0d0d12;
+color:white;
+outline:none;
 }
 
 .chat-input input:focus{
-  border-color:#ff4f87;
+border-color:#ff4f87;
 }
 
 .send{
-  width:50px;
-  border:none;
-  border-radius:10px;
-  background:#ff4f87;
-  color:white;
-  cursor:pointer;
-  font-size:18px;
+width:50px;
+border:none;
+border-radius:10px;
+background:#ff4f87;
+color:white;
+cursor:pointer;
+font-size:18px;
 }
 
-/* PREMIUM */
 .premium{
-  background:linear-gradient(135deg,#221722,#111116);
-  border-top:1px solid #3c2634;
+background:linear-gradient(135deg,#221722,#111116);
+border-top:1px solid #3c2634;
 }
 
 .premium-box{
-  max-width:700px;
-  margin:auto;
-  text-align:center;
-  background:#18151c;
-  border:1px solid #4d2638;
-  border-radius:20px;
-  padding:40px 25px;
+max-width:700px;
+margin:auto;
+text-align:center;
+background:#18151c;
+border:1px solid #4d2638;
+border-radius:20px;
+padding:40px 25px;
 }
 
 .price{
-  color:#ff6b9c;
-  font-size:34px;
-  font-weight:bold;
-  margin:18px 0;
+color:#ff6b9c;
+font-size:34px;
+font-weight:bold;
+margin:18px 0;
 }
 
 .features{
-  list-style:none;
-  color:#bbb;
-  line-height:2;
-  margin:20px 0;
+list-style:none;
+color:#bbb;
+line-height:2;
+margin:20px 0;
 }
 
-/* SIGNUP MODAL */
 .modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:5000;
-  background:rgba(0,0,0,.88);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+display:none;
+position:fixed;
+inset:0;
+z-index:5000;
+background:rgba(0,0,0,.88);
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
 .modal.active{
-  display:flex;
+display:flex;
 }
 
 .modal-box{
-  position:relative;
-  width:100%;
-  max-width:430px;
-  padding:28px;
-  background:#17171e;
-  border:1px solid #39303a;
-  border-radius:20px;
+position:relative;
+width:100%;
+max-width:430px;
+padding:28px;
+background:#17171e;
+border:1px solid #39303a;
+border-radius:20px;
 }
 
 .close{
-  position:absolute;
-  right:18px;
-  top:8px;
-  font-size:30px;
-  color:#aaa;
-  cursor:pointer;
+position:absolute;
+right:18px;
+top:8px;
+font-size:30px;
+color:#aaa;
+cursor:pointer;
 }
 
 .modal-box h2{
-  text-align:center;
-  margin-bottom:8px;
+text-align:center;
+margin-bottom:8px;
 }
 
 .modal-subtitle{
-  text-align:center;
-  color:#999;
-  font-size:13px;
-  margin-bottom:20px;
+text-align:center;
+color:#999;
+font-size:13px;
+margin-bottom:20px;
 }
 
 label{
-  display:block;
-  margin:14px 0 7px;
-  font-size:13px;
+display:block;
+margin:14px 0 7px;
+font-size:13px;
 }
 
 input{
-  width:100%;
-  padding:13px;
-  border-radius:9px;
-  border:1px solid #333;
-  background:#0d0d12;
-  color:white;
-  outline:none;
+width:100%;
+padding:13px;
+border-radius:9px;
+border:1px solid #333;
+background:#0d0d12;
+color:white;
+outline:none;
 }
 
 .submit{
-  width:100%;
-  margin-top:20px;
-  padding:14px;
-  border:none;
-  border-radius:9px;
-  background:#ff4f87;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
+width:100%;
+margin-top:20px;
+padding:14px;
+border:none;
+border-radius:9px;
+background:#ff4f87;
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
 
-/* MATCH POPUP */
+.auth-switch{
+text-align:center;
+color:#999;
+margin-top:18px;
+font-size:13px;
+}
+
+.auth-switch button{
+background:none;
+border:0;
+color:#ff4f87;
+cursor:pointer;
+font-weight:bold;
+}
+
 .match-popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:9000;
-  background:rgba(0,0,0,.94);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+display:none;
+position:fixed;
+inset:0;
+z-index:9000;
+background:rgba(0,0,0,.94);
+align-items:center;
+justify-content:center;
+padding:20px;
 }
 
 .match-popup.active{
-  display:flex;
+display:flex;
 }
 
 .match-box{
-  width:100%;
-  max-width:400px;
-  text-align:center;
-  padding:40px 25px;
-  background:linear-gradient(135deg,#24151e,#15151c);
-  border:1px solid #ff4f87;
-  border-radius:25px;
+width:100%;
+max-width:400px;
+text-align:center;
+padding:40px 25px;
+background:linear-gradient(135deg,#24151e,#15151c);
+border:1px solid #ff4f87;
+border-radius:25px;
 }
 
 .match-title{
-  color:#ff6b9c;
-  font-size:38px;
-  margin-bottom:15px;
+color:#ff6b9c;
+font-size:38px;
+margin-bottom:15px;
 }
 
-/* FOOTER */
 footer{
-  text-align:center;
-  padding:30px;
-  color:#777;
-  border-top:1px solid #25252d;
+text-align:center;
+padding:30px;
+color:#777;
+border-top:1px solid #25252d;
 }
 
-/* MOBILE */
 @media(max-width:700px){
 
-  header{
-    padding:13px 4%;
-  }
+header{
+padding:13px 4%;
+}
 
-  .logo{
-    font-size:17px;
-  }
+.logo{
+font-size:17px;
+}
 
-  nav a{
-    font-size:9px;
-    padding:7px 4px;
-  }
+nav{
+gap:2px;
+}
 
-  h1{
-    font-size:40px;
-  }
+nav a{
+font-size:8px;
+padding:7px 4px;
+}
 
-  .hero{
-    padding:55px 7%;
-  }
+h1{
+font-size:40px;
+}
 
-  .section{
-    padding:45px 5%;
-  }
+.hero{
+padding:55px 7%;
+}
 
-  .discover-grid{
-    grid-template-columns:1fr;
-  }
+.section{
+padding:45px 5%;
+}
 
-  .chat-container{
-    height:650px;
-  }
+.discover-grid{
+grid-template-columns:1fr;
+}
 
-  .chat-list{
-    width:95px;
-  }
+.chat-container{
+height:650px;
+}
 
-  .chat-user{
-    justify-content:center;
-    padding:12px 5px;
-  }
+.chat-list{
+width:95px;
+}
 
-  .chat-user-info{
-    display:none;
-  }
+.chat-user{
+justify-content:center;
+padding:12px 5px;
+}
 
-  .chat-list-title{
-    text-align:center;
-    font-size:11px;
-    padding:15px 5px;
-  }
+.chat-user-info{
+display:none;
+}
 
-  .message{
-    max-width:85%;
-  }
+.chat-list-title{
+text-align:center;
+font-size:11px;
+padding:15px 5px;
+}
+
+.message{
+max-width:85%;
+}
 
 }
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 
@@ -707,17 +720,16 @@ footer{
 <nav>
 
 <a href="#home">HOME</a>
-
 <a href="#discover">DISCOVER</a>
-
 <a href="#matches">MATCHES</a>
-
 <a href="#chat">CHAT</a>
-
 <a href="#premium">PREMIUM</a>
 
-<a href="#" class="join-btn"
-onclick="openSignup();return false;">
+<a
+href="#"
+class="join-btn"
+id="authButton"
+onclick="openAuth('signup');return false;">
 JISAJILI
 </a>
 
@@ -725,8 +737,6 @@ JISAJILI
 
 </header>
 
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -759,8 +769,6 @@ tafuta mtu anayekufaa na anza mazungumzo.
 </section>
 
 
-<!-- DISCOVER -->
-
 <section class="section discover" id="discover">
 
 <h2>
@@ -774,8 +782,7 @@ Gundua watu wapya na bonyeza LIKE kupata match.
 <input
 class="search"
 id="search"
-placeholder="🔎 Tafuta jina au location..."
-oninput="showProfiles">
+placeholder="🔎 Tafuta jina au location...">
 
 <div
 class="discover-grid"
@@ -784,8 +791,6 @@ id="discoverGrid">
 
 </section>
 
-
-<!-- MATCHES -->
 
 <section class="section matches" id="matches">
 
@@ -805,8 +810,6 @@ id="matchesGrid">
 </section>
 
 
-<!-- CHAT -->
-
 <section class="section chat-section" id="chat">
 
 <h2>
@@ -819,8 +822,6 @@ Ongea na watu ambao ume-match nao.
 
 <div class="chat-container">
 
-<!-- CHAT LIST -->
-
 <div class="chat-list">
 
 <div class="chat-list-title">
@@ -832,8 +833,6 @@ Ongea na watu ambao ume-match nao.
 
 </div>
 
-
-<!-- CHAT WINDOW -->
 
 <div class="chat-window">
 
@@ -877,6 +876,12 @@ font-size:13px;
 
 </div>
 
+<div
+class="typing"
+id="typing">
+● ● ● Anaandika...
+</div>
+
 
 <form
 class="chat-input"
@@ -902,8 +907,6 @@ type="submit">
 </section>
 
 
-<!-- PREMIUM -->
-
 <section class="section premium" id="premium">
 
 <div class="premium-box">
@@ -927,18 +930,15 @@ TZS 5,000 / Month
 <ul class="features">
 
 <li>❤️ Unlimited Likes</li>
-
 <li>👀 See Who Likes You</li>
-
 <li>🚀 Profile Boost</li>
-
 <li>💬 Premium Chat</li>
 
 </ul>
 
 <button
 class="btn primary"
-onclick="openSignup()">
+onclick="openPremium()">
 
 💎 GET PREMIUM
 
@@ -948,8 +948,6 @@ onclick="openSignup()">
 
 </section>
 
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -962,46 +960,52 @@ Meet • Match • Connect
 </footer>
 
 
-<!-- SIGNUP -->
+<!-- LOGIN + SIGNUP -->
 
 <div
 class="modal"
-id="signupModal">
+id="authModal">
 
 <div class="modal-box">
 
-<span class="close"
-onclick="closeSignup()">
+<span
+class="close"
+onclick="closeAuth()">
 ×
 </span>
 
-<h2>
+<h2 id="authTitle">
 Jisajili ❤️
 </h2>
 
-<p class="modal-subtitle">
+<p
+class="modal-subtitle"
+id="authSubtitle">
 Tengeneza account yako ya NIA DATING
 </p>
 
 <form
-onsubmit="signup(event)">
+onsubmit="handleAuth(event)">
+
+<div id="signupFields">
 
 <label>
 Jina
 </label>
 
 <input
-id="signupName"
+id="authName"
 type="text"
-placeholder="Jina lako"
-required>
+placeholder="Jina lako">
+
+</div>
 
 <label>
 Email
 </label>
 
 <input
-id="signupEmail"
+id="authEmail"
 type="email"
 placeholder="example@email.com"
 required>
@@ -1011,20 +1015,36 @@ Password
 </label>
 
 <input
-id="signupPassword"
+id="authPassword"
 type="password"
 placeholder="Password"
 required>
 
 <button
 class="submit"
-type="submit">
+type="submit"
+id="authSubmit">
 
 CREATE ACCOUNT
 
 </button>
 
 </form>
+
+<div class="auth-switch">
+
+<span id="authSwitchText">
+Tayari una account?
+</span>
+
+<button
+type="button"
+id="authSwitch"
+onclick="switchAuth()">
+LOGIN
+</button>
+
+</div>
 
 </div>
 
@@ -1050,9 +1070,7 @@ Mnaendana!
 <button
 class="btn primary"
 onclick="closeMatch()">
-
 💬 START CHAT
-
 </button>
 
 </div>
@@ -1063,7 +1081,7 @@ onclick="closeMatch()">
 <script>
 
 /* ======================================
-NIA DATING DATA
+DATA
 ====================================== */
 
 const profiles=[
@@ -1125,8 +1143,6 @@ bio:"Love, respect and honest communication."
 ];
 
 
-/* STORAGE */
-
 let liked=
 JSON.parse(
 localStorage.getItem("niaLiked") || "[]"
@@ -1144,6 +1160,362 @@ localStorage.getItem("niaMatched") || "[]"
 
 let currentChat=null;
 
+let authMode="signup";
+
+
+/* ======================================
+AUTH
+====================================== */
+
+function getUsers(){
+
+return JSON.parse(
+localStorage.getItem("niaUsers") || "[]"
+);
+
+}
+
+
+function getCurrentUser(){
+
+return JSON.parse(
+localStorage.getItem("niaCurrentUser") || "null"
+);
+
+}
+
+
+function saveUsers(users){
+
+localStorage.setItem(
+"niaUsers",
+JSON.stringify(users)
+);
+
+}
+
+
+function isLoggedIn(){
+
+return !!getCurrentUser();
+
+}
+
+
+function openAuth(mode="signup"){
+
+authMode=mode;
+
+updateAuthUI();
+
+document
+.getElementById("authModal")
+.classList.add("active");
+
+}
+
+
+function closeAuth(){
+
+document
+.getElementById("authModal")
+.classList.remove("active");
+
+}
+
+
+function switchAuth(){
+
+authMode=
+authMode==="signup"
+?"login"
+:"signup";
+
+updateAuthUI();
+
+}
+
+
+function updateAuthUI(){
+
+const title=
+document.getElementById("authTitle");
+
+const subtitle=
+document.getElementById("authSubtitle");
+
+const submit=
+document.getElementById("authSubmit");
+
+const fields=
+document.getElementById("signupFields");
+
+const text=
+document.getElementById("authSwitchText");
+
+const button=
+document.getElementById("authSwitch");
+
+
+if(authMode==="signup"){
+
+title.textContent="Jisajili ❤️";
+
+subtitle.textContent=
+"Tengeneza account yako ya NIA DATING";
+
+submit.textContent=
+"CREATE ACCOUNT";
+
+fields.style.display="block";
+
+text.textContent=
+"Tayari una account?";
+
+button.textContent="LOGIN";
+
+}else{
+
+title.textContent=
+"Karibu tena ❤️";
+
+subtitle.textContent=
+"Ingia kwenye account yako ya NIA DATING";
+
+submit.textContent="LOGIN";
+
+fields.style.display="none";
+
+text.textContent=
+"Huna account?";
+
+button.textContent="JISAJILI";
+
+}
+
+}
+
+
+function handleAuth(event){
+
+event.preventDefault();
+
+const email=
+document.getElementById("authEmail")
+.value
+.trim()
+.toLowerCase();
+
+const password=
+document.getElementById("authPassword")
+.value;
+
+const users=getUsers();
+
+
+if(authMode==="login"){
+
+const user=
+users.find(
+u=>
+u.email===email &&
+u.password===password
+);
+
+if(!user){
+
+alert(
+"❌ Email au password sio sahihi."
+);
+
+return;
+
+}
+
+localStorage.setItem(
+"niaCurrentUser",
+JSON.stringify({
+id:user.id,
+name:user.name,
+email:user.email
+})
+);
+
+closeAuth();
+
+updateAuthButton();
+
+alert(
+"❤️ Karibu tena, "+
+user.name+"!"
+);
+
+return;
+
+}
+
+
+const name=
+document.getElementById("authName")
+.value
+.trim();
+
+
+if(name.length<2){
+
+alert(
+"❌ Tafadhali weka jina sahihi."
+);
+
+return;
+
+}
+
+
+if(password.length<6){
+
+alert(
+"❌ Password iwe na angalau characters 6."
+);
+
+return;
+
+}
+
+
+if(users.some(u=>u.email===email)){
+
+alert(
+"⚠️ Email hii tayari imesajiliwa."
+);
+
+authMode="login";
+
+updateAuthUI();
+
+return;
+
+}
+
+
+const newUser={
+
+id:"user_"+Date.now(),
+
+name:name,
+
+email:email,
+
+password:password,
+
+createdAt:new Date().toISOString()
+
+};
+
+
+users.push(newUser);
+
+saveUsers(users);
+
+
+localStorage.setItem(
+"niaCurrentUser",
+JSON.stringify({
+id:newUser.id,
+name:newUser.name,
+email:newUser.email
+})
+);
+
+
+closeAuth();
+
+updateAuthButton();
+
+alert(
+"🎉 Account imetengenezwa!\n\n"+
+"Karibu NIA DATING, "+
+name+" ❤️"
+);
+
+}
+
+
+/* ======================================
+AUTH BUTTON
+====================================== */
+
+function updateAuthButton(){
+
+const button=
+document.getElementById("authButton");
+
+const user=
+getCurrentUser();
+
+
+if(user){
+
+button.textContent=
+"👤 "+user.name;
+
+button.classList.remove(
+"join-btn"
+);
+
+button.onclick=function(){
+
+logoutUser();
+
+};
+
+}else{
+
+button.textContent=
+"JISAJILI";
+
+button.classList.add(
+"join-btn"
+);
+
+button.onclick=function(){
+
+openAuth("signup");
+
+};
+
+}
+
+}
+
+
+function logoutUser(){
+
+const user=getCurrentUser();
+
+if(!user)return;
+
+if(
+confirm(
+"👤 "+user.name+
+"\n\nUnataka kutoka kwenye account?"
+)
+){
+
+localStorage.removeItem(
+"niaCurrentUser"
+);
+
+updateAuthButton();
+
+alert(
+"👋 Umetoka kwenye account."
+);
+
+}
+
+}
+
 
 /* ======================================
 DISCOVER
@@ -1152,7 +1524,8 @@ DISCOVER
 function showProfiles(){
 
 const search=
-document.getElementById("search")
+document
+.getElementById("search")
 .value
 .toLowerCase();
 
@@ -1162,16 +1535,15 @@ document.getElementById("discoverGrid");
 const filtered=
 profiles.filter(p=>{
 
-if(liked.includes(p.id)) return false;
+if(liked.includes(p.id))
+return false;
 
-if(passed.includes(p.id)) return false;
+if(passed.includes(p.id))
+return false;
 
 return(
-p.name.toLowerCase()
-.includes(search) ||
-
-p.location.toLowerCase()
-.includes(search)
+p.name.toLowerCase().includes(search) ||
+p.location.toLowerCase().includes(search)
 );
 
 });
@@ -1192,14 +1564,11 @@ color:#888;
 💔
 </div>
 
-<h3 style="
-color:white;
-margin-top:10px;
-">
+<h3 style="color:white;">
 Hakuna profiles
 </h3>
 
-<p style="margin-top:8px;">
+<p>
 Jaribu search nyingine.
 </p>
 
@@ -1244,17 +1613,13 @@ ${p.bio}
 <button
 class="pass"
 onclick="passProfile('${p.id}')">
-
 ❌ PASS
-
 </button>
 
 <button
 class="like"
 onclick="likeProfile('${p.id}')">
-
 ❤️ LIKE
-
 </button>
 
 </div>
@@ -1262,9 +1627,7 @@ onclick="likeProfile('${p.id}')">
 <button
 class="view"
 onclick="viewProfile('${p.id}')">
-
 👀 VIEW PROFILE
-
 </button>
 
 </div>
@@ -1282,6 +1645,19 @@ LIKE
 
 function likeProfile(id){
 
+if(!isLoggedIn()){
+
+alert(
+"🔐 Login kwanza ili ku-LIKE."
+);
+
+openAuth("login");
+
+return;
+
+}
+
+
 if(!liked.includes(id)){
 
 liked.push(id);
@@ -1293,10 +1669,6 @@ JSON.stringify(liked)
 
 }
 
-
-/*
-DEMO MATCH
-*/
 
 if(!matched.includes(id)){
 
@@ -1329,6 +1701,19 @@ PASS
 
 function passProfile(id){
 
+if(!isLoggedIn()){
+
+alert(
+"🔐 Login kwanza."
+);
+
+openAuth("login");
+
+return;
+
+}
+
+
 if(!passed.includes(id)){
 
 passed.push(id);
@@ -1354,12 +1739,9 @@ function showMatches(){
 const grid=
 document.getElementById("matchesGrid");
 
-
 const list=
 matched
-.map(id=>
-profiles.find(p=>p.id===id)
-)
+.map(id=>profiles.find(p=>p.id===id))
 .filter(Boolean);
 
 
@@ -1380,11 +1762,11 @@ color:#888;
 💕
 </div>
 
-<h3 style="color:white;margin-top:10px;">
+<h3 style="color:white;">
 Bado huna match
 </h3>
 
-<p style="margin-top:8px;">
+<p>
 Like profile kupata match.
 </p>
 
@@ -1417,9 +1799,7 @@ ${p.name}, ${p.age}
 <button
 class="chat-btn"
 onclick="openChat('${p.id}')">
-
 💬 CHAT
-
 </button>
 
 </div>
@@ -1440,9 +1820,7 @@ document.getElementById("chatUsers");
 
 const list=
 matched
-.map(id=>
-profiles.find(p=>p.id===id)
-)
+.map(id=>profiles.find(p=>p.id===id))
 .filter(Boolean);
 
 
@@ -1506,6 +1884,19 @@ OPEN CHAT
 
 function openChat(id){
 
+if(!isLoggedIn()){
+
+alert(
+"🔐 Login kwanza ili kutumia CHAT."
+);
+
+openAuth("login");
+
+return;
+
+}
+
+
 const profile=
 profiles.find(p=>p.id===id);
 
@@ -1513,26 +1904,17 @@ if(!profile)return;
 
 currentChat=id;
 
-
-document.getElementById("chatName")
+document
+.getElementById("chatName")
 .textContent=
 profile.name;
 
-document.getElementById("chatAvatar")
+document
+.getElementById("chatAvatar")
 .textContent=
 profile.emoji;
 
-document.getElementById("chatStatus")
-.textContent=
-"● Online";
-
-
 loadMessages(id);
-
-
-/*
-Scroll to chat
-*/
 
 document
 .getElementById("chat")
@@ -1579,6 +1961,9 @@ getMessages(id);
 
 if(messages.length===0){
 
+const p=
+profiles.find(p=>p.id===id);
+
 container.innerHTML=`
 
 <div style="
@@ -1588,11 +1973,7 @@ color:#777;
 font-size:13px;
 ">
 
-❤️ Ume-match na ${
-
-profiles.find(p=>p.id===id).name
-
-}
+❤️ Ume-match na ${p.name}
 
 <br><br>
 
@@ -1616,7 +1997,7 @@ ${escapeHTML(m.text)}
 
 <span class="message-time">
 ${m.time}
-${m.sender==="me" ? " ✓✓" : ""}
+${m.sender==="me"?" ✓✓":""}
 </span>
 
 </div>
@@ -1631,12 +2012,277 @@ container.scrollHeight;
 
 
 /* ======================================
+SMART AUTO REPLY
+====================================== */
+
+function getAutoReply(text){
+
+const msg=
+text.toLowerCase().trim();
+
+
+if(
+msg.includes("hello") ||
+msg.includes("hi") ||
+msg.includes("hey") ||
+msg.includes("habari") ||
+msg.includes("mambo") ||
+msg.includes("hujambo")
+){
+
+return [
+"❤️ Hi! Habari yako?",
+"😊 Hey! Nimefurahi umeandika.",
+"💕 Hello! Uko poa?",
+"😍 Hi, nimefurahi kukuona."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("ukoje") ||
+msg.includes("upoje") ||
+msg.includes("hali yako") ||
+msg.includes("unaendeleaje")
+){
+
+return [
+"😊 Nipo vizuri kabisa, wewe je?",
+"❤️ Niko poa sana. Asante kwa kuniuliza.",
+"🥰 Niko vizuri, nimefurahi kuongea na wewe.",
+"💕 Niko fresh kabisa."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("nakupenda") ||
+msg.includes("i love you") ||
+msg.includes("love you")
+){
+
+return [
+"❤️ Awww... na mimi nakupenda.",
+"🥰 Umenifanya nitabasamu sana.",
+"💕 Hilo ndilo nililotaka kusikia.",
+"😍 Na mimi nina feelings kwako."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("nakumiss") ||
+msg.includes("nimekumiss") ||
+msg.includes("miss you")
+){
+
+return [
+"🥺 Na mimi nimekumiss sana.",
+"❤️ Awww, ningependa ungekuwa hapa.",
+"💕 Nilikuwa nakuwaza pia.",
+"😍 Basi tuongee zaidi."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("unafanya nini") ||
+msg.includes("unafanya nn") ||
+msg.includes("what are you doing")
+){
+
+return [
+"😊 Nipo hapa naongea na wewe.",
+"❤️ Nimekaa tu, sasa nimepata company yako.",
+"💕 Nilikuwa nasubiri ujumbe wako.",
+"🥰 Kwa sasa naongea na wewe."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("upo wapi") ||
+msg.includes("uko wapi") ||
+msg.includes("where are you")
+){
+
+return [
+"😊 Nipo hapa tu, wewe uko wapi?",
+"💕 Nipo online kwenye NIA DATING.",
+"❤️ Nipo sehemu yangu, wewe uko wapi?",
+"🥰 Muhimu ni kwamba niko hapa."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("unaitwa nani") ||
+msg.includes("jina lako") ||
+msg.includes("what is your name")
+){
+
+return [
+"❤️ Unaweza kuniita NIA.",
+"😊 Jina langu ni NIA.",
+"💕 Mimi ni NIA, nimefurahi kukutana na wewe."
+][Math.floor(Math.random()*3)];
+
+}
+
+
+if(
+msg.includes("mrembo") ||
+msg.includes("beautiful") ||
+msg.includes("pretty") ||
+msg.includes("cute")
+){
+
+return [
+"🥰 Awww, asante sana.",
+"❤️ Umenifanya niwe shy.",
+"😊 Wewe pia unaonekana vizuri.",
+"💕 Maneno yako ni matamu sana."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("good morning") ||
+msg.includes("morning") ||
+msg.includes("asubuhi njema")
+){
+
+return [
+"🌅 Good morning ❤️ Umeamkaje?",
+"🥰 Asubuhi njema! Uwe na siku nzuri.",
+"💕 Morning! Nilifurahi kuona ujumbe wako.",
+"❤️ Good morning dear."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("good night") ||
+msg.includes("usiku mwema") ||
+msg.includes("lala salama")
+){
+
+return [
+"🌙 Usiku mwema ❤️ Lala salama.",
+"🥰 Good night! Tutaongea kesho.",
+"💕 Lala vizuri.",
+"❤️ Good night dear."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("asante") ||
+msg.includes("thanks") ||
+msg.includes("thank you")
+){
+
+return [
+"❤️ Karibu sana.",
+"😊 Usijali kabisa.",
+"💕 Anytime.",
+"🥰 Ni furaha yangu."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("samahani") ||
+msg.includes("sorry")
+){
+
+return [
+"❤️ Hakuna shida.",
+"😊 Usijali, kila kitu kiko sawa.",
+"💕 It's okay.",
+"🥰 Usifikirie sana."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("tukutane") ||
+msg.includes("meet") ||
+msg.includes("kuonana")
+){
+
+return [
+"😍 Ningependa tukutane siku moja.",
+"💕 Kwanza tujuane vizuri.",
+"😊 Hilo ni wazo zuri.",
+"❤️ Tutapanga muda mzuri."
+][Math.floor(Math.random()*4)];
+
+}
+
+
+if(
+msg.includes("number") ||
+msg.includes("namba") ||
+msg.includes("whatsapp")
+){
+
+return [
+"😊 Tuendelee kwanza kujuana hapa.",
+"💕 Namba tutabadilishana tukishazoeana.",
+"❤️ Hebu tuongee hapa kwanza."
+][Math.floor(Math.random()*3)];
+
+}
+
+
+/* DEFAULT */
+
+return [
+"😊 Interesting! Niambie zaidi.",
+"❤️ Nimekusikia, endelea kuniambia.",
+"💕 Kweli? Nieleze zaidi.",
+"🥰 Napenda kusikia kutoka kwako.",
+"😊 Hiyo ni interesting sana.",
+"❤️ Endelea kuongea, niko hapa.",
+"💕 Nimefurahi umeandika.",
+"😍 Tell me more..."
+][Math.floor(Math.random()*8)];
+
+}
+
+
+/* ======================================
 SEND MESSAGE
 ====================================== */
 
 function sendMessage(event){
 
 event.preventDefault();
+
+
+if(!isLoggedIn()){
+
+alert(
+"🔐 Login kwanza."
+);
+
+openAuth("login");
+
+return;
+
+}
 
 
 if(!currentChat){
@@ -1656,19 +2302,14 @@ document.getElementById("messageInput");
 const text=
 input.value.trim();
 
-
 if(!text)return;
 
 
 const messages=
 getMessages(currentChat);
 
-
-const now=
-new Date();
-
 const time=
-now.toLocaleTimeString(
+new Date().toLocaleTimeString(
 [],
 {
 hour:"2-digit",
@@ -1693,36 +2334,38 @@ currentChat,
 messages
 );
 
-
 input.value="";
 
 loadMessages(currentChat);
 
 
-/*
-DEMO AUTO REPLY
-*/
+/* TYPING */
+
+const typing=
+document.getElementById("typing");
+
+typing.style.display="block";
+
+
+/* SMART AUTO REPLY */
 
 setTimeout(()=>{
 
-const replyMessages=
+typing.style.display="none";
+
+
+const replies=
 getMessages(currentChat);
 
-const profile=
-profiles.find(
-p=>p.id===currentChat
-);
+const replyText=
+getAutoReply(text);
 
 
-if(!profile)return;
-
-
-replyMessages.push({
+replies.push({
 
 sender:"them",
 
-text:
-"❤️ Hi! Nimefurahi kusikia kutoka kwako.",
+text:replyText,
 
 time:
 new Date().toLocaleTimeString(
@@ -1738,28 +2381,12 @@ minute:"2-digit"
 
 saveMessages(
 currentChat,
-replyMessages
+replies
 );
 
 loadMessages(currentChat);
 
-},1200);
-
-}
-
-
-/* ======================================
-ESCAPE HTML
-====================================== */
-
-function escapeHTML(text){
-
-const div=
-document.createElement("div");
-
-div.textContent=text;
-
-return div.innerHTML;
+},1500);
 
 }
 
@@ -1777,7 +2404,6 @@ profile=>profile.id===id
 
 if(!p)return;
 
-
 alert(
 p.name+
 ", "+
@@ -1792,88 +2418,61 @@ p.age+
 
 
 /* ======================================
-MATCH POPUP
+MATCH
 ====================================== */
 
 function showMatch(profile){
 
-document.getElementById(
-"matchText"
-).textContent=
+document
+.getElementById("matchText")
+.textContent=
 `Wewe na ${profile.name} mme-match! ❤️`;
 
-document.getElementById(
-"matchPopup"
-).classList.add("active");
+document
+.getElementById("matchPopup")
+.classList.add("active");
 
 }
 
 
 function closeMatch(){
 
-document.getElementById(
-"matchPopup"
-).classList.remove("active");
+document
+.getElementById("matchPopup")
+.classList.remove("active");
 
 }
 
 
 /* ======================================
-SIGNUP
+PREMIUM
 ====================================== */
 
-function openSignup(){
+function openPremium(){
 
-document.getElementById(
-"signupModal"
-).classList.add("active");
-
-}
-
-
-function closeSignup(){
-
-document.getElementById(
-"signupModal"
-).classList.remove("active");
-
-}
-
-
-function signup(event){
-
-event.preventDefault();
-
-const name=
-document.getElementById(
-"signupName"
-).value;
-
-const email=
-document.getElementById(
-"signupEmail"
-).value;
-
-localStorage.setItem(
-"niaUser",
-JSON.stringify({
-name:name,
-email:email
-})
-);
+if(!isLoggedIn()){
 
 alert(
-"❤️ Karibu NIA DATING, "+
-name+"!"
+"🔐 Login kwanza ili kupata PREMIUM."
 );
 
-closeSignup();
+openAuth("login");
+
+return;
+
+}
+
+alert(
+"💎 NIA PREMIUM\n\n"+
+"TZS 5,000 / Month\n\n"+
+"Payment system itaongezwa hatua inayofuata."
+);
 
 }
 
 
 /* ======================================
-START
+SEARCH
 ====================================== */
 
 document
@@ -1883,13 +2482,20 @@ document
 showProfiles
 );
 
+
+/* ======================================
+START
+====================================== */
+
 showProfiles();
 
 showMatches();
 
 loadChatUsers();
 
+updateAuthButton();
+
 </script>
 
 </body>
-</html>
+  </html>
