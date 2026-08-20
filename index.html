@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NIA DATING ❤️ | Meet, Match & Connect</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0b0b0f;
+      color: white;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 6%;
+      background: rgba(11, 11, 15, 0.96);
+      border-bottom: 1px solid #29202b;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff4f87;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ddd;
+      font-size: 13px;
+      padding: 9px 11px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background: #21151c;
+      color: #ff6b9c;
+    }
+
+    .join-btn {
+      background: #ff4f87;
+      color: white !important;
+    }
+
+    .hero {
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      padding: 70px 8%;
+      background:
+        linear-gradient(90deg, #0b0b0f 5%, rgba(11,11,15,.88) 40%, rgba(11,11,15,.25)),
+        radial-gradient(circle at right, rgba(255,79,135,.2), transparent 35%);
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,79,135,.12);
+      border: 1px solid rgba(255,79,135,.4);
+      color: #ff8db2;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 55px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #ff4f87;
+    }
+
+    .hero p {
+      color: #b9b9c0;
+      line-height: 1.7;
+      font-size: 16px;
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 23px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px 8px 5px 0;
+    }
+
+    .primary {
+      background: #ff4f87;
+      color: white;
+    }
+
+    .secondary {
+      border: 1px solid #4a4146;
+      color: white;
+    }
+
+    .section {
+      padding: 60px 7%;
+    }
+
+    .section h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .section-text {
+      color: #999;
+      margin-bottom: 30px;
+    }
+
+    .profiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .profile-card {
+      background: #15151c;
+      border: 1px solid #282832;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-6px);
+      border-color: #ff4f87;
+    }
+
+    .profile-photo {
+      height: 220px;
+      background: linear-gradient(135deg, #34202c, #181820);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+
+    .profile-info {
+      padding: 15px;
+    }
+
+    .profile-info h3 {
+      margin-bottom: 7px;
+    }
+
+    .profile-info p {
+      color: #999;
+      font-size: 13px;
+    }
+
+    .online {
+      color: #66e3a1 !important;
+      margin-top: 10px;
+    }
+
+    .premium {
+      background: linear-gradient(135deg, #221722, #15151c);
+      border-top: 1px solid #3c2634;
+      border-bottom: 1px solid #3c2634;
+    }
+
+    .premium-box {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      background: #18151c;
+      border: 1px solid #4d2638;
+      border-radius: 20px;
+      padding: 40px 25px;
+    }
+
+    .premium-price {
+      font-size: 34px;
+      color: #ff6b9c;
+      margin: 18px 0;
+      font-weight: bold;
+    }
+
+    .features {
+      list-style: none;
+      margin: 25px 0;
+      color: #bbb;
+      line-height: 2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      border-top: 1px solid #25252d;
+    }
+
+    /* SIGNUP MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      background: rgba(0,0,0,.85);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      padding: 28px;
+      background: #17171e;
+      border: 1px solid #39303a;
+      border-radius: 18px;
+    }
+
+    .close {
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      color: #aaa;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .modal-box h2 {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .modal-box > p {
+      text-align: center;
+      color: #999;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 14px 0 7px;
+      font-size: 13px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border-radius: 9px;
+      border: 1px solid #333;
+      background: #0d0d12;
+      color: white;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #ff4f87;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 22px;
+      padding: 14px;
+      border: none;
+      border-radius: 9px;
+      background: #ff4f87;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #message {
+      margin-top: 15px;
+      text-align: center;
+      color: #ff8db2;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 14px 4%;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      nav a {
+        padding: 7px 6px;
+        font-size: 10px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .hero {
+        min-height: 480px;
+        padding: 50px 7%;
+      }
+
+      .profiles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding: 45px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="#home" class="logo">❤️ NIA DATING</a>
+
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#discover">DISCOVER</a>
+    <a href="#premium">PREMIUM</a>
+    <a href="#" class="join-btn" onclick="openSignup()">JISAJILI</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="badge">❤️ MEET • MATCH • CONNECT</div>
+
+    <h1>Find Someone <span>Special</span></h1>
+
+    <p>
+      Karibu NIA DATING. Kutana na watu wapya, tengeneza connections
+      na ugundue matches zinazokufaa.
+    </p>
+
+    <a href="#" onclick="openSignup()" class="btn primary">
+      JISAJILI BURE
+    </a>
+
+    <a href="#discover" class="btn secondary">
+      DISCOVER PEOPLE
+    </a>
+  </div>
+</section>
+
+<section class="section" id="discover">
+  <h2>❤️ Discover People</h2>
+  <p class="section-text">Gundua watu wapya kwenye NIA DATING.</p>
+
+  <div class="profiles">
+
+    <div class="profile-card">
+      <div class="profile-photo">👩</div>
+      <div class="profile-info">
+        <h3>Member, 24</h3>
+        <p>Dar es Salaam</p>
+        <p class="online">● Online now</p>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-photo">👨</div>
+      <div class="profile-info">
+        <h3>Member, 27</h3>
+        <p>Arusha</p>
+        <p class="online">● Online now</p>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-photo">👩</div>
+      <div class="profile-info">
+        <h3>Member, 23</h3>
+        <p>Mwanza</p>
+        <p class="online">● Online now</p>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-photo">👨</div>
+      <div class="profile-info">
+        <h3>Member, 29</h3>
+        <p>Dodoma</p>
+        <p class="online">● Online now</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section premium" id="premium">
+  <div class="premium-box">
+
+    <div class="badge">💎 NIA PREMIUM</div>
+
+    <h2>Unlock More Connections</h2>
+
+    <p class="section-text">
+      Upgrade account yako upate features zaidi.
+    </p>
+
+    <div class="premium-price">TZS 5,000 / Month</div>
+
+    <ul class="features">
+      <li>❤️ Unlimited Likes</li>
+      <li>👀 See Who Likes You</li>
+      <li>🚀 Profile Boost</li>
+      <li>💬 More Matching Features</li>
+    </ul>
+
+    <a href="#" onclick="openSignup()" class="btn primary">
+      GET PREMIUM
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 NIA DATING ❤️ • Meet • Match • Connect
+</footer>
+
+<div class="modal" id="signupModal">
+
+  <div class="modal-box">
+    <span class="close" onclick="closeSignup()">×</span>
+
+    <h2>Jisajili ❤️</h2>
+
+    <p>Tengeneza account yako ya NIA DATING</p>
+
+    <form onsubmit="registerUser(event)">
+
+      <label>Jina</label>
+      <input type="text" id="name" placeholder="Jina lako" required>
+
+      <label>Email</label>
+      <input type="email" id="email" placeholder="example@email.com" required>
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Weka password" required>
+
+      <button type="submit" class="submit-btn">
+        CREATE ACCOUNT
+      </button>
+
+      <div id="message"></div>
+
+    </form>
+  </div>
+
+</div>
+
+<script>
+  function openSignup() {
+    document.getElementById("signupModal").classList.add("active");
+  }
+
+  function closeSignup() {
+    document.getElementById("signupModal").classList.remove("active");
+  }
+
+  function registerUser(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message");
+
+    message.textContent =
+      "❤️ Karibu NIA DATING, " + name + "! Account yako imeandaliwa.";
+
+    event.target.reset();
+
+    setTimeout(closeSignup, 2500);
+  }
+</script>
+
+</body>
+  </html>
