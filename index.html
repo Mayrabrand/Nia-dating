@@ -15,10 +15,10 @@
         body {
             background-color: #fff5f6;
             color: #333;
-            padding-bottom: 60px; /* Nafasi kwa ajili ya bottom nav kwenye simu */
+            padding-bottom: 70px;
         }
 
-        /* Top Navigation Header */
+        /* Top Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -38,7 +38,6 @@
             letter-spacing: 1px;
         }
 
-        /* Nav Tabs */
         .nav-links {
             display: flex;
             gap: 15px;
@@ -60,37 +59,10 @@
             color: white;
         }
 
-        .auth-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-login {
-            border: 2px solid #e91e63;
-            color: #e91e63;
-            padding: 6px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-            background: transparent;
-        }
-
-        .btn-signup {
-            background-color: #e91e63;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-        }
-
-        /* Sections Control */
+        /* Page Sections */
         .page-section {
             display: none;
-            padding: 30px 5%;
+            padding: 20px 5%;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -99,22 +71,20 @@
             display: block;
         }
 
-        /* 1. HOME SECTION */
+        /* Hero Banner */
         .hero {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
             color: white;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .hero h1 { font-size: 36px; margin-bottom: 10px; }
-        .hero p { font-size: 16px; margin-bottom: 20px; }
-
+        /* Profiles Grid */
         .profiles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -126,23 +96,30 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             text-align: center;
             padding-bottom: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
 
-        .profile-img {
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-img-placeholder {
             width: 100%;
-            height: 200px;
-            background-color: #ddd;
+            height: 180px;
+            background-color: #f06292;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #777;
+            font-size: 50px;
             font-weight: bold;
         }
 
         .profile-card h3 { margin: 10px 0 5px; color: #333; }
         .profile-card p { color: #777; font-size: 14px; margin-bottom: 10px; }
 
-        .btn-connect {
+        .btn-view {
             background-color: #e91e63;
             color: white;
             border: none;
@@ -152,76 +129,100 @@
             font-weight: bold;
         }
 
-        /* 2. CHATS SECTION */
-        .chat-container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-
-        .chat-item {
-            display: flex;
+        /* Full Profile View Modal (Pop-up ya Wasifu Kama Facebook) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 200;
+            justify-content: center;
             align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
+            padding: 20px;
         }
 
-        .chat-item:hover { background-color: #fafafa; }
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 450px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            animation: popIn 0.3s ease;
+        }
 
-        .avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #e91e63;
-            color: white;
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            height: 150px;
+            background: linear-gradient(135deg, #e91e63, #ff7eb3);
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
         }
 
-        .chat-details h4 { margin-bottom: 4px; }
-        .chat-details p { color: #777; font-size: 14px; }
+        .modal-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: white;
+            color: #e91e63;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            font-weight: bold;
+            border: 4px solid white;
+            position: absolute;
+            bottom: -30px;
+        }
 
-        /* 3. PREMIUM SECTION */
-        .premium-container {
+        .modal-body {
+            padding: 40px 20px 20px 20px;
             text-align: center;
         }
 
-        .pricing-cards {
+        .modal-body h2 { margin-bottom: 5px; }
+        .modal-body .location { color: #777; font-size: 14px; margin-bottom: 15px; }
+        .modal-body .bio { background: #fff0f3; padding: 12px; border-radius: 8px; font-size: 14px; margin-bottom: 15px; }
+
+        .modal-actions {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
+            gap: 10px;
         }
 
-        .price-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 280px;
-            border: 2px solid transparent;
+        .btn-chat-modal {
+            flex: 1;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .price-card.featured {
-            border-color: #e91e63;
-            position: relative;
+        .btn-close-modal {
+            background-color: #ddd;
+            color: #333;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .price-card h3 { color: #e91e63; margin-bottom: 15px; }
-        .price { font-size: 28px; font-weight: bold; margin-bottom: 15px; }
-        .price-card ul { list-style: none; margin-bottom: 20px; text-align: left; }
-        .price-card ul li { margin-bottom: 10px; font-size: 14px; color: #555; }
-
-        /* 4. LOGIN / SIGNUP SECTION */
+        /* Forms */
         .auth-box {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             max-width: 400px;
@@ -251,18 +252,18 @@
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             text-align: left;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
         }
 
-        .form-group input {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
@@ -283,7 +284,7 @@
             margin-top: 10px;
         }
 
-        /* Mobile Responsive Bottom Nav */
+        /* Bottom Nav Mobile */
         @media (max-width: 600px) {
             .nav-links {
                 position: fixed;
@@ -295,10 +296,6 @@
                 justify-content: space-around;
                 padding: 10px 0;
                 border-top: 1px solid #eee;
-            }
-            
-            .auth-buttons {
-                display: none;
             }
         }
     </style>
@@ -312,149 +309,212 @@
             <li><a class="nav-btn active" onclick="showSection('home')">Home</a></li>
             <li><a class="nav-btn" onclick="showSection('chats')">Chats</a></li>
             <li><a class="nav-btn" onclick="showSection('premium')">Premium</a></li>
-            <li><a class="nav-btn" onclick="showSection('auth')">Account</a></li>
+            <li><a class="nav-btn" onclick="showSection('auth')">Akaunti</a></li>
         </ul>
-        <div class="auth-buttons">
-            <button class="btn-login" onclick="showSection('auth'); toggleAuth('login');">Login</button>
-            <button class="btn-signup" onclick="showSection('auth'); toggleAuth('signup');">Signup</button>
-        </div>
     </header>
 
     <!-- 1. HOME SECTION -->
     <section id="home" class="page-section active">
         <div class="hero">
             <h1>Tafuta Mwenzi wa Maisha</h1>
-            <p>Jukwaa la kwanza kwa watu wenye nia ya dhati na malengo ya muda mrefu.</p>
+            <p>Jukwaa la kwanza kwa watu wenye nia ya dhati.</p>
         </div>
         
-        <h2>Watu Walio Karibu Nawe</h2>
-        <div class="profiles-grid">
-            <div class="profile-card">
-                <div class="profile-img">Picha ya Aisha</div>
-                <h3>Aisha, 24</h3>
-                <p>Dar es Salaam</p>
-                <button class="btn-connect" onclick="showSection('chats')">Anza Chat</button>
-            </div>
-            <div class="profile-card">
-                <div class="profile-img">Picha ya Baraka</div>
-                <h3>Baraka, 28</h3>
-                <p>Arusha</p>
-                <button class="btn-connect" onclick="showSection('chats')">Anza Chat</button>
-            </div>
-            <div class="profile-card">
-                <div class="profile-img">Picha ya Neema</div>
-                <h3>Neema, 26</h3>
-                <p>Mwanza</p>
-                <button class="btn-connect" onclick="showSection('chats')">Anza Chat</button>
-            </div>
+        <h2>Wanachama Waliyopo</h2>
+        <div class="profiles-grid" id="profilesContainer">
+            <!-- Profile mpya zitajazwa hapa kwa JavaScript -->
         </div>
     </section>
+
+    <!-- WASIFU POP-UP (FACEBOOK PROFILE STYLE) -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-avatar" id="modalLetter">A</div>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalName">Aisha, 24</h2>
+                <p class="location" id="modalCity">📍 Dar es Salaam</p>
+                <div class="bio" id="modalBio">"Natafuta mtu mwenye hofu ya Mungu na malengo ya muda mrefu."</div>
+                <div class="modal-actions">
+                    <button class="btn-chat-modal" onclick="startChatFromModal()">Tuma Ujumbe 💬</button>
+                    <button class="btn-close-modal" onclick="closeModal()">Funga</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- 2. CHATS SECTION -->
     <section id="chats" class="page-section">
         <h2>Ujumbe Wako (Chats)</h2>
         <br>
-        <div class="chat-container">
-            <div class="chat-item">
-                <div class="avatar">A</div>
-                <div class="chat-details">
-                    <h4>Aisha</h4>
-                    <p>Habari! Nimependa profile yako...</p>
-                </div>
-            </div>
-            <div class="chat-item">
-                <div class="avatar">B</div>
-                <div class="chat-details">
-                    <h4>Baraka</h4>
-                    <p>Za uzima? Uko pande gani leo?</p>
-                </div>
-            </div>
+        <div id="chatList">
+            <p style="color:#777;">Bado hujawa na mazungumzo. Chagua mwanachama kwenye Home kuanza chat!</p>
         </div>
     </section>
 
     <!-- 3. PREMIUM SECTION -->
     <section id="premium" class="page-section">
-        <div class="premium-container">
-            <h2>Jiunge na NIA Premium</h2>
-            <p>Pata nafasi ya kuonekana zaidi na utume ujumbe bila kikomo.</p>
-            
-            <div class="pricing-cards">
-                <div class="price-card">
-                    <h3>Kawaida (Wiki 1)</h3>
-                    <div class="price">TSH 5,000</div>
-                    <ul>
-                        <li> Tuma Ujumbe Bila Kikomo</li>
-                        <li> Ona Aliyetazama Profile Yako</li>
-                        <li> Usalama na Ulinzi wa Akanti</li>
-                    </ul>
-                    <button class="submit-btn">Lipa Sasa</button>
-                </div>
-                <div class="price-card featured">
-                    <h3>V.I.P (Mwezi 1)</h3>
-                    <div class="price">TSH 15,000</div>
-                    <ul>
-                        <li> Viumbe Vyote vya Kawaida</li>
-                        <li> Weka Profile Yako Juu Kabisa</li>
-                        <li> Alama ya V.I.P Kwenye Jina</li>
-                    </ul>
-                    <button class="submit-btn">Lipa Sasa</button>
-                </div>
-            </div>
-        </div>
+        <h2 style="text-align:center;">Jiunge na NIA Premium</h2>
+        <p style="text-align:center; color:#666;">Pata nafasi ya kuonekana zaidi na utume ujumbe bila kikomo.</p>
     </section>
 
     <!-- 4. LOGIN & SIGNUP SECTION -->
     <section id="auth" class="page-section">
         <div class="auth-box">
             <div class="auth-toggle">
-                <button id="login-tab" class="active" onclick="toggleAuth('login')">Ingia (Login)</button>
-                <button id="signup-tab" onclick="toggleAuth('signup')">Jisajili (Signup)</button>
+                <button id="login-tab" class="active" onclick="toggleAuth('login')">Ingia</button>
+                <button id="signup-tab" onclick="toggleAuth('signup')">Jisajili Mpya</button>
             </div>
 
-            <!-- Login Form -->
-            <form id="login-form">
+            <!-- Form ya Kuingia -->
+            <form id="login-form" onsubmit="handleLogin(event)">
                 <div class="form-group">
-                    <label>Namba ya Simu / Barua Pepe</label>
-                    <input type="text" placeholder="Mfano: 0712345678" required>
+                    <label>Namba ya Simu</label>
+                    <input type="text" placeholder="07xxxxxxxx" required>
                 </div>
                 <div class="form-group">
-                    <label>Neno la Siri (Password)</label>
+                    <label>Neno la Siri</label>
                     <input type="password" placeholder="********" required>
                 </div>
                 <button type="submit" class="submit-btn">Ingia</button>
             </form>
 
-            <!-- Signup Form -->
-            <form id="signup-form" style="display: none;">
+            <!-- Form ya Kujisajili -->
+            <form id="signup-form" style="display: none;" onsubmit="handleSignup(event)">
                 <div class="form-group">
                     <label>Jina Kamili</label>
-                    <input type="text" placeholder="Jina lako kamili" required>
+                    <input type="text" id="regName" placeholder="Mfano: Neema Joseph" required>
+                </div>
+                <div class="form-group">
+                    <label>Umri</label>
+                    <input type="number" id="regAge" placeholder="23" required>
+                </div>
+                <div class="form-group">
+                    <label>Mkoa / Mji</label>
+                    <input type="text" id="regCity" placeholder="Mfano: Arusha" required>
+                </div>
+                <div class="form-group">
+                    <label>Kuhusu Mimi (Bio / Wasifu)</label>
+                    <textarea id="regBio" rows="2" placeholder="Andika kidogo kuhusu wewe na unachotafuta..." required></textarea>
                 </div>
                 <div class="form-group">
                     <label>Namba ya Simu</label>
-                    <input type="tel" placeholder="07xxxxxxxx" required>
+                    <input type="tel" id="regPhone" placeholder="07xxxxxxxx" required>
                 </div>
-                <div class="form-group">
-                    <label>Neno la Siri</label>
-                    <input type="password" placeholder="Tengeneza password" required>
-                </div>
-                <button type="submit" class="submit-btn">Tengeneza Akaunti</button>
+                <button type="submit" class="submit-btn">Kamilisha Usajili</button>
             </form>
         </div>
     </section>
 
-    <!-- JavaScript For Switching Tabs -->
+    <!-- JAVASCRIPT SYSTEM -->
     <script>
+        // Mfano wa Profile za kuanzia (Initial Users)
+        let defaultUsers = [
+            { name: "Aisha Bakari", age: 24, city: "Dar es Salaam", bio: "Napenda kusafiri, kusoma vitabu na natafuta mahusiano ya mkataba wa ndoa." },
+            { name: "Baraka Mwangi", age: 28, city: "Arusha", bio: "Mfanyabiashara. Natafuta mwanamke mwelevu na mcha Mungu." },
+            { name: "Neema John", age: 26, city: "Mwanza", bio: "Mwalimu. Napenda amani na uwazi katika mahusiano." }
+        ];
+
+        // Pakia watumiaji kutoka localStorage au tumia default
+        function getUsers() {
+            let saved = localStorage.getItem('nia_users');
+            return saved ? JSON.parse(saved) : defaultUsers;
+        }
+
+        // Onyesha Profile Zote kwenye Home Page
+        function renderProfiles() {
+            let users = getUsers();
+            let container = document.getElementById('profilesContainer');
+            container.innerHTML = '';
+
+            users.forEach((user, index) => {
+                let initial = user.name.charAt(0).toUpperCase();
+                let cardHTML = `
+                    <div class="profile-card" onclick="openModal(${index})">
+                        <div class="profile-img-placeholder">${initial}</div>
+                        <h3>${user.name.split(' ')[0]}, ${user.age}</h3>
+                        <p>📍 ${user.city}</p>
+                        <button class="btn-view">Tazama Wasifu</button>
+                    </div>
+                `;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // Fungua Wasifu (Modal) Kama Facebook
+        let currentSelectedUser = null;
+
+        function openModal(index) {
+            let users = getUsers();
+            let user = users[index];
+            currentSelectedUser = user;
+
+            document.getElementById('modalLetter').innerText = user.name.charAt(0).toUpperCase();
+            document.getElementById('modalName').innerText = `${user.name}, ${user.age}`;
+            document.getElementById('modalCity').innerText = `📍 ${user.city}`;
+            document.getElementById('modalBio').innerText = `"${user.bio}"`;
+
+            document.getElementById('profileModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('profileModal').style.display = 'none';
+        }
+
+        function startChatFromModal() {
+            closeModal();
+            showSection('chats');
+            document.getElementById('chatList').innerHTML = `
+                <div style="background:white; padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                    <h3>Mazungumzo na ${currentSelectedUser.name}</h3>
+                    <p style="color:#777; margin:10px 0;">Anzisha mazungumzo yako hapa...</p>
+                    <input type="text" placeholder="Andika ujumbe..." style="width:70%; padding:8px; border:1px solid #ddd; border-radius:5px;">
+                    <button style="background:#e91e63; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">Tuma</button>
+                </div>
+            `;
+        }
+
+        // Mfumo wa Usajili Mpya
+        function handleSignup(event) {
+            event.preventDefault();
+
+            let newUser = {
+                name: document.getElementById('regName').value,
+                age: document.getElementById('regAge').value,
+                city: document.getElementById('regCity').value,
+                bio: document.getElementById('regBio').value,
+                phone: document.getElementById('regPhone').value
+            };
+
+            let users = getUsers();
+            users.unshift(newUser); // Ongeza juu kabisa
+
+            // Hifadhi kwenye browser
+            localStorage.setItem('nia_users', JSON.stringify(users));
+
+            alert('Hongera! Usajili umekamilika. Profile yako imewekwa kwenye mfumo.');
+            
+            // Safisha fomu na urudi Home
+            document.getElementById('signup-form').reset();
+            renderProfiles();
+            showSection('home');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            alert('Umeingia kikamilifu!');
+            showSection('home');
+        }
+
+        // Control ya Kurasa (Navigation)
         function showSection(sectionId) {
-            // Ficha kurasa zote
             let sections = document.querySelectorAll('.page-section');
             sections.forEach(sec => sec.classList.remove('active'));
 
-            // Ondoa muonekano wa 'active' kwenye vitufe vyote vya menu
             let navBtns = document.querySelectorAll('.nav-btn');
             navBtns.forEach(btn => btn.classList.remove('active'));
 
-            // Onyesha ukurasa uliochaguliwa
             document.getElementById(sectionId).classList.add('active');
         }
 
@@ -476,6 +536,9 @@
                 loginTab.classList.remove('active');
             }
         }
+
+        // Pakia mara ya kwanza
+        renderProfiles();
     </script>
 </body>
 </html>
