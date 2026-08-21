@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIA DATING - Pata Mwenzi Wako wa Maisha</title>
+    <!-- Flutterwave Script Kwa Ajili ya Malipo Halisi -->
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
     <style>
         * {
             margin: 0;
@@ -18,7 +20,6 @@
             padding-bottom: 70px;
         }
 
-        /* Top Header */
         header {
             display: flex;
             justify-content: space-between;
@@ -59,7 +60,6 @@
             color: white;
         }
 
-        /* Page Sections */
         .page-section {
             display: none;
             padding: 20px 5%;
@@ -71,7 +71,6 @@
             display: block;
         }
 
-        /* Hero Banner */
         .hero {
             text-align: center;
             padding: 30px 20px;
@@ -81,7 +80,6 @@
             margin-bottom: 25px;
         }
 
-        /* Profiles Grid */
         .profiles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -100,9 +98,7 @@
             transition: transform 0.2s;
         }
 
-        .profile-card:hover {
-            transform: translateY(-5px);
-        }
+        .profile-card:hover { transform: translateY(-5px); }
 
         .profile-img-placeholder {
             width: 100%;
@@ -116,9 +112,6 @@
             font-weight: bold;
         }
 
-        .profile-card h3 { margin: 10px 0 5px; color: #333; }
-        .profile-card p { color: #777; font-size: 14px; margin-bottom: 10px; }
-
         .btn-view {
             background-color: #e91e63;
             color: white;
@@ -129,94 +122,57 @@
             font-weight: bold;
         }
 
-        /* Full Profile View Modal (Pop-up ya Wasifu Kama Facebook) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.6);
-            z-index: 200;
+        /* PREMIUM PRICING CARDS */
+        .pricing-cards {
+            display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
         }
 
-        .modal-content {
+        .price-card {
             background: white;
+            padding: 25px;
             border-radius: 15px;
-            max-width: 450px;
-            width: 100%;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-            animation: popIn 0.3s ease;
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-header {
-            height: 150px;
-            background: linear-gradient(135deg, #e91e63, #ff7eb3);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: white;
-            color: #e91e63;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 35px;
-            font-weight: bold;
-            border: 4px solid white;
-            position: absolute;
-            bottom: -30px;
-        }
-
-        .modal-body {
-            padding: 40px 20px 20px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 280px;
+            border: 2px solid transparent;
             text-align: center;
         }
 
-        .modal-body h2 { margin-bottom: 5px; }
-        .modal-body .location { color: #777; font-size: 14px; margin-bottom: 15px; }
-        .modal-body .bio { background: #fff0f3; padding: 12px; border-radius: 8px; font-size: 14px; margin-bottom: 15px; }
-
-        .modal-actions {
-            display: flex;
-            gap: 10px;
+        .price-card.featured {
+            border-color: #e91e63;
+            position: relative;
         }
 
-        .btn-chat-modal {
-            flex: 1;
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #e91e63;
+            color: white;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .price-card h3 { color: #e91e63; margin-bottom: 10px; }
+        .price { font-size: 26px; font-weight: bold; margin-bottom: 15px; color: #333; }
+        .price-card ul { list-style: none; margin-bottom: 20px; text-align: left; }
+        .price-card ul li { margin-bottom: 10px; font-size: 14px; color: #555; }
+
+        .btn-pay {
+            width: 100%;
             background-color: #e91e63;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
-        }
-
-        .btn-close-modal {
-            background-color: #ddd;
-            color: #333;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
+            font-size: 15px;
         }
 
         /* Forms */
@@ -229,47 +185,9 @@
             margin: 20px auto;
         }
 
-        .auth-toggle {
-            display: flex;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-        }
-
-        .auth-toggle button {
-            flex: 1;
-            padding: 10px;
-            background: none;
-            border: none;
-            font-size: 16px;
-            font-weight: bold;
-            color: #777;
-            cursor: pointer;
-        }
-
-        .auth-toggle button.active {
-            color: #e91e63;
-            border-bottom: 2px solid #e91e63;
-        }
-
-        .form-group {
-            margin-bottom: 12px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-        }
+        .form-group { margin-bottom: 12px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 13px; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
 
         .submit-btn {
             width: 100%;
@@ -284,7 +202,6 @@
             margin-top: 10px;
         }
 
-        /* Bottom Nav Mobile */
         @media (max-width: 600px) {
             .nav-links {
                 position: fixed;
@@ -319,69 +236,55 @@
             <h1>Tafuta Mwenzi wa Maisha</h1>
             <p>Jukwaa la kwanza kwa watu wenye nia ya dhati.</p>
         </div>
-        
         <h2>Wanachama Waliyopo</h2>
-        <div class="profiles-grid" id="profilesContainer">
-            <!-- Profile mpya zitajazwa hapa kwa JavaScript -->
-        </div>
+        <div class="profiles-grid" id="profilesContainer"></div>
     </section>
-
-    <!-- WASIFU POP-UP (FACEBOOK PROFILE STYLE) -->
-    <div class="modal" id="profileModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-avatar" id="modalLetter">A</div>
-            </div>
-            <div class="modal-body">
-                <h2 id="modalName">Aisha, 24</h2>
-                <p class="location" id="modalCity">📍 Dar es Salaam</p>
-                <div class="bio" id="modalBio">"Natafuta mtu mwenye hofu ya Mungu na malengo ya muda mrefu."</div>
-                <div class="modal-actions">
-                    <button class="btn-chat-modal" onclick="startChatFromModal()">Tuma Ujumbe 💬</button>
-                    <button class="btn-close-modal" onclick="closeModal()">Funga</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- 2. CHATS SECTION -->
     <section id="chats" class="page-section">
         <h2>Ujumbe Wako (Chats)</h2>
         <br>
         <div id="chatList">
-            <p style="color:#777;">Bado hujawa na mazungumzo. Chagua mwanachama kwenye Home kuanza chat!</p>
+            <p style="color:#777;">Chagua mwanachama kwenye Home kuanza chat!</p>
         </div>
     </section>
 
-    <!-- 3. PREMIUM SECTION -->
+    <!-- 3. PREMIUM SECTION (MALIPO HALISI) -->
     <section id="premium" class="page-section">
         <h2 style="text-align:center;">Jiunge na NIA Premium</h2>
-        <p style="text-align:center; color:#666;">Pata nafasi ya kuonekana zaidi na utume ujumbe bila kikomo.</p>
-    </section>
+        <p style="text-align:center; color:#666;">Lipia kwa M-Pesa, Tigo Pesa au Airtel Money ili ufunguliwe huduma papo hapo.</p>
 
-    <!-- 4. LOGIN & SIGNUP SECTION -->
-    <section id="auth" class="page-section">
-        <div class="auth-box">
-            <div class="auth-toggle">
-                <button id="login-tab" class="active" onclick="toggleAuth('login')">Ingia</button>
-                <button id="signup-tab" onclick="toggleAuth('signup')">Jisajili Mpya</button>
+        <div class="pricing-cards">
+            <div class="price-card">
+                <h3>Kifurushi cha Wiki</h3>
+                <div class="price">TSH 5,000</div>
+                <ul>
+                    <li>✔ Tuma Ujumbe Bila Kikomo</li>
+                    <li>✔ Ona Aliyetazama Profile Yako</li>
+                </ul>
+                <button class="btn-pay" onclick="payWithFlutterwave(5000, 'Kifurushi cha Wiki')">Lipa TSH 5,000 Sasa</button>
             </div>
 
-            <!-- Form ya Kuingia -->
-            <form id="login-form" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label>Namba ya Simu</label>
-                    <input type="text" placeholder="07xxxxxxxx" required>
-                </div>
-                <div class="form-group">
-                    <label>Neno la Siri</label>
-                    <input type="password" placeholder="********" required>
-                </div>
-                <button type="submit" class="submit-btn">Ingia</button>
-            </form>
+            <div class="price-card featured">
+                <span class="badge">POPULAR</span>
+                <h3>V.I.P Cha Mwezi 1</h3>
+                <div class="price">TSH 15,000</div>
+                <ul>
+                    <li>✔ Viumbe Vyote vya Kawaida</li>
+                    <li>✔ Weka Profile Yako Juu Kabisa</li>
+                    <li>✔ Alama ya V.I.P Kwenye Jina</li>
+                </ul>
+                <button class="btn-pay" onclick="payWithFlutterwave(15000, 'VIP Mwezi 1')">Lipa TSH 15,000 Sasa</button>
+            </div>
+        </div>
+    </section>
 
-            <!-- Form ya Kujisajili -->
-            <form id="signup-form" style="display: none;" onsubmit="handleSignup(event)">
+    <!-- 4. ACCOUNT SECTION -->
+    <section id="auth" class="page-section">
+        <div class="auth-box">
+            <h3>Usajili wa Mwanachama</h3>
+            <br>
+            <form onsubmit="handleSignup(event)">
                 <div class="form-group">
                     <label>Jina Kamili</label>
                     <input type="text" id="regName" placeholder="Mfano: Neema Joseph" required>
@@ -395,8 +298,8 @@
                     <input type="text" id="regCity" placeholder="Mfano: Arusha" required>
                 </div>
                 <div class="form-group">
-                    <label>Kuhusu Mimi (Bio / Wasifu)</label>
-                    <textarea id="regBio" rows="2" placeholder="Andika kidogo kuhusu wewe na unachotafuta..." required></textarea>
+                    <label>Wasifu / Bio</label>
+                    <textarea id="regBio" rows="2" placeholder="Andika kidogo kuhusu wewe..." required></textarea>
                 </div>
                 <div class="form-group">
                     <label>Namba ya Simu</label>
@@ -407,137 +310,100 @@
         </div>
     </section>
 
-    <!-- JAVASCRIPT SYSTEM -->
     <script>
-        // Mfano wa Profile za kuanzia (Initial Users)
         let defaultUsers = [
-            { name: "Aisha Bakari", age: 24, city: "Dar es Salaam", bio: "Napenda kusafiri, kusoma vitabu na natafuta mahusiano ya mkataba wa ndoa." },
-            { name: "Baraka Mwangi", age: 28, city: "Arusha", bio: "Mfanyabiashara. Natafuta mwanamke mwelevu na mcha Mungu." },
-            { name: "Neema John", age: 26, city: "Mwanza", bio: "Mwalimu. Napenda amani na uwazi katika mahusiano." }
+            { name: "Aisha Bakari", age: 24, city: "Dar es Salaam", bio: "Napenda kusafiri na natafuta mahusiano ya mkataba wa ndoa." },
+            { name: "Baraka Mwangi", age: 28, city: "Arusha", bio: "Mfanyabiashara. Natafuta mwanamke mwelevu." }
         ];
 
-        // Pakia watumiaji kutoka localStorage au tumia default
         function getUsers() {
             let saved = localStorage.getItem('nia_users');
             return saved ? JSON.parse(saved) : defaultUsers;
         }
 
-        // Onyesha Profile Zote kwenye Home Page
         function renderProfiles() {
             let users = getUsers();
             let container = document.getElementById('profilesContainer');
             container.innerHTML = '';
-
-            users.forEach((user, index) => {
+            users.forEach((user) => {
                 let initial = user.name.charAt(0).toUpperCase();
-                let cardHTML = `
-                    <div class="profile-card" onclick="openModal(${index})">
+                container.innerHTML += `
+                    <div class="profile-card">
                         <div class="profile-img-placeholder">${initial}</div>
                         <h3>${user.name.split(' ')[0]}, ${user.age}</h3>
                         <p>📍 ${user.city}</p>
-                        <button class="btn-view">Tazama Wasifu</button>
+                        <button class="btn-view" onclick="showSection('chats')">Tazama Wasifu</button>
                     </div>
                 `;
-                container.innerHTML += cardHTML;
             });
         }
 
-        // Fungua Wasifu (Modal) Kama Facebook
-        let currentSelectedUser = null;
+        /* MFUMO HALISI WA MALIPO YA MITANDAO YA SIMU (M-PESA / TIGO / AIRTEL) */
+        function payWithFlutterwave(amount, planName) {
+            let currentUserPhone = localStorage.getItem('nia_user_phone') || "0700000000";
+            let currentUserName = localStorage.getItem('nia_user_name') || "Mtumiaji wa NIA";
 
-        function openModal(index) {
-            let users = getUsers();
-            let user = users[index];
-            currentSelectedUser = user;
-
-            document.getElementById('modalLetter').innerText = user.name.charAt(0).toUpperCase();
-            document.getElementById('modalName').innerText = `${user.name}, ${user.age}`;
-            document.getElementById('modalCity').innerText = `📍 ${user.city}`;
-            document.getElementById('modalBio').innerText = `"${user.bio}"`;
-
-            document.getElementById('profileModal').style.display = 'flex';
+            FlutterwaveCheckout({
+                public_key: "FLWPUBK_TEST-SANDBOX-KEY-X", // BADILISHA HAPA: Weka Public Key Yako ya Flutterwave
+                tx_ref: "NIA_TX_" + Date.now(),
+                amount: amount,
+                currency: "TZS",
+                payment_options: "mobilemoneytanzania,card",
+                customer: {
+                    email: "info@niadating.com",
+                    phone_number: currentUserPhone,
+                    name: currentUserName,
+                },
+                customizations: {
+                    title: "NIA DATING PREMIUM",
+                    description: "Malipo ya " + planName,
+                    logo: "https://via.placeholder.com/150",
+                },
+                callback: function (data) {
+                    if (data.status === "successful") {
+                        alert("Hongera! Malipo yako ya TSH " + amount + " yamekamilika kikamilifu. Akaunti yako imekuwa PREMIUM!");
+                        localStorage.setItem('nia_is_premium', 'true');
+                        showSection('home');
+                    } else {
+                        alert("Malipo hayajakamilika. Tafadhali jaribu tena.");
+                    }
+                },
+                onclose: function() {
+                    console.log("Dirisha la malipo limefungwa.");
+                }
+            });
         }
 
-        function closeModal() {
-            document.getElementById('profileModal').style.display = 'none';
-        }
-
-        function startChatFromModal() {
-            closeModal();
-            showSection('chats');
-            document.getElementById('chatList').innerHTML = `
-                <div style="background:white; padding:15px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
-                    <h3>Mazungumzo na ${currentSelectedUser.name}</h3>
-                    <p style="color:#777; margin:10px 0;">Anzisha mazungumzo yako hapa...</p>
-                    <input type="text" placeholder="Andika ujumbe..." style="width:70%; padding:8px; border:1px solid #ddd; border-radius:5px;">
-                    <button style="background:#e91e63; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">Tuma</button>
-                </div>
-            `;
-        }
-
-        // Mfumo wa Usajili Mpya
         function handleSignup(event) {
             event.preventDefault();
+            let name = document.getElementById('regName').value;
+            let phone = document.getElementById('regPhone').value;
 
             let newUser = {
-                name: document.getElementById('regName').value,
+                name: name,
                 age: document.getElementById('regAge').value,
                 city: document.getElementById('regCity').value,
                 bio: document.getElementById('regBio').value,
-                phone: document.getElementById('regPhone').value
+                phone: phone
             };
 
             let users = getUsers();
-            users.unshift(newUser); // Ongeza juu kabisa
-
-            // Hifadhi kwenye browser
+            users.unshift(newUser);
             localStorage.setItem('nia_users', JSON.stringify(users));
+            localStorage.setItem('nia_user_name', name);
+            localStorage.setItem('nia_user_phone', phone);
 
-            alert('Hongera! Usajili umekamilika. Profile yako imewekwa kwenye mfumo.');
-            
-            // Safisha fomu na urudi Home
-            document.getElementById('signup-form').reset();
+            alert('Hongera! Usajili umekamilika.');
             renderProfiles();
             showSection('home');
         }
 
-        function handleLogin(event) {
-            event.preventDefault();
-            alert('Umeingia kikamilifu!');
-            showSection('home');
-        }
-
-        // Control ya Kurasa (Navigation)
         function showSection(sectionId) {
-            let sections = document.querySelectorAll('.page-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            let navBtns = document.querySelectorAll('.nav-btn');
-            navBtns.forEach(btn => btn.classList.remove('active'));
-
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
         }
 
-        function toggleAuth(type) {
-            let loginForm = document.getElementById('login-form');
-            let signupForm = document.getElementById('signup-form');
-            let loginTab = document.getElementById('login-tab');
-            let signupTab = document.getElementById('signup-tab');
-
-            if(type === 'login') {
-                loginForm.style.display = 'block';
-                signupForm.style.display = 'none';
-                loginTab.classList.add('active');
-                signupTab.classList.remove('active');
-            } else {
-                loginForm.style.display = 'none';
-                signupForm.style.display = 'block';
-                signupTab.classList.add('active');
-                loginTab.classList.remove('active');
-            }
-        }
-
-        // Pakia mara ya kwanza
         renderProfiles();
     </script>
 </body>
