@@ -3,700 +3,851 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NIA DATING ❤️ | Login • Match • Chat</title>
+
+<title>NIA DATING ❤️ | Login & Match</title>
 
 <style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#0b0b0f;
-color:#fff;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#0b0b0f;
+  color:white;
+}
+
+/* ================= AUTH PAGE ================= */
+
+#authPage{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+  radial-gradient(circle at 20% 20%,rgba(255,79,135,.22),transparent 28%),
+  radial-gradient(circle at 80% 80%,rgba(124,58,237,.20),transparent 30%),
+  #0b0b0f;
+}
+
+.auth-container{
+  width:100%;
+  max-width:420px;
+  background:#17171e;
+  border:1px solid #3b2631;
+  border-radius:25px;
+  padding:32px 28px;
+  box-shadow:0 20px 70px rgba(0,0,0,.45);
+}
+
+.auth-logo{
+  text-align:center;
+  font-size:28px;
+  font-weight:bold;
+  color:#ff4f87;
+  margin-bottom:10px;
+}
+
+.auth-container h1{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.auth-subtitle{
+  text-align:center;
+  color:#999;
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:24px;
+}
+
+.auth-tabs{
+  display:flex;
+  gap:8px;
+  background:#0e0e13;
+  padding:5px;
+  border-radius:12px;
+  margin-bottom:22px;
+}
+
+.auth-tab{
+  flex:1;
+  padding:12px;
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:#aaa;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.auth-tab.active{
+  background:#ff4f87;
+  color:white;
+}
+
+.auth-form{
+  display:none;
+}
+
+.auth-form.active{
+  display:block;
+}
+
+.auth-container label{
+  display:block;
+  margin:14px 0 7px;
+  font-size:13px;
+  color:#ddd;
+}
+
+.auth-container input{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #34343c;
+  background:#0d0d12;
+  color:white;
+  outline:none;
+}
+
+.auth-container input:focus{
+  border-color:#ff4f87;
+}
+
+.auth-submit{
+  width:100%;
+  margin-top:22px;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#ff4f87;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.auth-note{
+  text-align:center;
+  color:#777;
+  font-size:11px;
+  margin-top:18px;
+}
+
+/* ================= APP ================= */
+
+#app{
+  display:none;
 }
 
 header{
-position:sticky;
-top:0;
-z-index:1000;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 6%;
-background:rgba(11,11,15,.96);
-border-bottom:1px solid #29202b;
-backdrop-filter:blur(15px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 6%;
+  background:rgba(11,11,15,.96);
+  border-bottom:1px solid #29202b;
+  backdrop-filter:blur(15px);
 }
 
 .logo{
-color:#ff4f87;
-font-size:21px;
-font-weight:bold;
-text-decoration:none;
+  color:#ff4f87;
+  text-decoration:none;
+  font-size:22px;
+  font-weight:bold;
 }
 
 nav{
-display:flex;
-gap:5px;
-align-items:center;
+  display:flex;
+  gap:5px;
+  align-items:center;
 }
 
 nav a{
-color:#ddd;
-text-decoration:none;
-font-size:12px;
-padding:9px 10px;
-border-radius:8px;
+  color:#ddd;
+  text-decoration:none;
+  font-size:12px;
+  padding:9px 10px;
+  border-radius:8px;
 }
 
 nav a:hover{
-background:#21151c;
-color:#ff6b9c;
+  background:#21151c;
+  color:#ff6b9c;
 }
 
-.join-btn{
-background:#ff4f87;
-color:white!important;
+.user-btn{
+  border:0;
+  border-radius:8px;
+  padding:9px 10px;
+  background:#ff4f87;
+  color:white;
+  font-size:12px;
+  cursor:pointer;
 }
+
+/* ================= HERO ================= */
 
 .hero{
-min-height:480px;
-display:flex;
-align-items:center;
-padding:60px 8%;
-background:
-radial-gradient(circle at 80% 30%,rgba(255,79,135,.25),transparent 30%),
-linear-gradient(90deg,#0b0b0f,#151018);
+  min-height:480px;
+  display:flex;
+  align-items:center;
+  padding:60px 8%;
+  background:
+  radial-gradient(circle at 80% 30%,rgba(255,79,135,.25),transparent 30%),
+  linear-gradient(90deg,#0b0b0f,#151018);
 }
 
 .hero-content{
-max-width:650px;
+  max-width:650px;
 }
 
 .badge{
-display:inline-block;
-background:rgba(255,79,135,.12);
-border:1px solid rgba(255,79,135,.4);
-color:#ff8db2;
-padding:8px 14px;
-border-radius:30px;
-font-size:12px;
-margin-bottom:20px;
+  display:inline-block;
+  background:rgba(255,79,135,.12);
+  border:1px solid rgba(255,79,135,.4);
+  color:#ff8db2;
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:12px;
+  margin-bottom:20px;
 }
 
 h1{
-font-size:55px;
-line-height:1.05;
-margin-bottom:20px;
+  font-size:55px;
+  line-height:1.05;
+  margin-bottom:20px;
 }
 
 h1 span{
-color:#ff4f87;
+  color:#ff4f87;
 }
 
 .hero p{
-color:#aaa;
-line-height:1.7;
-margin-bottom:25px;
+  color:#aaa;
+  line-height:1.7;
+  margin-bottom:25px;
+  max-width:550px;
 }
 
 .btn{
-display:inline-block;
-padding:13px 21px;
-border-radius:10px;
-border:none;
-text-decoration:none;
-font-weight:bold;
-cursor:pointer;
-margin:5px;
+  display:inline-block;
+  padding:13px 21px;
+  border-radius:10px;
+  border:none;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+  margin:5px;
 }
 
 .primary{
-background:#ff4f87;
-color:#fff;
+  background:#ff4f87;
+  color:#fff;
 }
 
 .secondary{
-background:transparent;
-border:1px solid #444;
-color:white;
+  background:transparent;
+  border:1px solid #444;
+  color:white;
 }
 
+/* ================= SECTIONS ================= */
+
 .section{
-padding:55px 7%;
+  padding:55px 7%;
 }
 
 .section h2{
-font-size:30px;
-margin-bottom:10px;
+  font-size:30px;
+  margin-bottom:10px;
 }
 
 .section-text{
-color:#999;
-margin-bottom:25px;
+  color:#999;
+  margin-bottom:25px;
 }
 
+/* ================= DISCOVER ================= */
+
 .discover{
-background:#0f0f14;
+  background:#0f0f14;
 }
 
 .search{
-width:100%;
-max-width:450px;
-padding:14px;
-border-radius:10px;
-background:#15151c;
-color:white;
-border:1px solid #333;
-outline:none;
-margin-bottom:25px;
-}
-
-.search:focus{
-border-color:#ff4f87;
+  width:100%;
+  max-width:450px;
+  padding:14px;
+  border-radius:10px;
+  background:#15151c;
+  color:white;
+  border:1px solid #333;
+  outline:none;
+  margin-bottom:25px;
 }
 
 .discover-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
 }
 
 .profile-card{
-background:#15151c;
-border:1px solid #292932;
-border-radius:18px;
-overflow:hidden;
-transition:.3s;
+  background:#15151c;
+  border:1px solid #292932;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.3s;
 }
 
 .profile-card:hover{
-transform:translateY(-5px);
-border-color:#ff4f87;
+  transform:translateY(-5px);
+  border-color:#ff4f87;
 }
 
 .profile-photo{
-height:270px;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:90px;
-background:linear-gradient(135deg,#39202e,#181820);
+  height:230px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:85px;
+  background:linear-gradient(135deg,#39202e,#181820);
 }
 
 .profile-info{
-padding:17px;
+  padding:17px;
 }
 
 .location{
-color:#999;
-font-size:13px;
-margin:8px 0;
+  color:#999;
+  font-size:13px;
+  margin:8px 0;
 }
 
 .bio{
-color:#aaa;
-font-size:13px;
-line-height:1.5;
+  color:#aaa;
+  font-size:13px;
+  line-height:1.5;
 }
 
 .online{
-color:#66e3a1;
-font-size:12px;
-margin-top:10px;
+  color:#66e3a1;
+  font-size:12px;
+  margin-top:10px;
 }
 
 .actions{
-display:flex;
-gap:8px;
-margin-top:15px;
+  display:flex;
+  gap:8px;
+  margin-top:15px;
 }
 
 .actions button{
-flex:1;
-border:0;
-padding:11px;
-border-radius:9px;
-cursor:pointer;
-font-weight:bold;
+  flex:1;
+  padding:11px;
+  border:0;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 .pass{
-background:#292932;
-color:white;
+  background:#292932;
+  color:white;
 }
 
 .like{
-background:#ff4f87;
-color:white;
+  background:#ff4f87;
+  color:white;
 }
 
 .view{
-width:100%;
-margin-top:8px;
-padding:10px;
-border-radius:9px;
-border:1px solid #444;
-background:transparent;
-color:white;
-cursor:pointer;
+  width:100%;
+  margin-top:8px;
+  padding:10px;
+  border-radius:9px;
+  border:1px solid #444;
+  background:transparent;
+  color:white;
+  cursor:pointer;
 }
 
+/* ================= MATCHES ================= */
+
 .matches{
-background:#111116;
+  background:#111116;
 }
 
 .matches-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:15px;
 }
 
 .match-card{
-background:#18151c;
-border:1px solid #4d2638;
-border-radius:16px;
-padding:20px;
-text-align:center;
+  background:#18151c;
+  border:1px solid #4d2638;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
 }
 
 .avatar{
-width:85px;
-height:85px;
-border-radius:50%;
-background:linear-gradient(135deg,#ff4f87,#7c3aed);
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:40px;
-margin:auto;
+  width:85px;
+  height:85px;
+  border-radius:50%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  background:linear-gradient(135deg,#ff4f87,#7c3aed);
 }
 
 .match-card h3{
-margin-top:12px;
+  margin-top:12px;
 }
 
 .match-card p{
-color:#999;
-font-size:12px;
-margin-top:5px;
+  color:#999;
+  font-size:12px;
+  margin-top:5px;
 }
 
 .chat-btn{
-width:100%;
-margin-top:14px;
-padding:10px;
-border:0;
-border-radius:9px;
-background:#ff4f87;
-color:white;
-cursor:pointer;
-font-weight:bold;
+  width:100%;
+  margin-top:14px;
+  padding:10px;
+  border:0;
+  border-radius:9px;
+  background:#ff4f87;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
 }
 
+/* ================= CHAT ================= */
+
 .chat-section{
-background:#0b0b0f;
+  background:#0b0b0f;
 }
 
 .chat-container{
-max-width:900px;
-margin:auto;
-height:600px;
-display:flex;
-background:#15151c;
-border:1px solid #292932;
-border-radius:20px;
-overflow:hidden;
+  max-width:900px;
+  height:600px;
+  margin:auto;
+  display:flex;
+  background:#15151c;
+  border:1px solid #292932;
+  border-radius:20px;
+  overflow:hidden;
 }
 
 .chat-list{
-width:280px;
-border-right:1px solid #292932;
-overflow-y:auto;
+  width:280px;
+  border-right:1px solid #292932;
+  overflow-y:auto;
 }
 
 .chat-list-title{
-padding:18px;
-border-bottom:1px solid #292932;
-font-weight:bold;
+  padding:18px;
+  border-bottom:1px solid #292932;
+  font-weight:bold;
 }
 
 .chat-user{
-display:flex;
-align-items:center;
-gap:12px;
-padding:14px;
-cursor:pointer;
-border-bottom:1px solid #22222a;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  cursor:pointer;
+  border-bottom:1px solid #22222a;
 }
 
 .chat-user:hover{
-background:#201820;
+  background:#201820;
 }
 
 .chat-avatar{
-width:48px;
-height:48px;
-border-radius:50%;
-background:linear-gradient(135deg,#ff4f87,#7c3aed);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:24px;
-}
-
-.chat-user-info{
-flex:1;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  background:linear-gradient(135deg,#ff4f87,#7c3aed);
 }
 
 .chat-user-info h4{
-margin-bottom:5px;
+  margin-bottom:5px;
 }
 
 .chat-user-info p{
-color:#888;
-font-size:11px;
+  color:#888;
+  font-size:11px;
 }
 
 .chat-window{
-flex:1;
-display:flex;
-flex-direction:column;
+  flex:1;
+  display:flex;
+  flex-direction:column;
 }
 
 .chat-header{
-display:flex;
-align-items:center;
-gap:12px;
-padding:15px;
-border-bottom:1px solid #292932;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:15px;
+  border-bottom:1px solid #292932;
 }
 
 .chat-header-avatar{
-width:45px;
-height:45px;
-border-radius:50%;
-background:linear-gradient(135deg,#ff4f87,#7c3aed);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:23px;
-}
-
-.chat-header-info h3{
-margin-bottom:4px;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  background:linear-gradient(135deg,#ff4f87,#7c3aed);
 }
 
 .chat-header-info p{
-color:#66e3a1;
-font-size:11px;
+  color:#66e3a1;
+  font-size:11px;
+  margin-top:4px;
 }
 
 .messages{
-flex:1;
-overflow-y:auto;
-padding:20px;
-display:flex;
-flex-direction:column;
-gap:10px;
+  flex:1;
+  overflow-y:auto;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
 .message{
-max-width:75%;
-padding:10px 13px;
-border-radius:15px;
-font-size:14px;
-line-height:1.4;
-word-wrap:break-word;
+  max-width:75%;
+  padding:10px 13px;
+  border-radius:15px;
+  font-size:14px;
+  line-height:1.4;
+  word-break:break-word;
 }
 
 .message.me{
-align-self:flex-end;
-background:#ff4f87;
-border-bottom-right-radius:4px;
+  align-self:flex-end;
+  background:#ff4f87;
+  border-bottom-right-radius:4px;
 }
 
 .message.them{
-align-self:flex-start;
-background:#292932;
-border-bottom-left-radius:4px;
+  align-self:flex-start;
+  background:#292932;
+  border-bottom-left-radius:4px;
 }
 
 .message-time{
-display:block;
-font-size:9px;
-opacity:.65;
-margin-top:5px;
-text-align:right;
+  display:block;
+  font-size:9px;
+  opacity:.65;
+  margin-top:5px;
+  text-align:right;
 }
 
 .typing{
-display:none;
-padding:8px 20px;
-color:#aaa;
-font-size:12px;
+  display:none;
+  padding:8px 20px;
+  color:#aaa;
+  font-size:12px;
 }
 
 .chat-input{
-display:flex;
-gap:8px;
-padding:12px;
-border-top:1px solid #292932;
+  display:flex;
+  gap:8px;
+  padding:12px;
+  border-top:1px solid #292932;
 }
 
 .chat-input input{
-flex:1;
-padding:13px;
-border-radius:10px;
-border:1px solid #333;
-background:#0d0d12;
-color:white;
-outline:none;
-}
-
-.chat-input input:focus{
-border-color:#ff4f87;
+  flex:1;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid #333;
+  background:#0d0d12;
+  color:white;
+  outline:none;
 }
 
 .send{
-width:50px;
-border:none;
-border-radius:10px;
-background:#ff4f87;
-color:white;
-cursor:pointer;
-font-size:18px;
+  width:50px;
+  border:0;
+  border-radius:10px;
+  background:#ff4f87;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
 }
 
+/* ================= PREMIUM ================= */
+
 .premium{
-background:linear-gradient(135deg,#221722,#111116);
+  background:linear-gradient(135deg,#221722,#111116);
 }
 
 .premium-box{
-max-width:700px;
-margin:auto;
-text-align:center;
-background:#18151c;
-border:1px solid #4d2638;
-border-radius:20px;
-padding:40px 25px;
+  max-width:700px;
+  margin:auto;
+  text-align:center;
+  background:#18151c;
+  border:1px solid #4d2638;
+  border-radius:20px;
+  padding:40px 25px;
 }
 
 .price{
-color:#ff6b9c;
-font-size:34px;
-font-weight:bold;
-margin:18px 0;
+  color:#ff6b9c;
+  font-size:34px;
+  font-weight:bold;
+  margin:18px 0;
 }
 
 .features{
-list-style:none;
-color:#bbb;
-line-height:2;
-margin:20px 0;
-}
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-z-index:5000;
-background:rgba(0,0,0,.9);
-align-items:center;
-justify-content:center;
-padding:20px;
-}
-
-.modal.active{
-display:flex;
-}
-
-.modal-box{
-position:relative;
-width:100%;
-max-width:430px;
-padding:28px;
-background:#17171e;
-border:1px solid #39303a;
-border-radius:20px;
-}
-
-.close{
-position:absolute;
-right:18px;
-top:8px;
-font-size:30px;
-color:#aaa;
-cursor:pointer;
-}
-
-.modal-box h2{
-text-align:center;
-margin-bottom:8px;
-}
-
-.modal-subtitle{
-text-align:center;
-color:#999;
-font-size:13px;
-margin-bottom:20px;
-}
-
-label{
-display:block;
-margin:14px 0 7px;
-font-size:13px;
-}
-
-input{
-width:100%;
-padding:13px;
-border-radius:9px;
-border:1px solid #333;
-background:#0d0d12;
-color:white;
-outline:none;
-}
-
-.submit{
-width:100%;
-margin-top:20px;
-padding:14px;
-border:none;
-border-radius:9px;
-background:#ff4f87;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
-.auth-switch{
-text-align:center;
-color:#999;
-margin-top:18px;
-font-size:13px;
-}
-
-.auth-switch button{
-background:none;
-border:0;
-color:#ff4f87;
-cursor:pointer;
-font-weight:bold;
-}
-
-.match-popup{
-display:none;
-position:fixed;
-inset:0;
-z-index:9000;
-background:rgba(0,0,0,.94);
-align-items:center;
-justify-content:center;
-padding:20px;
-}
-
-.match-popup.active{
-display:flex;
-}
-
-.match-box{
-width:100%;
-max-width:400px;
-text-align:center;
-padding:40px 25px;
-background:linear-gradient(135deg,#24151e,#15151c);
-border:1px solid #ff4f87;
-border-radius:25px;
-}
-
-.match-title{
-color:#ff6b9c;
-font-size:38px;
-margin-bottom:15px;
+  list-style:none;
+  color:#bbb;
+  line-height:2;
+  margin:20px 0;
 }
 
 footer{
-text-align:center;
-padding:30px;
-color:#777;
-border-top:1px solid #25252d;
+  text-align:center;
+  padding:30px;
+  color:#777;
+  border-top:1px solid #25252d;
 }
+
+/* ================= POPUP ================= */
+
+.match-popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  background:rgba(0,0,0,.94);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.match-popup.active{
+  display:flex;
+}
+
+.match-box{
+  width:100%;
+  max-width:400px;
+  text-align:center;
+  padding:40px 25px;
+  background:linear-gradient(135deg,#24151e,#15151c);
+  border:1px solid #ff4f87;
+  border-radius:25px;
+}
+
+.match-title{
+  color:#ff6b9c;
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
-header{
-padding:13px 4%;
-}
+  header{
+    padding:13px 4%;
+  }
 
-.logo{
-font-size:17px;
-}
+  .logo{
+    font-size:17px;
+  }
 
-nav{
-gap:2px;
-}
+  nav{
+    gap:1px;
+  }
 
-nav a{
-font-size:8px;
-padding:7px 4px;
-}
+  nav a{
+    font-size:8px;
+    padding:7px 3px;
+  }
 
-h1{
-font-size:40px;
-}
+  .user-btn{
+    font-size:8px;
+    padding:7px 5px;
+  }
 
-.hero{
-padding:55px 7%;
-}
+  h1{
+    font-size:40px;
+  }
 
-.section{
-padding:45px 5%;
-}
+  .hero{
+    padding:55px 7%;
+  }
 
-.discover-grid{
-grid-template-columns:1fr;
-}
+  .section{
+    padding:45px 5%;
+  }
 
-.chat-container{
-height:650px;
-}
+  .discover-grid{
+    grid-template-columns:1fr;
+  }
 
-.chat-list{
-width:90px;
-}
+  .chat-container{
+    height:650px;
+  }
 
-.chat-user{
-justify-content:center;
-padding:12px 5px;
-}
+  .chat-list{
+    width:90px;
+  }
 
-.chat-user-info{
-display:none;
-}
+  .chat-user{
+    justify-content:center;
+    padding:12px 5px;
+  }
 
-.chat-list-title{
-text-align:center;
-font-size:11px;
-padding:15px 5px;
-}
+  .chat-user-info{
+    display:none;
+  }
 
-.message{
-max-width:85%;
-}
+  .chat-list-title{
+    text-align:center;
+    font-size:11px;
+    padding:15px 5px;
+  }
+
+  .message{
+    max-width:85%;
+  }
 
 }
 </style>
 </head>
 
 <body>
+
+<!-- ================= LOGIN & SIGNUP FIRST ================= -->
+
+<div id="authPage">
+
+  <div class="auth-container">
+
+    <div class="auth-logo">❤️ NIA DATING</div>
+
+    <h1 id="authTitle">Karibu</h1>
+
+    <p class="auth-subtitle" id="authSubtitle">
+      Ingia au tengeneza account ili kuanza kupata connections.
+    </p>
+
+    <div class="auth-tabs">
+
+      <button class="auth-tab active" id="loginTab" onclick="showAuth('login')">
+        LOGIN
+      </button>
+
+      <button class="auth-tab" id="signupTab" onclick="showAuth('signup')">
+        SIGN UP
+      </button>
+
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <form class="auth-form active" id="loginForm" onsubmit="login(event)">
+
+      <label>Email</label>
+
+      <input
+      id="loginEmail"
+      type="email"
+      placeholder="example@email.com"
+      required>
+
+      <label>Password</label>
+
+      <input
+      id="loginPassword"
+      type="password"
+      placeholder="Password"
+      required>
+
+      <button class="auth-submit" type="submit">
+        LOGIN ❤️
+      </button>
+
+    </form>
+
+
+    <!-- SIGN UP -->
+
+    <form class="auth-form" id="signupForm" onsubmit="signup(event)">
+
+      <label>Jina</label>
+
+      <input
+      id="signupName"
+      type="text"
+      placeholder="Jina lako"
+      required>
+
+      <label>Email</label>
+
+      <input
+      id="signupEmail"
+      type="email"
+      placeholder="example@email.com"
+      required>
+
+      <label>Password</label>
+
+      <input
+      id="signupPassword"
+      type="password"
+      placeholder="Password (angalau 6)"
+      required>
+
+      <button class="auth-submit" type="submit">
+        CREATE ACCOUNT ❤️
+      </button>
+
+    </form>
+
+    <p class="auth-note">
+      ❤️ Meet • Match • Connect
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- ================= MAIN APP ================= -->
+
+<div id="app">
 
 <header>
 
@@ -705,24 +856,21 @@ max-width:85%;
 </a>
 
 <nav>
-
 <a href="#home">HOME</a>
 <a href="#discover">DISCOVER</a>
 <a href="#matches">MATCHES</a>
 <a href="#chat">CHAT</a>
 <a href="#premium">PREMIUM</a>
 
-<a
-href="#"
-class="join-btn"
-id="authButton">
-JISAJILI
-</a>
-
+<button class="user-btn" onclick="logout()">
+LOGOUT
+</button>
 </nav>
 
 </header>
 
+
+<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -733,8 +881,8 @@ JISAJILI
 </div>
 
 <h1>
-Find Someone
-<span>Special</span>
+Welcome,
+<span id="welcomeName">User</span> ❤️
 </h1>
 
 <p>
@@ -755,6 +903,8 @@ tafuta mtu anayekufaa na anza mazungumzo.
 </section>
 
 
+<!-- DISCOVER -->
+
 <section class="section discover" id="discover">
 
 <h2>❤️ Discover People</h2>
@@ -768,13 +918,12 @@ class="search"
 id="search"
 placeholder="🔎 Tafuta jina au location...">
 
-<div
-class="discover-grid"
-id="discoverGrid">
-</div>
+<div class="discover-grid" id="discoverGrid"></div>
 
 </section>
 
+
+<!-- MATCHES -->
 
 <section class="section matches" id="matches">
 
@@ -784,13 +933,12 @@ id="discoverGrid">
 Watu uliowapenda na kuwa-match nao.
 </p>
 
-<div
-class="matches-grid"
-id="matchesGrid">
-</div>
+<div class="matches-grid" id="matchesGrid"></div>
 
 </section>
 
+
+<!-- CHAT -->
 
 <section class="section chat-section" id="chat">
 
@@ -817,9 +965,7 @@ Ongea na watu ambao ume-match nao.
 
 <div class="chat-header">
 
-<div
-class="chat-header-avatar"
-id="chatAvatar">
+<div class="chat-header-avatar" id="chatAvatar">
 ❤️
 </div>
 
@@ -838,16 +984,13 @@ Select a Match
 </div>
 
 
-<div
-class="messages"
-id="messages">
+<div class="messages" id="messages">
 
 <div style="
 text-align:center;
 color:#777;
 margin:auto;
-font-size:13px;
-">
+font-size:13px;">
 
 💕 Chagua match kuanza chat
 
@@ -855,25 +998,19 @@ font-size:13px;
 
 </div>
 
-<div
-class="typing"
-id="typing">
+<div class="typing" id="typing">
 ● ● ● Anaandika...
 </div>
 
 
-<form
-class="chat-input"
-id="chatForm">
+<form class="chat-input" onsubmit="sendMessage(event)">
 
 <input
 id="messageInput"
 placeholder="Andika ujumbe..."
 autocomplete="off">
 
-<button
-class="send"
-type="submit">
+<button class="send" type="submit">
 ➤
 </button>
 
@@ -886,6 +1023,8 @@ type="submit">
 </section>
 
 
+<!-- PREMIUM -->
+
 <section class="section premium" id="premium">
 
 <div class="premium-box">
@@ -894,26 +1033,24 @@ type="submit">
 💎 NIA PREMIUM
 </div>
 
-<h2>
-Unlock More Connections
-</h2>
+<h2>Unlock More Connections</h2>
+
+<p class="section-text">
+Pata features zaidi za NIA DATING.
+</p>
 
 <div class="price">
 TZS 5,000 / Month
 </div>
 
 <ul class="features">
-
 <li>❤️ Unlimited Likes</li>
 <li>👀 See Who Likes You</li>
 <li>🚀 Profile Boost</li>
 <li>💬 Premium Chat</li>
-
 </ul>
 
-<button
-class="btn primary"
-onclick="openPremium()">
+<button class="btn primary" onclick="getPremium()">
 💎 GET PREMIUM
 </button>
 
@@ -928,93 +1065,12 @@ onclick="openPremium()">
 Meet • Match • Connect
 </footer>
 
-
-<!-- AUTH -->
-
-<div
-class="modal"
-id="authModal">
-
-<div class="modal-box">
-
-<span
-class="close"
-onclick="closeAuth()">
-×
-</span>
-
-<h2 id="authTitle">
-Jisajili ❤️
-</h2>
-
-<p
-class="modal-subtitle"
-id="authSubtitle">
-Tengeneza account yako ya NIA DATING
-</p>
-
-<form id="authForm">
-
-<div id="signupFields">
-
-<label>Jina</label>
-
-<input
-id="authName"
-type="text"
-placeholder="Jina lako">
-
-</div>
-
-<label>Email</label>
-
-<input
-id="authEmail"
-type="email"
-placeholder="example@email.com"
-required>
-
-<label>Password</label>
-
-<input
-id="authPassword"
-type="password"
-placeholder="Password"
-required>
-
-<button
-class="submit"
-id="authSubmit"
-type="submit">
-CREATE ACCOUNT
-</button>
-
-</form>
-
-<div class="auth-switch">
-
-<span id="authSwitchText">
-Tayari una account?
-</span>
-
-<button
-id="authSwitch"
-type="button">
-LOGIN
-</button>
-
-</div>
-
-</div>
-
 </div>
 
 
 <!-- MATCH POPUP -->
 
-<div
-class="match-popup"
-id="matchPopup">
+<div class="match-popup" id="matchPopup">
 
 <div class="match-box">
 
@@ -1026,9 +1082,7 @@ IT'S A MATCH! ❤️
 Mnaendana!
 </p>
 
-<button
-class="btn primary"
-onclick="closeMatch()">
+<button class="btn primary" onclick="closeMatch()">
 💬 START CHAT
 </button>
 
@@ -1039,11 +1093,9 @@ onclick="closeMatch()">
 
 <script>
 
-/* ===============================
-PROFILES
-=============================== */
+/* ================= PROFILES ================= */
 
-const profiles=[
+const profiles = [
 {
 id:"asha",
 name:"Asha",
@@ -1095,227 +1147,73 @@ bio:"Love, respect and honest communication."
 ];
 
 
-/* ===============================
-DATA
-=============================== */
+/* ================= STORAGE ================= */
 
-let liked=JSON.parse(
-localStorage.getItem("niaLiked")||"[]"
-);
+let liked = JSON.parse(localStorage.getItem("niaLiked") || "[]");
+let passed = JSON.parse(localStorage.getItem("niaPassed") || "[]");
+let matched = JSON.parse(localStorage.getItem("niaMatched") || "[]");
 
-let passed=JSON.parse(
-localStorage.getItem("niaPassed")||"[]"
-);
-
-let matched=JSON.parse(
-localStorage.getItem("niaMatched")||"[]"
-);
-
-let currentChat=null;
-let authMode="signup";
+let currentChat = null;
 
 
-/* ===============================
-AUTH
-=============================== */
+/* ================= AUTH TABS ================= */
 
-function getUsers(){
+function showAuth(type){
 
-return JSON.parse(
-localStorage.getItem("niaUsers")||"[]"
-);
+document.getElementById("loginTab").classList.remove("active");
+document.getElementById("signupTab").classList.remove("active");
 
-}
+document.getElementById("loginForm").classList.remove("active");
+document.getElementById("signupForm").classList.remove("active");
 
-function currentUser(){
+if(type === "login"){
 
-return JSON.parse(
-localStorage.getItem("niaCurrentUser")||"null"
-);
+document.getElementById("loginTab").classList.add("active");
+document.getElementById("loginForm").classList.add("active");
 
-}
-
-function openAuth(mode){
-
-authMode=mode;
-updateAuthUI();
-
-document
-.getElementById("authModal")
-.classList.add("active");
-
-}
-
-function closeAuth(){
-
-document
-.getElementById("authModal")
-.classList.remove("active");
-
-}
-
-function updateAuthUI(){
-
-let signup=
-authMode==="signup";
-
-document.getElementById("authTitle")
-.textContent=
-signup?"Jisajili ❤️":"Karibu tena ❤️";
-
-document.getElementById("authSubtitle")
-.textContent=
-signup
-?"Tengeneza account yako ya NIA DATING"
-:"Ingia kwenye account yako";
-
-document.getElementById("authSubmit")
-.textContent=
-signup?"CREATE ACCOUNT":"LOGIN";
-
-document.getElementById("signupFields")
-.style.display=
-signup?"block":"none";
-
-document.getElementById("authSwitchText")
-.textContent=
-signup
-?"Tayari una account?"
-:"Huna account?";
-
-document.getElementById("authSwitch")
-.textContent=
-signup?"LOGIN":"JISAJILI";
-
-}
-
-
-document
-.getElementById("authButton")
-.addEventListener("click",function(e){
-
-e.preventDefault();
-
-if(currentUser()){
-
-if(confirm("Unataka kutoka kwenye account?")){
-
-localStorage.removeItem("niaCurrentUser");
-
-updateAuthButton();
-
-alert("👋 Umetoka kwenye account.");
-
-}
+document.getElementById("authTitle").textContent = "Karibu tena ❤️";
 
 }else{
 
-openAuth("signup");
+document.getElementById("signupTab").classList.add("active");
+document.getElementById("signupForm").classList.add("active");
+
+document.getElementById("authTitle").textContent = "Jisajili ❤️";
 
 }
 
-});
+}
 
 
-document
-.getElementById("authSwitch")
-.addEventListener("click",function(){
+/* ================= SIGNUP ================= */
 
-authMode=
-authMode==="signup"
-?"login"
-:"signup";
+function signup(event){
 
-updateAuthUI();
+event.preventDefault();
 
-});
+const name = document.getElementById("signupName").value.trim();
+const email = document.getElementById("signupEmail").value.trim().toLowerCase();
+const password = document.getElementById("signupPassword").value;
 
+if(password.length < 6){
 
-document
-.getElementById("authForm")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-let users=getUsers();
-
-let email=
-document.getElementById("authEmail")
-.value.trim()
-.toLowerCase();
-
-let password=
-document.getElementById("authPassword")
-.value;
-
-if(authMode==="login"){
-
-let user=users.find(
-u=>u.email===email &&
-u.password===password
-);
-
-if(!user){
-
-alert("❌ Email au password sio sahihi.");
-
+alert("Password iwe angalau characters 6.");
 return;
 
 }
 
-localStorage.setItem(
-"niaCurrentUser",
-JSON.stringify({
-name:user.name,
-email:user.email,
-id:user.id
-})
-);
+let users = JSON.parse(localStorage.getItem("niaUsers") || "[]");
 
-closeAuth();
-updateAuthButton();
+if(users.some(user => user.email === email)){
 
-alert("❤️ Karibu tena "+user.name+"!");
-
+alert("Email hii tayari ina account. Tafadhali LOGIN.");
+showAuth("login");
 return;
 
 }
 
-
-let name=
-document.getElementById("authName")
-.value.trim();
-
-if(name.length<2){
-
-alert("❌ Weka jina lako.");
-
-return;
-
-}
-
-if(password.length<6){
-
-alert("❌ Password iwe angalau characters 6.");
-
-return;
-
-}
-
-if(users.some(u=>u.email===email)){
-
-alert("⚠️ Email tayari ipo.");
-
-authMode="login";
-
-updateAuthUI();
-
-return;
-
-}
-
-let user={
-id:"user_"+Date.now(),
+const user = {
+id:"user_" + Date.now(),
 name:name,
 email:email,
 password:password
@@ -1323,10 +1221,7 @@ password:password
 
 users.push(user);
 
-localStorage.setItem(
-"niaUsers",
-JSON.stringify(users)
-);
+localStorage.setItem("niaUsers", JSON.stringify(users));
 
 localStorage.setItem(
 "niaCurrentUser",
@@ -1337,89 +1232,124 @@ email:user.email
 })
 );
 
-closeAuth();
-updateAuthButton();
+openApp();
 
-alert(
-"🎉 Account imetengenezwa!\n\nKaribu "+name+" ❤️"
+}
+
+
+/* ================= LOGIN ================= */
+
+function login(event){
+
+event.preventDefault();
+
+const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+const password = document.getElementById("loginPassword").value;
+
+const users = JSON.parse(localStorage.getItem("niaUsers") || "[]");
+
+const user = users.find(
+u => u.email === email && u.password === password
 );
 
-});
+if(!user){
+
+alert("Email au Password sio sahihi.");
+return;
+
+}
+
+localStorage.setItem(
+"niaCurrentUser",
+JSON.stringify({
+id:user.id,
+name:user.name,
+email:user.email
+})
+);
+
+openApp();
+
+}
 
 
-function updateAuthButton(){
+/* ================= OPEN APP ================= */
 
-let btn=
-document.getElementById("authButton");
+function openApp(){
 
-let user=currentUser();
+const user = JSON.parse(
+localStorage.getItem("niaCurrentUser")
+);
 
-if(user){
+if(!user)return;
 
-btn.textContent="👤 "+user.name;
+document.getElementById("authPage").style.display = "none";
 
-}else{
+document.getElementById("app").style.display = "block";
 
-btn.textContent="JISAJILI";
+document.getElementById("welcomeName").textContent = user.name;
+
+showProfiles();
+showMatches();
+loadChatUsers();
+
+window.scrollTo(0,0);
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+function logout(){
+
+if(confirm("Unataka kutoka kwenye account?")){
+
+localStorage.removeItem("niaCurrentUser");
+
+document.getElementById("app").style.display = "none";
+
+document.getElementById("authPage").style.display = "flex";
+
+document.getElementById("loginForm").reset();
 
 }
 
 }
 
 
-/* ===============================
-DISCOVER
-=============================== */
+/* ================= DISCOVER ================= */
 
 function showProfiles(){
 
-let search=
-document.getElementById("search")
-.value.toLowerCase();
+const search = document.getElementById("search").value.toLowerCase();
 
-let grid=
-document.getElementById("discoverGrid");
+const grid = document.getElementById("discoverGrid");
 
-let list=
-profiles.filter(p=>{
+const list = profiles.filter(p => {
 
 if(liked.includes(p.id))return false;
 if(passed.includes(p.id))return false;
 
-return(
-p.name.toLowerCase().includes(search)||
-p.location.toLowerCase().includes(search)
-);
+return p.name.toLowerCase().includes(search) ||
+p.location.toLowerCase().includes(search);
 
 });
 
+if(list.length === 0){
 
-if(!list.length){
-
-grid.innerHTML=`
-
-<div style="
-grid-column:1/-1;
-text-align:center;
-padding:50px;
-color:#888">
-
-<div style="font-size:50px">
-💔
+grid.innerHTML = `
+<div style="grid-column:1/-1;text-align:center;padding:50px;color:#888;">
+<div style="font-size:50px;">💔</div>
+<h3 style="color:white;margin-top:10px;">Hakuna profiles</h3>
+<p style="margin-top:8px;">Jaribu search nyingine.</p>
 </div>
-
-<h3 style="color:white">
-Hakuna profiles
-</h3>
-
-</div>`;
+`;
 
 return;
 
 }
 
-
-grid.innerHTML=list.map(p=>`
+grid.innerHTML = list.map(p => `
 
 <div class="profile-card">
 
@@ -1474,29 +1404,9 @@ onclick="viewProfile('${p.id}')">
 }
 
 
-document
-.getElementById("search")
-.addEventListener(
-"input",
-showProfiles
-);
-
-
-/* ===============================
-LIKE
-=============================== */
+/* ================= LIKE ================= */
 
 function likeProfile(id){
-
-if(!currentUser()){
-
-alert("🔐 Login kwanza.");
-
-openAuth("login");
-
-return;
-
-}
 
 if(!liked.includes(id)){
 
@@ -1518,10 +1428,9 @@ localStorage.setItem(
 JSON.stringify(matched)
 );
 
-let p=
-profiles.find(x=>x.id===id);
+const profile = profiles.find(p => p.id === id);
 
-showMatch(p);
+showMatch(profile);
 
 }
 
@@ -1532,21 +1441,9 @@ loadChatUsers();
 }
 
 
-/* ===============================
-PASS
-=============================== */
+/* ================= PASS ================= */
 
 function passProfile(id){
-
-if(!currentUser()){
-
-alert("🔐 Login kwanza.");
-
-openAuth("login");
-
-return;
-
-}
 
 if(!passed.includes(id)){
 
@@ -1564,45 +1461,48 @@ showProfiles();
 }
 
 
-/* ===============================
-MATCHES
-=============================== */
+/* ================= VIEW PROFILE ================= */
+
+function viewProfile(id){
+
+const p = profiles.find(x => x.id === id);
+
+if(!p)return;
+
+alert(
+p.name + ", " + p.age +
+"\n\n📍 " + p.location +
+"\n\n❤️ " + p.bio
+);
+
+}
+
+
+/* ================= MATCHES ================= */
 
 function showMatches(){
 
-let grid=
-document.getElementById("matchesGrid");
+const grid = document.getElementById("matchesGrid");
 
-let list=
-matched
-.map(id=>profiles.find(p=>p.id===id))
+const list = matched
+.map(id => profiles.find(p => p.id === id))
 .filter(Boolean);
 
-if(!list.length){
+if(list.length === 0){
 
-grid.innerHTML=`
-
-<div style="
-grid-column:1/-1;
-text-align:center;
-padding:40px;
-color:#888">
-
-<div style="font-size:45px">
-💕
+grid.innerHTML = `
+<div style="grid-column:1/-1;text-align:center;padding:40px;background:#15151c;border-radius:16px;color:#888;">
+<div style="font-size:45px;">💕</div>
+<h3 style="color:white;margin-top:10px;">Bado huna match</h3>
+<p style="margin-top:8px;">Like profile kupata match.</p>
 </div>
-
-<h3 style="color:white">
-Bado huna match
-</h3>
-
-</div>`;
+`;
 
 return;
 
 }
 
-grid.innerHTML=list.map(p=>`
+grid.innerHTML = list.map(p => `
 
 <div class="match-card">
 
@@ -1627,40 +1527,30 @@ onclick="openChat('${p.id}')">
 }
 
 
-/* ===============================
-CHAT USERS
-=============================== */
+/* ================= CHAT USERS ================= */
 
 function loadChatUsers(){
 
-let box=
-document.getElementById("chatUsers");
+const box = document.getElementById("chatUsers");
 
-let list=
-matched
-.map(id=>profiles.find(p=>p.id===id))
+const list = matched
+.map(id => profiles.find(p => p.id === id))
 .filter(Boolean);
 
-if(!list.length){
+if(list.length === 0){
 
-box.innerHTML=`
-
-<div style="
-padding:25px;
-text-align:center;
-color:#777;
-font-size:11px">
-
+box.innerHTML = `
+<div style="padding:25px 10px;text-align:center;color:#777;font-size:11px;">
 💕<br><br>
 Hakuna matches bado.
-
-</div>`;
+</div>
+`;
 
 return;
 
 }
 
-box.innerHTML=list.map(p=>`
+box.innerHTML = list.map(p => `
 
 <div
 class="chat-user"
@@ -1675,7 +1565,7 @@ ${p.emoji}
 <h4>${p.name}</h4>
 
 <p>
-<span style="color:#66e3a1">●</span>
+<span style="color:#66e3a1;">●</span>
 Online
 </p>
 
@@ -1688,66 +1578,37 @@ Online
 }
 
 
-/* ===============================
-OPEN CHAT
-=============================== */
+/* ================= OPEN CHAT ================= */
 
 function openChat(id){
 
-if(!currentUser()){
+const profile = profiles.find(p => p.id === id);
 
-alert("🔐 Login kwanza ili kutumia chat.");
+if(!profile)return;
 
-openAuth("login");
+currentChat = id;
 
-return;
+document.getElementById("chatName").textContent = profile.name;
 
-}
+document.getElementById("chatAvatar").textContent = profile.emoji;
 
-if(!matched.includes(id)){
-
-alert("❤️ Like profile kwanza.");
-
-return;
-
-}
-
-let p=
-profiles.find(x=>x.id===id);
-
-if(!p)return;
-
-currentChat=id;
-
-document
-.getElementById("chatName")
-.textContent=p.name;
-
-document
-.getElementById("chatAvatar")
-.textContent=p.emoji;
+document.getElementById("chatStatus").textContent = "● Online";
 
 loadMessages(id);
 
-document
-.getElementById("chat")
-.scrollIntoView({
+document.getElementById("chat").scrollIntoView({
 behavior:"smooth"
 });
 
 }
 
 
-/* ===============================
-MESSAGE STORAGE
-=============================== */
+/* ================= MESSAGES ================= */
 
 function getMessages(id){
 
 return JSON.parse(
-localStorage.getItem(
-"niaMessages_"+id
-)||"[]"
+localStorage.getItem("niaChat_" + id) || "[]"
 );
 
 }
@@ -1755,52 +1616,35 @@ localStorage.getItem(
 function saveMessages(id,messages){
 
 localStorage.setItem(
-"niaMessages_"+id,
+"niaChat_" + id,
 JSON.stringify(messages)
 );
 
 }
 
-
-/* ===============================
-LOAD MESSAGES
-=============================== */
-
 function loadMessages(id){
 
-let box=
-document.getElementById("messages");
+const container = document.getElementById("messages");
 
-let messages=
-getMessages(id);
+const messages = getMessages(id);
 
-if(!messages.length){
+if(messages.length === 0){
 
-let p=
-profiles.find(x=>x.id===id);
+const profile = profiles.find(p => p.id === id);
 
-box.innerHTML=`
-
-<div style="
-margin:auto;
-text-align:center;
-color:#777;
-font-size:13px">
-
-❤️ Ume-match na ${p.name}
-
+container.innerHTML = `
+<div style="margin:auto;text-align:center;color:#777;font-size:13px;">
+❤️ Ume-match na ${profile.name}
 <br><br>
-
 Anza mazungumzo.
-
-</div>`;
+</div>
+`;
 
 return;
 
 }
 
-box.innerHTML=
-messages.map(m=>`
+container.innerHTML = messages.map(m => `
 
 <div class="message ${m.sender}">
 
@@ -1808,323 +1652,162 @@ ${escapeHTML(m.text)}
 
 <span class="message-time">
 ${m.time}
-${m.sender==="me"?" ✓✓":""}
+${m.sender === "me" ? " ✓✓" : ""}
 </span>
 
 </div>
 
 `).join("");
 
-box.scrollTop=box.scrollHeight;
+container.scrollTop = container.scrollHeight;
 
 }
 
 
-/* ===============================
-SMART AUTO REPLY
-=============================== */
+/* ================= AUTO REPLY ================= */
 
-function autoReply(text){
+function getAutoReply(text){
 
-let msg=
-text.toLowerCase().trim();
-
-
-/* SALAMU */
+const msg = text.toLowerCase().trim();
 
 if(
-/^(hi|hello|hey|habari|mambo|hujambo)\b/.test(msg)
+msg.includes("habari") ||
+msg.includes("hello") ||
+msg.includes("hi") ||
+msg.includes("mambo")
 ){
 
 return randomReply([
-"❤️ Hi! Habari yako?",
-"😊 Hey! Uko poa?",
-"💕 Hello! Nimefurahi umeandika.",
-"🥰 Hi, nimefurahi kukuona."
+"❤️ Habari! Nipo vizuri, wewe je?",
+"😊 Hey! Nimefurahi kusikia kutoka kwako.",
+"💕 Mambo! Uko poa?"
 ]);
 
 }
 
-
-/* UKOJE */
-
 if(
-msg.includes("ukoje")||
-msg.includes("upoje")||
-msg.includes("hali yako")||
-msg.includes("unaendeleaje")
+msg.includes("ukoje") ||
+msg.includes("upoje") ||
+msg.includes("hali")
 ){
 
 return randomReply([
-"😊 Nipo vizuri kabisa, wewe je?",
-"❤️ Niko poa sana. Asante kwa kuniuliza.",
-"🥰 Niko vizuri, nimefurahi kuongea na wewe.",
-"💕 Nipo fresh kabisa."
+"😊 Nipo vizuri sana, wewe je?",
+"❤️ Niko poa kabisa.",
+"🥰 Niko fresh, asante kwa kuniuliza."
 ]);
 
 }
 
-
-/* NAKUPENDA */
-
 if(
-msg.includes("nakupenda")||
-msg.includes("i love you")||
-msg.includes("love you")
+msg.includes("nakupenda") ||
+msg.includes("i love you")
 ){
 
 return randomReply([
-"❤️ Awww... na mimi nakupenda.",
-"🥰 Umenifanya nitabasamu sana.",
-"💕 Hilo ni tamu kusikia.",
-"😍 Na mimi nina feelings kwako."
+"❤️ Awww, maneno matamu sana.",
+"🥰 Umenifanya nitabasamu.",
+"💕 Na mimi ninafurahia kuwa karibu na wewe."
 ]);
 
 }
 
-
-/* NAKUMISS */
-
 if(
-msg.includes("nakumiss")||
-msg.includes("nimekumiss")||
+msg.includes("nakumiss") ||
 msg.includes("miss you")
 ){
 
 return randomReply([
-"🥺 Na mimi nimekumiss sana.",
-"❤️ Nilikuwa nakuwaza pia.",
-"💕 Awww, nimekumiss pia.",
-"😍 Basi tuongee zaidi."
+"🥺 Na mimi nimekumiss.",
+"❤️ Awww, tuongee zaidi basi.",
+"💕 Nilikuwa nakuwaza pia."
 ]);
 
 }
 
-
-/* UNAFANYA NINI */
-
 if(
-msg.includes("unafanya nini")||
-msg.includes("unafanya nn")||
+msg.includes("unafanya nini") ||
+msg.includes("unafanya nn") ||
 msg.includes("what are you doing")
 ){
 
 return randomReply([
-"😊 Nipo hapa naongea na wewe.",
-"❤️ Nimekaa tu, sasa nimepata company yako.",
-"💕 Nilikuwa nasubiri ujumbe wako.",
-"🥰 Kwa sasa naongea na wewe."
+"😊 Nipo hapa tu, sasa naongea na wewe.",
+"❤️ Nilikuwa nasubiri message yako.",
+"💕 Nimekaa tu, wewe je?"
 ]);
 
 }
 
-
-/* UPO WAPI */
-
 if(
-msg.includes("uko wapi")||
-msg.includes("upo wapi")||
-msg.includes("where are you")
-){
-
-return randomReply([
-"😊 Nipo hapa tu, wewe uko wapi?",
-"💕 Nipo online NIA DATING.",
-"❤️ Nipo sehemu yangu, wewe uko wapi?",
-"🥰 Muhimu ni kwamba niko hapa."
-]);
-
-}
-
-
-/* JINA */
-
-if(
-msg.includes("jina lako")||
-msg.includes("unaitwa nani")||
-msg.includes("what is your name")
-){
-
-return randomReply([
-"❤️ Unaweza kuniita NIA.",
-"😊 Jina langu ni NIA.",
-"💕 Mimi ni NIA."
-]);
-
-}
-
-
-/* MREMBO */
-
-if(
-msg.includes("mrembo")||
-msg.includes("beautiful")||
-msg.includes("pretty")||
-msg.includes("cute")
-){
-
-return randomReply([
-"🥰 Awww, asante sana.",
-"❤️ Umenifanya niwe shy.",
-"😊 Wewe pia unaonekana vizuri.",
-"💕 Maneno yako ni matamu."
-]);
-
-}
-
-
-/* GOOD MORNING */
-
-if(
-msg.includes("good morning")||
-msg.includes("morning")||
+msg.includes("good morning") ||
 msg.includes("asubuhi njema")
 ){
 
-return randomReply([
-"🌅 Good morning ❤️ Umeamkaje?",
-"🥰 Asubuhi njema! Uwe na siku nzuri.",
-"💕 Morning! Nimefurahi kuona ujumbe wako.",
-"❤️ Good morning dear."
-]);
+return "🌅 Good morning ❤️ Umeamkaje?";
 
 }
 
-
-/* GOOD NIGHT */
-
 if(
-msg.includes("good night")||
-msg.includes("usiku mwema")||
-msg.includes("lala salama")
+msg.includes("good night") ||
+msg.includes("usiku mwema")
 ){
 
-return randomReply([
-"🌙 Usiku mwema ❤️ Lala salama.",
-"🥰 Good night! Tutaongea kesho.",
-"💕 Lala vizuri.",
-"❤️ Good night dear."
-]);
+return "🌙 Usiku mwema ❤️ Lala salama.";
 
 }
 
-
-/* ASANTE */
-
 if(
-msg.includes("asante")||
-msg.includes("thanks")||
-msg.includes("thank you")
+msg.includes("asante") ||
+msg.includes("thank")
 ){
 
-return randomReply([
-"❤️ Karibu sana.",
-"😊 Usijali kabisa.",
-"💕 Anytime.",
-"🥰 Ni furaha yangu."
-]);
+return "❤️ Karibu sana, ni furaha yangu.";
 
 }
 
-
-/* SAMAHANI */
-
 if(
-msg.includes("samahani")||
+msg.includes("samahani") ||
 msg.includes("sorry")
 ){
 
-return randomReply([
-"❤️ Hakuna shida.",
-"😊 Usijali, kila kitu kiko sawa.",
-"💕 It's okay.",
-"🥰 Usifikirie sana."
-]);
+return "😊 Hakuna shida kabisa, usijali.";
 
 }
 
-
-/* TUKUTANE */
-
 if(
-msg.includes("tukutane")||
-msg.includes("kuonana")||
-msg.includes("meet")
-){
-
-return randomReply([
-"😍 Ningependa tukutane siku moja.",
-"💕 Kwanza tujuane vizuri.",
-"😊 Hilo ni wazo zuri.",
-"❤️ Tutapanga muda mzuri."
-]);
-
-}
-
-
-/* WHATSAPP */
-
-if(
-msg.includes("whatsapp")||
-msg.includes("namba yako")||
+msg.includes("whatsapp") ||
 msg.includes("namba")
 ){
 
-return randomReply([
-"😊 Tuendelee kwanza kujuana hapa.",
-"💕 Tutabadilishana namba tukishazoeana.",
-"❤️ Hebu tuongee hapa kwanza."
-]);
+return "💕 Tuendelee kwanza kujuana hapa NIA DATING.";
 
 }
 
-
-/* DEFAULT */
-
 return randomReply([
-"😊 Interesting! Niambie zaidi.",
-"❤️ Nimekusikia, endelea kuniambia.",
+"😊 Interesting, niambie zaidi.",
+"❤️ Nimekusikia, endelea.",
 "💕 Kweli? Nieleze zaidi.",
 "🥰 Napenda kusikia kutoka kwako.",
-"😊 Hiyo ni interesting sana.",
-"❤️ Endelea kuongea, niko hapa.",
-"💕 Nimefurahi umeandika.",
-"😍 Tell me more..."
+"😊 Niko hapa, endelea kuongea."
 ]);
 
 }
 
+function randomReply(list){
 
-function randomReply(array){
-
-return array[
-Math.floor(
-Math.random()*array.length
-)
+return list[
+Math.floor(Math.random() * list.length)
 ];
 
 }
 
 
-/* ===============================
-SEND MESSAGE
-=============================== */
+/* ================= SEND MESSAGE ================= */
 
-document
-.getElementById("chatForm")
-.addEventListener("submit",function(e){
+function sendMessage(event){
 
-e.preventDefault();
-
-if(!currentUser()){
-
-alert("🔐 Login kwanza.");
-
-openAuth("login");
-
-return;
-
-}
+event.preventDefault();
 
 if(!currentChat){
 
@@ -2134,20 +1817,15 @@ return;
 
 }
 
-let input=
-document.getElementById("messageInput");
+const input = document.getElementById("messageInput");
 
-let text=
-input.value.trim();
+const text = input.value.trim();
 
 if(!text)return;
 
+const messages = getMessages(currentChat);
 
-let messages=
-getMessages(currentChat);
-
-let now=
-new Date().toLocaleTimeString(
+const time = new Date().toLocaleTimeString(
 [],
 {
 hour:"2-digit",
@@ -2155,49 +1833,40 @@ minute:"2-digit"
 }
 );
 
-
-/* USER MESSAGE */
-
 messages.push({
-
 sender:"me",
 text:text,
-time:now
-
+time:time
 });
 
-saveMessages(
-currentChat,
-messages
-);
+saveMessages(currentChat,messages);
 
-input.value="";
+input.value = "";
 
 loadMessages(currentChat);
 
 
-/* TYPING */
-
-let typing=
-document.getElementById("typing");
-
-typing.style.display="block";
-
-
 /* AUTO REPLY */
 
-setTimeout(function(){
+const typing = document.getElementById("typing");
 
-typing.style.display="none";
+typing.style.display = "block";
 
-let reply=
-autoReply(text);
+setTimeout(() => {
 
-let newMessages=
-getMessages(currentChat);
+typing.style.display = "none";
 
-newMessages.push({
+/* IMPORTANT: save chat id first */
 
+const chatId = currentChat;
+
+if(!chatId)return;
+
+const replyMessages = getMessages(chatId);
+
+const reply = getAutoReply(text);
+
+replyMessages.push({
 sender:"them",
 text:reply,
 time:new Date().toLocaleTimeString(
@@ -2206,119 +1875,85 @@ time:new Date().toLocaleTimeString(
 hour:"2-digit",
 minute:"2-digit"
 }
-)
+)});
 
-});
+saveMessages(chatId,replyMessages);
 
-saveMessages(
-currentChat,
-newMessages
-);
+if(currentChat === chatId){
+loadMessages(chatId);
+}
 
-loadMessages(currentChat);
-
-},1500);
-
-});
-
-
-/* ===============================
-VIEW PROFILE
-=============================== */
-
-function viewProfile(id){
-
-let p=
-profiles.find(x=>x.id===id);
-
-if(!p)return;
-
-alert(
-p.name+", "+p.age+
-"\n\n📍 "+p.location+
-"\n\n❤️ "+p.bio
-);
+},1200);
 
 }
 
 
-/* ===============================
-MATCH POPUP
-=============================== */
+/* ================= MATCH POPUP ================= */
 
-function showMatch(p){
+function showMatch(profile){
 
-document
-.getElementById("matchText")
-.textContent=
-"Wewe na "+p.name+" mme-match! ❤️";
+document.getElementById("matchText").textContent =
+"Wewe na " + profile.name + " mme-match! ❤️";
 
-document
-.getElementById("matchPopup")
+document.getElementById("matchPopup")
 .classList.add("active");
 
 }
 
 function closeMatch(){
 
-document
-.getElementById("matchPopup")
+document.getElementById("matchPopup")
 .classList.remove("active");
 
 }
 
 
-/* ===============================
-PREMIUM
-=============================== */
+/* ================= PREMIUM ================= */
 
-function openPremium(){
-
-if(!currentUser()){
-
-alert("🔐 Login kwanza ili kupata Premium.");
-
-openAuth("login");
-
-return;
-
-}
+function getPremium(){
 
 alert(
-"💎 NIA PREMIUM\n\n"+
-"TZS 5,000 / Month\n\n"+
-"Payment system itaongezwa hatua inayofuata."
+"💎 NIA PREMIUM\n\nTZS 5,000 / Month\n\nPayment system itaongezwa kwenye hatua inayofuata."
 );
 
 }
 
 
-/* ===============================
-ESCAPE HTML
-=============================== */
+/* ================= ESCAPE ================= */
 
 function escapeHTML(text){
 
-let div=
-document.createElement("div");
+const div = document.createElement("div");
 
-div.textContent=text;
+div.textContent = text;
 
 return div.innerHTML;
 
 }
 
 
-/* ===============================
-START
-=============================== */
+/* ================= SEARCH ================= */
 
-showProfiles();
-showMatches();
-loadChatUsers();
-updateAuthButton();
+document.getElementById("search")
+.addEventListener("input",showProfiles);
+
+
+/* ================= START ================= */
+
+const savedUser =
+localStorage.getItem("niaCurrentUser");
+
+if(savedUser){
+
+openApp();
+
+}else{
+
+document.getElementById("authPage").style.display = "flex";
+
+}
 
 </script>
 
 </body>
-</html>
+  </html>
