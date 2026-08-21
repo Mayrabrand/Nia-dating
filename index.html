@@ -4,452 +4,716 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NIA DATING ❤️</title>
+<title>NIA DATING ❤️ | Meet • Match • Connect</title>
 
 <style>
-
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-background:#0b0b0f;
-color:white;
+  background:#0b0b0f;
+  color:white;
 }
 
 .hidden{
-display:none!important;
+  display:none!important;
 }
 
-/* AUTH */
+/* ================= AUTH ================= */
 
 .auth-page{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-background:
-radial-gradient(circle at top right,
-rgba(255,79,135,.25),
-transparent 35%),
-linear-gradient(135deg,#0b0b0f,#18101a);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(255,79,135,.25),transparent 30%),
+    radial-gradient(circle at 10% 90%,rgba(124,58,237,.18),transparent 30%),
+    linear-gradient(135deg,#0b0b0f,#171019);
 }
 
 .auth-box{
-width:100%;
-max-width:430px;
-background:#15151c;
-border:1px solid #39303a;
-border-radius:25px;
-padding:30px;
-box-shadow:0 20px 70px rgba(0,0,0,.5);
+  width:100%;
+  max-width:450px;
+  padding:30px;
+  background:rgba(21,21,28,.96);
+  border:1px solid #39303a;
+  border-radius:24px;
+  box-shadow:0 20px 80px rgba(0,0,0,.5);
 }
 
 .brand{
-text-align:center;
-color:#ff4f87;
-font-size:28px;
-font-weight:bold;
-margin-bottom:10px;
+  text-align:center;
+  color:#ff4f87;
+  font-size:28px;
+  font-weight:bold;
+  margin-bottom:8px;
 }
 
-.subtitle{
-text-align:center;
-color:#999;
-font-size:13px;
-margin-bottom:25px;
+.auth-subtitle{
+  text-align:center;
+  color:#999;
+  font-size:13px;
+  margin-bottom:25px;
 }
 
 .tabs{
-display:flex;
-gap:8px;
-margin-bottom:20px;
+  display:flex;
+  gap:8px;
+  margin-bottom:20px;
 }
 
 .tab{
-flex:1;
-padding:12px;
-border:1px solid #333;
-background:#0d0d12;
-color:white;
-border-radius:10px;
-cursor:pointer;
+  flex:1;
+  padding:12px;
+  background:#0d0d12;
+  border:1px solid #333;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 .tab.active{
-background:#ff4f87;
-border-color:#ff4f87;
+  background:#ff4f87;
+  border-color:#ff4f87;
 }
 
 label{
-display:block;
-margin:13px 0 7px;
-font-size:13px;
-color:#ccc;
+  display:block;
+  margin:13px 0 7px;
+  color:#ccc;
+  font-size:13px;
 }
 
 input,textarea,select{
-width:100%;
-padding:13px;
-border-radius:10px;
-border:1px solid #333;
-background:#0d0d12;
-color:white;
-outline:none;
-}
-
-textarea{
-resize:none;
-height:80px;
+  width:100%;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid #333;
+  background:#0d0d12;
+  color:white;
+  outline:none;
 }
 
 input:focus,
 textarea:focus,
 select:focus{
-border-color:#ff4f87;
+  border-color:#ff4f87;
 }
 
-.button{
-width:100%;
-padding:14px;
-border:0;
-border-radius:10px;
-background:#ff4f87;
-color:white;
-font-weight:bold;
-cursor:pointer;
-margin-top:20px;
+textarea{
+  resize:none;
+  min-height:75px;
 }
 
-.message{
-text-align:center;
-font-size:13px;
-margin-top:15px;
-color:#ff8db2;
+.auth-btn,
+.primary-btn{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#ff4f87;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* APP */
+.auth-message{
+  text-align:center;
+  color:#ff8db2;
+  font-size:13px;
+  margin-top:15px;
+  min-height:18px;
+}
+
+/* ================= HEADER ================= */
 
 header{
-position:sticky;
-top:0;
-z-index:100;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 6%;
-background:#0d0d12;
-border-bottom:1px solid #29202b;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 6%;
+  background:rgba(11,11,15,.97);
+  border-bottom:1px solid #29202b;
 }
 
 .logo{
-color:#ff4f87;
-font-size:20px;
-font-weight:bold;
+  color:#ff4f87;
+  font-size:21px;
+  font-weight:bold;
 }
 
 nav{
-display:flex;
-gap:5px;
+  display:flex;
+  gap:4px;
+  align-items:center;
 }
 
 nav a{
-padding:8px;
-font-size:11px;
-color:#ddd;
-text-decoration:none;
-cursor:pointer;
+  color:#ddd;
+  text-decoration:none;
+  font-size:11px;
+  padding:9px 8px;
+  border-radius:8px;
 }
 
-.logout{
-background:#292932;
-border:0;
-color:white;
-padding:8px 12px;
-border-radius:8px;
-cursor:pointer;
+nav a:hover{
+  background:#21151c;
+  color:#ff6b9c;
 }
+
+.logout-btn{
+  border:0;
+  background:#292932;
+  color:white;
+  padding:9px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:11px;
+}
+
+/* ================= HERO ================= */
 
 .hero{
-padding:70px 8%;
-background:
-radial-gradient(circle at 80% 30%,
-rgba(255,79,135,.25),
-transparent 30%),
-linear-gradient(90deg,#0b0b0f,#151018);
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  padding:60px 8%;
+  background:
+    radial-gradient(circle at 80% 30%,rgba(255,79,135,.25),transparent 30%),
+    linear-gradient(90deg,#0b0b0f,#151018);
 }
 
-.hero h1{
-font-size:50px;
-max-width:600px;
+.hero-content{
+  max-width:650px;
 }
 
-.hero h1 span{
-color:#ff4f87;
+.badge{
+  display:inline-block;
+  background:rgba(255,79,135,.12);
+  border:1px solid rgba(255,79,135,.4);
+  color:#ff8db2;
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+h1{
+  font-size:52px;
+  line-height:1.05;
+}
+
+h1 span{
+  color:#ff4f87;
 }
 
 .hero p{
-color:#aaa;
-line-height:1.7;
-margin-top:18px;
+  color:#aaa;
+  line-height:1.7;
+  margin-top:18px;
+  max-width:550px;
 }
 
+.hero-buttons{
+  margin-top:25px;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 20px;
+  border-radius:10px;
+  text-decoration:none;
+  cursor:pointer;
+  font-weight:bold;
+  margin:4px;
+}
+
+.primary{
+  background:#ff4f87;
+  color:white;
+}
+
+.secondary{
+  border:1px solid #444;
+  color:white;
+}
+
+/* ================= SECTIONS ================= */
+
 .section{
-padding:55px 7%;
+  padding:55px 7%;
 }
 
 .section h2{
-font-size:28px;
-margin-bottom:10px;
+  font-size:30px;
+  margin-bottom:10px;
 }
 
 .section-text{
-color:#999;
-margin-bottom:20px;
+  color:#999;
+  margin-bottom:25px;
+}
+
+.discover{
+  background:#0f0f14;
 }
 
 .search{
-max-width:500px;
-margin-bottom:25px;
+  max-width:500px;
+  margin-bottom:25px;
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
 }
 
-.card{
-background:#15151c;
-border:1px solid #292932;
-border-radius:18px;
-overflow:hidden;
+/* ================= PROFILE ================= */
+
+.profile-card{
+  background:#15151c;
+  border:1px solid #292932;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.25s;
 }
 
-.card:hover{
-border-color:#ff4f87;
+.profile-card:hover{
+  transform:translateY(-4px);
+  border-color:#ff4f87;
 }
 
-.photo{
-height:220px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:90px;
-background:linear-gradient(135deg,#39202e,#181820);
+.profile-photo{
+  height:250px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:90px;
+  background:linear-gradient(135deg,#39202e,#181820);
 }
 
-.info{
-padding:16px;
+.profile-info{
+  padding:17px;
 }
 
-.location,.bio{
-color:#999;
-font-size:13px;
-margin-top:8px;
-line-height:1.5;
+.profile-info h3{
+  margin-bottom:7px;
+}
+
+.location{
+  color:#999;
+  font-size:13px;
+  margin-bottom:9px;
+}
+
+.bio{
+  color:#aaa;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.online{
+  color:#66e3a1;
+  font-size:12px;
+  margin-top:10px;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+}
+
+.actions button{
+  flex:1;
+  padding:11px;
+  border:0;
+  border-radius:9px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.pass{
+  background:#292932;
 }
 
 .like{
-width:100%;
-padding:12px;
-margin-top:15px;
-border:0;
-border-radius:9px;
-background:#ff4f87;
-color:white;
-font-weight:bold;
-cursor:pointer;
+  background:#ff4f87;
 }
+
+/* ================= MATCHES ================= */
 
 .matches{
-background:#111116;
+  background:#111116;
 }
 
-.chat-container{
-height:550px;
-display:flex;
-background:#15151c;
-border:1px solid #292932;
-border-radius:18px;
-overflow:hidden;
-}
-
-.chat-list{
-width:250px;
-border-right:1px solid #292932;
-overflow-y:auto;
-}
-
-.chat-user{
-padding:15px;
-border-bottom:1px solid #292932;
-cursor:pointer;
-display:flex;
-gap:10px;
-align-items:center;
-}
-
-.chat-user:hover{
-background:#211820;
+.match-card{
+  background:#18151c;
+  border:1px solid #4d2638;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
 }
 
 .avatar{
-width:48px;
-height:48px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:24px;
-background:linear-gradient(135deg,#ff4f87,#7c3aed);
+  width:85px;
+  height:85px;
+  border-radius:50%;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:40px;
+  background:linear-gradient(135deg,#ff4f87,#7c3aed);
+}
+
+.match-card h3{
+  margin-top:12px;
+}
+
+.match-card p{
+  color:#999;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.chat-btn{
+  width:100%;
+  margin-top:14px;
+  padding:11px;
+  border:0;
+  border-radius:9px;
+  background:#ff4f87;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ================= CHAT ================= */
+
+.chat-container{
+  max-width:950px;
+  margin:auto;
+  height:580px;
+  display:flex;
+  background:#15151c;
+  border:1px solid #292932;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.chat-list{
+  width:260px;
+  border-right:1px solid #292932;
+  overflow-y:auto;
+}
+
+.chat-list-title{
+  padding:18px;
+  font-weight:bold;
+  border-bottom:1px solid #292932;
+}
+
+.chat-user{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px;
+  border-bottom:1px solid #24242c;
+  cursor:pointer;
+}
+
+.chat-user:hover,
+.chat-user.active{
+  background:#211820;
+}
+
+.chat-avatar{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  background:linear-gradient(135deg,#ff4f87,#7c3aed);
+}
+
+.chat-user-info h4{
+  margin-bottom:4px;
+}
+
+.chat-user-info p{
+  color:#66e3a1;
+  font-size:11px;
 }
 
 .chat-window{
-flex:1;
-display:flex;
-flex-direction:column;
+  flex:1;
+  display:flex;
+  flex-direction:column;
 }
 
 .chat-header{
-padding:15px;
-border-bottom:1px solid #292932;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:15px;
+  border-bottom:1px solid #292932;
+}
+
+.chat-header-avatar{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  background:linear-gradient(135deg,#ff4f87,#7c3aed);
+}
+
+.chat-header p{
+  color:#66e3a1;
+  font-size:11px;
+  margin-top:4px;
 }
 
 .messages{
-flex:1;
-padding:18px;
-overflow-y:auto;
-display:flex;
-flex-direction:column;
-gap:10px;
+  flex:1;
+  padding:18px;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
-.msg{
-max-width:75%;
-padding:10px 13px;
-border-radius:15px;
-font-size:14px;
+.message{
+  max-width:75%;
+  padding:10px 13px;
+  border-radius:15px;
+  font-size:14px;
+  line-height:1.4;
 }
 
-.me{
-align-self:flex-end;
-background:#ff4f87;
+.message.me{
+  align-self:flex-end;
+  background:#ff4f87;
+  border-bottom-right-radius:4px;
 }
 
-.them{
-align-self:flex-start;
-background:#292932;
+.message.them{
+  align-self:flex-start;
+  background:#292932;
+  border-bottom-left-radius:4px;
 }
 
-.chat-form{
-display:flex;
-padding:10px;
-gap:8px;
-border-top:1px solid #292932;
+.message-time{
+  display:block;
+  font-size:9px;
+  opacity:.65;
+  text-align:right;
+  margin-top:5px;
 }
 
-.chat-form input{
-flex:1;
+.chat-input{
+  display:flex;
+  gap:8px;
+  padding:12px;
+  border-top:1px solid #292932;
+}
+
+.chat-input input{
+  flex:1;
 }
 
 .send{
-width:55px;
-border:0;
-border-radius:10px;
-background:#ff4f87;
-color:white;
-font-size:18px;
-cursor:pointer;
+  width:52px;
+  border:0;
+  border-radius:10px;
+  background:#ff4f87;
+  color:white;
+  cursor:pointer;
+  font-size:18px;
 }
 
+/* ================= PREMIUM ================= */
+
 .premium{
-text-align:center;
-background:linear-gradient(135deg,#221722,#111116);
+  background:linear-gradient(135deg,#221722,#111116);
 }
 
 .premium-box{
-max-width:600px;
-margin:auto;
-padding:35px;
-border-radius:20px;
-background:#18151c;
-border:1px solid #4d2638;
+  max-width:650px;
+  margin:auto;
+  text-align:center;
+  padding:40px 25px;
+  background:#18151c;
+  border:1px solid #4d2638;
+  border-radius:20px;
 }
 
 .price{
-font-size:32px;
-font-weight:bold;
-color:#ff6b9c;
-margin:18px;
+  color:#ff6b9c;
+  font-size:34px;
+  font-weight:bold;
+  margin:18px 0;
+}
+
+.features{
+  list-style:none;
+  color:#bbb;
+  line-height:2;
+  margin:20px 0;
+}
+
+/* ================= POPUP ================= */
+
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  background:rgba(0,0,0,.9);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.popup.active{
+  display:flex;
+}
+
+.popup-box{
+  width:100%;
+  max-width:400px;
+  padding:35px 25px;
+  text-align:center;
+  background:#18151c;
+  border:1px solid #ff4f87;
+  border-radius:24px;
+}
+
+.popup-box h2{
+  color:#ff6b9c;
+  margin-bottom:15px;
+}
+
+.popup-box p{
+  color:#bbb;
+  line-height:1.6;
 }
 
 footer{
-padding:30px;
-text-align:center;
-color:#777;
+  text-align:center;
+  padding:30px;
+  color:#777;
+  border-top:1px solid #25252d;
 }
 
 @media(max-width:700px){
 
-header{
-padding:12px;
-}
+  header{
+    padding:13px 4%;
+  }
 
-nav{
-display:none;
-}
+  .logo{
+    font-size:16px;
+  }
 
-.hero h1{
-font-size:38px;
-}
+  nav{
+    display:none;
+  }
 
-.chat-list{
-width:75px;
-}
+  h1{
+    font-size:40px;
+  }
 
-.chat-user span{
-display:none;
-}
+  .hero{
+    padding:55px 7%;
+  }
 
-.chat-container{
-height:600px;
-}
+  .section{
+    padding:45px 5%;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .chat-container{
+    height:620px;
+  }
+
+  .chat-list{
+    width:78px;
+  }
+
+  .chat-list-title{
+    font-size:10px;
+    text-align:center;
+    padding:15px 4px;
+  }
+
+  .chat-user{
+    justify-content:center;
+    padding:12px 4px;
+  }
+
+  .chat-user-info{
+    display:none;
+  }
+
+  .message{
+    max-width:85%;
+  }
 
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN / SIGNUP -->
+<!-- ================= AUTH PAGE ================= -->
 
 <div id="authPage" class="auth-page">
 
 <div class="auth-box">
 
-<div class="brand">
-❤️ NIA DATING
-</div>
+<div class="brand">❤️ NIA DATING</div>
 
-<p class="subtitle">
-Meet • Match • Connect
-</p>
+<div class="auth-subtitle">
+MEET • MATCH • CONNECT
+</div>
 
 <div class="tabs">
 
-<button class="tab active"
+<button
+class="tab active"
 id="loginTab"
 onclick="showLogin()">
 LOGIN
 </button>
 
-<button class="tab"
+<button
+class="tab"
 id="signupTab"
 onclick="showSignup()">
 SIGN UP
@@ -457,80 +721,83 @@ SIGN UP
 
 </div>
 
-
 <!-- LOGIN -->
 
-<form id="loginForm">
+<form id="loginForm" onsubmit="login(event)">
 
 <label>Email</label>
 
 <input
-type="email"
 id="loginEmail"
-required
-placeholder="example@email.com">
+type="email"
+placeholder="example@email.com"
+required>
 
 <label>Password</label>
 
 <input
-type="password"
 id="loginPassword"
-required
-placeholder="Password">
+type="password"
+placeholder="Password"
+required>
 
-<button class="button">
+<button class="auth-btn" type="submit">
 LOGIN ❤️
 </button>
 
 </form>
 
-
 <!-- SIGNUP -->
 
-<form id="signupForm" class="hidden">
+<form
+id="signupForm"
+class="hidden"
+onsubmit="signup(event)">
 
 <label>Jina</label>
 
 <input
 id="signupName"
-required
-placeholder="Jina lako">
+placeholder="Jina lako"
+required>
 
 <label>Email</label>
 
 <input
-type="email"
 id="signupEmail"
-required
-placeholder="example@email.com">
+type="email"
+placeholder="example@email.com"
+required>
 
 <label>Password</label>
 
 <input
-type="password"
 id="signupPassword"
-required
-placeholder="Password">
+type="password"
+placeholder="Password"
+required>
 
 <label>Umri</label>
 
 <input
-type="number"
 id="signupAge"
+type="number"
 min="18"
-placeholder="Mfano 24">
+placeholder="Mfano 24"
+required>
 
 <label>Location</label>
 
 <input
 id="signupLocation"
-placeholder="Dar es Salaam">
+placeholder="Mfano Dar es Salaam"
+required>
 
 <label>Gender</label>
 
-<select id="signupGender">
+<select id="signupGender" required>
 
-<option value="">Chagua</option>
+<option value="">Chagua Gender</option>
 <option value="Male">Male</option>
 <option value="Female">Female</option>
 
@@ -540,22 +807,25 @@ placeholder="Dar es Salaam">
 
 <textarea
 id="signupBio"
-placeholder="Andika kuhusu wewe..."></textarea>
+placeholder="Andika kidogo kuhusu wewe..."></textarea>
 
-<button class="button">
+<button class="auth-btn" type="submit">
 CREATE ACCOUNT ❤️
 </button>
 
 </form>
 
-<div id="authMessage" class="message"></div>
-
+<div
+id="authMessage"
+class="auth-message">
 </div>
 
 </div>
 
+</div>
 
-<!-- MAIN APP -->
+
+<!-- ================= MAIN APP ================= -->
 
 <div id="app" class="hidden">
 
@@ -575,33 +845,65 @@ CREATE ACCOUNT ❤️
 
 </nav>
 
-<button class="logout" onclick="logout()">
+<button
+class="logout-btn"
+onclick="logout()">
 LOGOUT
 </button>
 
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge">
+❤️ MEET • MATCH • CONNECT
+</div>
 
 <h1>
 Find Someone
-<span>Special ❤️</span>
+<span>Special</span>
 </h1>
 
 <p id="welcomeText">
-Karibu NIA DATING.
+Karibu NIA DATING ❤️
 </p>
+
+<div class="hero-buttons">
+
+<a
+href="#discover"
+class="btn primary">
+❤️ DISCOVER PEOPLE
+</a>
+
+<a
+href="#chat"
+class="btn secondary">
+💬 OPEN CHAT
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 
-<section class="section" id="discover">
+<!-- DISCOVER -->
+
+<section
+class="section discover"
+id="discover">
 
 <h2>❤️ Discover People</h2>
 
 <p class="section-text">
-Users wote wanaojisajili wataonekana hapa.
+Tafuta watu wapya na bonyeza LIKE.
 </p>
 
 <input
@@ -609,43 +911,83 @@ class="search"
 id="search"
 placeholder="🔎 Tafuta jina au location...">
 
-<div class="grid" id="usersGrid"></div>
+<div
+class="grid"
+id="discoverGrid">
+</div>
 
 </section>
 
 
-<section class="section matches" id="matches">
+<!-- MATCHES -->
+
+<section
+class="section matches"
+id="matches">
 
 <h2>💕 Your Matches</h2>
 
 <p class="section-text">
-Watu ambao mme-like kila mmoja.
+Watu uliowapenda na kuwa-match nao.
 </p>
 
-<div class="grid" id="matchesGrid"></div>
+<div
+class="grid"
+id="matchesGrid">
+</div>
 
 </section>
 
 
-<section class="section" id="chat">
+<!-- CHAT -->
+
+<section
+class="section"
+id="chat">
 
 <h2>💬 Messages</h2>
 
+<p class="section-text">
+Chagua match na anza mazungumzo.
+</p>
+
 <div class="chat-container">
 
-<div class="chat-list" id="chatUsers">
+<div class="chat-list">
+
+<div class="chat-list-title">
+💬 CHATS
+</div>
+
+<div id="chatUsers"></div>
 
 </div>
+
 
 <div class="chat-window">
 
 <div class="chat-header">
 
-<div id="chatTitle">
-💕 Chagua Match
+<div
+class="chat-header-avatar"
+id="chatAvatar">
+❤️
+</div>
+
+<div>
+
+<h3 id="chatName">
+Select a Match
+</h3>
+
+<p id="chatStatus">
+● Online
+</p>
+
 </div>
 
 </div>
+
 
 <div
 class="messages"
@@ -653,26 +995,30 @@ id="messages">
 
 <div style="
 margin:auto;
-color:#777;
 text-align:center;
+color:#777;
+font-size:13px;
 ">
 
-Chagua mtu kuanza chat ❤️
+💕 Chagua match kuanza chat
 
 </div>
 
 </div>
+
 
 <form
-class="chat-form"
-id="chatForm">
+class="chat-input"
+onsubmit="sendMessage(event)">
 
 <input
 id="messageInput"
 placeholder="Andika ujumbe..."
 autocomplete="off">
 
-<button class="send">
+<button
+class="send"
+type="submit">
 ➤
 </button>
 
@@ -685,25 +1031,40 @@ autocomplete="off">
 </section>
 
 
-<section class="section premium" id="premium">
+<!-- PREMIUM -->
+
+<section
+class="section premium"
+id="premium">
 
 <div class="premium-box">
 
-<h2>💎 NIA PREMIUM</h2>
+<div class="badge">
+💎 NIA PREMIUM
+</div>
+
+<h2>
+Unlock More Connections
+</h2>
 
 <div class="price">
 TZS 5,000 / Month
 </div>
 
-<p class="section-text">
-Unlimited Likes • Profile Boost • Premium Features
-</p>
+<ul class="features">
+
+<li>❤️ Unlimited Likes</li>
+<li>👀 See Who Likes You</li>
+<li>🚀 Profile Boost</li>
+<li>💬 Premium Chat</li>
+
+</ul>
 
 <button
-class="button"
+class="primary-btn"
 onclick="activatePremium()">
 
-GET PREMIUM 💎
+💎 GET PREMIUM
 
 </button>
 
@@ -713,22 +1074,162 @@ GET PREMIUM 💎
 
 
 <footer>
+
 © 2026 NIA DATING ❤️
+
+<br><br>
+
+Meet • Match • Connect
+
 </footer>
+
+</div>
+
+
+<!-- MATCH POPUP -->
+
+<div
+class="popup"
+id="matchPopup">
+
+<div class="popup-box">
+
+<h2>
+IT'S A MATCH! ❤️
+</h2>
+
+<p id="matchText">
+Mnaendana!
+</p>
+
+<button
+class="primary-btn"
+onclick="startMatchChat()">
+
+💬 START CHAT
+
+</button>
+
+</div>
 
 </div>
 
 
 <script>
 
-const API = "";
+/* ===============================
+DEFAULT PROFILES
+=============================== */
 
-let token = localStorage.getItem("niaToken");
-let currentUser = null;
-let currentChat = null;
+const defaultProfiles = [
+
+{
+id:"asha",
+name:"Asha",
+age:24,
+location:"Dar es Salaam",
+emoji:"👩",
+gender:"Female",
+bio:"Napenda music, travel na relationship ya kweli."
+},
+
+{
+id:"zainab",
+name:"Zainab",
+age:22,
+location:"Mwanza",
+emoji:"👩",
+gender:"Female",
+bio:"Friendly, mcheshi na napenda adventure."
+},
+
+{
+id:"neema",
+name:"Neema",
+age:25,
+location:"Arusha",
+emoji:"👩",
+gender:"Female",
+bio:"Looking for serious relationship."
+},
+
+{
+id:"kevin",
+name:"Kevin",
+age:27,
+location:"Dar es Salaam",
+emoji:"👨",
+gender:"Male",
+bio:"Football, music na good conversations."
+},
+
+{
+id:"juma",
+name:"Juma",
+age:29,
+location:"Dodoma",
+emoji:"👨",
+gender:"Male",
+bio:"Travel, movies na good vibes."
+},
+
+{
+id:"mariam",
+name:"Mariam",
+age:23,
+location:"Zanzibar",
+emoji:"👩",
+gender:"Female",
+bio:"Love, respect and honest communication."
+}
+
+];
 
 
-/* AUTH UI */
+/* ===============================
+DATABASE LOCAL
+=============================== */
+
+function getUsers(){
+
+return JSON.parse(
+localStorage.getItem("niaUsers")
+|| "[]"
+);
+
+}
+
+function saveUsers(users){
+
+localStorage.setItem(
+"niaUsers",
+JSON.stringify(users)
+);
+
+}
+
+function getCurrentUser(){
+
+return JSON.parse(
+localStorage.getItem("niaCurrentUser")
+|| "null"
+);
+
+}
+
+function saveCurrentUser(user){
+
+localStorage.setItem(
+"niaCurrentUser",
+JSON.stringify(user)
+);
+
+}
+
+
+/* ===============================
+AUTH UI
+=============================== */
 
 function showLogin(){
 
@@ -747,6 +1248,8 @@ document
 document
 .getElementById("signupTab")
 .classList.remove("active");
+
+clearAuthMessage();
 
 }
 
@@ -769,182 +1272,206 @@ document
 .getElementById("signupTab")
 .classList.add("active");
 
-}
-
-
-/* SIGNUP */
-
-document
-.getElementById("signupForm")
-.addEventListener("submit", async event => {
-
-event.preventDefault();
-
-const data = {
-
-name:
-document.getElementById("signupName").value,
-
-email:
-document.getElementById("signupEmail").value,
-
-password:
-document.getElementById("signupPassword").value,
-
-age:
-document.getElementById("signupAge").value,
-
-location:
-document.getElementById("signupLocation").value,
-
-gender:
-document.getElementById("signupGender").value,
-
-bio:
-document.getElementById("signupBio").value
-
-};
-
-try{
-
-const response = await fetch(
-API + "/api/signup",
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data)
-}
-);
-
-const result = await response.json();
-
-if(!result.success){
-
-showAuthMessage(result.message);
-return;
+clearAuthMessage();
 
 }
 
-token = result.token;
 
-localStorage.setItem(
-"niaToken",
-token
-);
-
-currentUser = result.user;
-
-openApp();
-
-}catch(error){
-
-showAuthMessage(
-"Server haipatikani."
-);
-
-}
-
-});
-
-
-/* LOGIN */
-
-document
-.getElementById("loginForm")
-.addEventListener("submit", async event => {
-
-event.preventDefault();
-
-try{
-
-const response = await fetch(
-API + "/api/login",
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-
-email:
-document.getElementById("loginEmail").value,
-
-password:
-document.getElementById("loginPassword").value
-
-})
-}
-);
-
-const result = await response.json();
-
-if(!result.success){
-
-showAuthMessage(result.message);
-return;
-
-}
-
-token = result.token;
-
-localStorage.setItem(
-"niaToken",
-token
-);
-
-currentUser = result.user;
-
-openApp();
-
-}catch(error){
-
-showAuthMessage(
-"Server haipatikani."
-);
-
-}
-
-});
-
-
-function showAuthMessage(text){
+function authMessage(text){
 
 document
 .getElementById("authMessage")
-.textContent = text;
+.textContent=text;
+
+}
+
+function clearAuthMessage(){
+
+authMessage("");
 
 }
 
 
-/* API */
+/* ===============================
+SIGNUP
+=============================== */
 
-async function api(url, options = {}){
+function signup(event){
 
-options.headers = {
+event.preventDefault();
 
-...(options.headers || {}),
+const name=
+document.getElementById("signupName")
+.value.trim();
 
-Authorization:
-"Bearer " + token,
+const email=
+document.getElementById("signupEmail")
+.value.trim().toLowerCase();
 
-"Content-Type":
-"application/json"
+const password=
+document.getElementById("signupPassword")
+.value;
+
+const age=
+document.getElementById("signupAge")
+.value;
+
+const location=
+document.getElementById("signupLocation")
+.value.trim();
+
+const gender=
+document.getElementById("signupGender")
+.value;
+
+const bio=
+document.getElementById("signupBio")
+.value.trim();
+
+let users=getUsers();
+
+const exists=
+users.find(
+user=>user.email===email
+);
+
+if(exists){
+
+authMessage(
+"Email hii tayari imesajiliwa."
+);
+
+return;
+
+}
+
+const user={
+
+id:
+"user_"+Date.now(),
+
+name:name,
+
+email:email,
+
+password:password,
+
+age:age,
+
+location:location,
+
+gender:gender,
+
+bio:
+bio ||
+"Karibu NIA DATING ❤️",
+
+emoji:
+gender==="Female"
+? "👩"
+: "👨",
+
+premium:false,
+
+createdAt:
+new Date().toISOString()
 
 };
 
-const response =
-await fetch(API + url, options);
+users.push(user);
 
-return response.json();
+saveUsers(users);
+
+saveCurrentUser(user);
+
+document
+.getElementById("signupForm")
+.reset();
+
+openApp();
 
 }
 
 
-/* OPEN APP */
+/* ===============================
+LOGIN
+=============================== */
 
-async function openApp(){
+function login(event){
+
+event.preventDefault();
+
+const email=
+document.getElementById("loginEmail")
+.value.trim().toLowerCase();
+
+const password=
+document.getElementById("loginPassword")
+.value;
+
+const users=getUsers();
+
+const user=
+users.find(
+user=>
+user.email===email &&
+user.password===password
+);
+
+if(!user){
+
+authMessage(
+"Email au Password sio sahihi."
+);
+
+return;
+
+}
+
+saveCurrentUser(user);
+
+openApp();
+
+}
+
+
+/* ===============================
+OPEN APP
+=============================== */
+
+let currentUser=null;
+let currentChat=null;
+let lastMatch=null;
+
+let liked=[];
+let passed=[];
+let matched=[];
+
+
+function openApp(){
+
+currentUser=getCurrentUser();
+
+if(!currentUser)return;
+
+liked=JSON.parse(
+localStorage.getItem(
+"niaLiked_"+currentUser.id
+) || "[]"
+);
+
+passed=JSON.parse(
+localStorage.getItem(
+"niaPassed_"+currentUser.id
+) || "[]"
+);
+
+matched=JSON.parse(
+localStorage.getItem(
+"niaMatched_"+currentUser.id
+) || "[]"
+);
+
 
 document
 .getElementById("authPage")
@@ -954,80 +1481,184 @@ document
 .getElementById("app")
 .classList.remove("hidden");
 
+
 document
 .getElementById("welcomeText")
-.textContent =
-"Karibu " +
-currentUser.name +
-" ❤️ Sasa unaweza kutafuta connections mpya.";
+.textContent=
+"Karibu "+
+currentUser.name+
+" ❤️ Tafuta mtu anayekufaa na anza connection mpya.";
 
-loadUsers();
-loadMatches();
+
+showProfiles();
+
+showMatches();
+
+loadChatUsers();
 
 }
 
 
-/* LOAD USERS */
+/* ===============================
+GET ALL PROFILES
+=============================== */
 
-async function loadUsers(){
+function getAllProfiles(){
 
-const search =
+const registeredUsers=
+getUsers();
+
+return [
+
+...defaultProfiles,
+
+...registeredUsers.map(user=>({
+
+id:user.id,
+
+name:user.name,
+
+age:user.age,
+
+location:user.location,
+
+emoji:user.emoji,
+
+gender:user.gender,
+
+bio:user.bio
+
+}))
+
+];
+
+}
+
+
+/* ===============================
+DISCOVER
+=============================== */
+
+function showProfiles(){
+
+if(!currentUser)return;
+
+const search=
 document
 .getElementById("search")
-.value || "";
+.value
+.toLowerCase();
 
-const result =
-await api(
-"/api/users?search=" +
-encodeURIComponent(search)
+const grid=
+document
+.getElementById("discoverGrid");
+
+const profiles=
+getAllProfiles();
+
+const filtered=
+profiles.filter(p=>{
+
+if(p.id===currentUser.id)
+return false;
+
+if(liked.includes(p.id))
+return false;
+
+if(passed.includes(p.id))
+return false;
+
+return(
+
+p.name.toLowerCase()
+.includes(search)
+
+||
+
+String(p.location)
+.toLowerCase()
+.includes(search)
+
 );
 
-const grid =
-document.getElementById("usersGrid");
+});
 
-if(!result.users ||
-result.users.length === 0){
 
-grid.innerHTML = `
+if(filtered.length===0){
+
+grid.innerHTML=`
+
 <div style="
-padding:30px;
+grid-column:1/-1;
+text-align:center;
+padding:45px;
 color:#888;
 ">
-Hakuna users waliopatikana.
+
+<div style="font-size:50px;">
+💔
 </div>
+
+<h3 style="
+color:white;
+margin-top:10px;
+">
+Hakuna profiles
+</h3>
+
+<p style="margin-top:8px;">
+Jaribu search nyingine.
+</p>
+
+</div>
+
 `;
 
 return;
 
 }
 
-grid.innerHTML =
-result.users.map(user => `
 
-<div class="card">
+grid.innerHTML=
+filtered.map(p=>`
 
-<div class="photo">
-${user.emoji || "👤"}
+<div class="profile-card">
+
+<div class="profile-photo">
+${p.emoji}
 </div>
 
-<div class="info">
+<div class="profile-info">
 
 <h3>
-${escapeHTML(user.name)}
-${user.age ? ", " + user.age : ""}
+${escapeHTML(p.name)}, ${p.age}
 </h3>
 
 <div class="location">
-📍 ${escapeHTML(user.location || "Tanzania")}
+📍 ${escapeHTML(p.location)}
 </div>
 
 <div class="bio">
-${escapeHTML(user.bio || "")}
+${escapeHTML(p.bio)}
 </div>
+
+<div class="online">
+● Online now
+</div>
+
+<div class="actions">
+
+<button
+class="pass"
+onclick="passProfile('${p.id}')">
+
+❌ PASS
+
+</button>
 
 <button
 class="like"
-onclick="likeUser('${user.id}')">
+onclick="likeProfile('${p.id}')">
 
 ❤️ LIKE
 
@@ -1037,109 +1668,173 @@ onclick="likeUser('${user.id}')">
 
 </div>
 
+</div>
+
 `).join("");
 
 }
 
 
-/* SEARCH */
+/* ===============================
+SEARCH
+=============================== */
 
 document
 .getElementById("search")
-.addEventListener("input", () => {
-
-clearTimeout(window.searchTimer);
-
-window.searchTimer =
-setTimeout(loadUsers, 300);
-
-});
-
-
-/* LIKE */
-
-async function likeUser(id){
-
-const result =
-await api(
-"/api/like/" + id,
-{
-method:"POST"
-}
+.addEventListener(
+"input",
+showProfiles
 );
 
-alert(result.message);
 
-if(result.isMatch){
+/* ===============================
+LIKE
+=============================== */
 
-loadMatches();
+function likeProfile(id){
+
+if(!liked.includes(id)){
+
+liked.push(id);
+
+localStorage.setItem(
+"niaLiked_"+currentUser.id,
+JSON.stringify(liked)
+);
 
 }
 
+
+/* DEMO MATCH */
+
+if(!matched.includes(id)){
+
+matched.push(id);
+
+localStorage.setItem(
+"niaMatched_"+currentUser.id,
+JSON.stringify(matched)
+);
+
+const profile=
+getAllProfiles()
+.find(p=>p.id===id);
+
+lastMatch=profile;
+
+showMatch(profile);
+
 }
 
 
-/* MATCHES */
+showProfiles();
 
-async function loadMatches(){
+showMatches();
 
-const result =
-await api("/api/matches");
+loadChatUsers();
 
-const grid =
+}
+
+
+/* ===============================
+PASS
+=============================== */
+
+function passProfile(id){
+
+if(!passed.includes(id)){
+
+passed.push(id);
+
+localStorage.setItem(
+"niaPassed_"+currentUser.id,
+JSON.stringify(passed)
+);
+
+}
+
+showProfiles();
+
+}
+
+
+/* ===============================
+MATCHES
+=============================== */
+
+function showMatches(){
+
+const grid=
 document.getElementById("matchesGrid");
 
-const chatUsers =
-document.getElementById("chatUsers");
+const profiles=
+getAllProfiles();
 
-if(!result.matches ||
-result.matches.length === 0){
+const list=
+matched
+.map(id=>
+profiles.find(p=>p.id===id)
+)
+.filter(Boolean);
 
-grid.innerHTML = `
+
+if(list.length===0){
+
+grid.innerHTML=`
+
 <div style="
-padding:30px;
+grid-column:1/-1;
+text-align:center;
+padding:40px;
+background:#15151c;
+border-radius:16px;
 color:#888;
 ">
-💕 Bado huna match.
-</div>
-`;
 
-chatUsers.innerHTML = `
-<div style="
-padding:20px;
-color:#777;
-font-size:12px;
-">
-Hakuna matches
+<div style="font-size:45px;">
+💕
 </div>
+
+<h3 style="
+color:white;
+margin-top:10px;
+">
+Bado huna match
+</h3>
+
+<p style="margin-top:8px;">
+Like profile kupata match.
+</p>
+
+</div>
+
 `;
 
 return;
 
 }
 
-grid.innerHTML =
-result.matches.map(user => `
 
-<div class="card">
+grid.innerHTML=
+list.map(p=>`
 
-<div class="photo">
-${user.emoji || "👤"}
+<div class="match-card">
+
+<div class="avatar">
+${p.emoji}
 </div>
-
-<div class="info">
 
 <h3>
-${escapeHTML(user.name)}
+${escapeHTML(p.name)}, ${p.age}
 </h3>
 
-<div class="location">
-📍 ${escapeHTML(user.location || "")}
-</div>
+<p>
+📍 ${escapeHTML(p.location)}
+</p>
 
 <button
-class="like"
-onclick="openChat('${user.id}','${escapeHTML(user.name)}')">
+class="chat-btn"
+onclick="openChat('${p.id}')">
 
 💬 CHAT
 
@@ -1147,25 +1842,78 @@ onclick="openChat('${user.id}','${escapeHTML(user.name)}')">
 
 </div>
 
-</div>
-
 `).join("");
 
+}
 
-chatUsers.innerHTML =
-result.matches.map(user => `
 
-<div
-class="chat-user"
-onclick="openChat('${user.id}','${escapeHTML(user.name)}')">
+/* ===============================
+CHAT USERS
+=============================== */
 
-<div class="avatar">
-${user.emoji || "👤"}
+function loadChatUsers(){
+
+const container=
+document.getElementById("chatUsers");
+
+const profiles=
+getAllProfiles();
+
+const list=
+matched
+.map(id=>
+profiles.find(p=>p.id===id)
+)
+.filter(Boolean);
+
+
+if(list.length===0){
+
+container.innerHTML=`
+
+<div style="
+padding:25px 8px;
+text-align:center;
+color:#777;
+font-size:11px;
+">
+
+💕<br><br>
+Hakuna matches
+
 </div>
 
-<span>
-${escapeHTML(user.name)}
-</span>
+`;
+
+return;
+
+}
+
+
+container.innerHTML=
+list.map(p=>`
+
+<div
+class="chat-user ${
+currentChat===p.id ? "active" : ""
+}"
+onclick="openChat('${p.id}')">
+
+<div class="chat-avatar">
+${p.emoji}
+</div>
+
+<div class="chat-user-info">
+
+<h4>
+${escapeHTML(p.name)}
+</h4>
+
+<p>
+● Online
+</p>
+
+</div>
 
 </div>
 
@@ -1174,16 +1922,38 @@ ${escapeHTML(user.name)}
 }
 
 
-/* OPEN CHAT */
+/* ===============================
+OPEN CHAT
+=============================== */
 
-async function openChat(id, name){
+function openChat(id){
 
-currentChat = id;
+const profile=
+getAllProfiles()
+.find(p=>p.id===id);
+
+if(!profile)return;
+
+currentChat=id;
 
 document
-.getElementById("chatTitle")
-.textContent =
-"💬 " + name;
+.getElementById("chatName")
+.textContent=
+profile.name;
+
+document
+.getElementById("chatAvatar")
+.textContent=
+profile.emoji;
+
+document
+.getElementById("chatStatus")
+.textContent=
+"● Online";
+
+loadChatUsers();
+
+loadMessages();
 
 document
 .getElementById("chat")
@@ -1191,35 +1961,66 @@ document
 behavior:"smooth"
 });
 
-await loadMessages();
+}
+
+
+/* ===============================
+GET MESSAGES
+=============================== */
+
+function getMessages(){
+
+if(!currentChat)return[];
+
+return JSON.parse(
+localStorage.getItem(
+"niaChat_"+
+currentUser.id+
+"_"+
+currentChat
+)
+|| "[]"
+);
 
 }
 
 
-/* LOAD MESSAGES */
+function saveMessages(messages){
 
-async function loadMessages(){
+if(!currentChat)return;
 
-if(!currentChat) return;
+localStorage.setItem(
 
-const result =
-await api(
-"/api/messages/" + currentChat
+"niaChat_"+
+currentUser.id+
+"_"+
+currentChat,
+
+JSON.stringify(messages)
+
 );
 
-const container =
+}
+
+
+/* ===============================
+LOAD MESSAGES
+=============================== */
+
+function loadMessages(){
+
+const container=
 document.getElementById("messages");
 
-if(!result.messages ||
-result.messages.length === 0){
+if(!currentChat){
 
-container.innerHTML = `
+container.innerHTML=`
 <div style="
 margin:auto;
-color:#777;
 text-align:center;
+color:#777;
 ">
-❤️ Anza mazungumzo
+💕 Chagua match kuanza chat
 </div>
 `;
 
@@ -1227,109 +2028,417 @@ return;
 
 }
 
-container.innerHTML =
-result.messages.map(message => {
+const messages=
+getMessages();
 
-const mine =
-message.from === currentUser.id;
 
-return `
+if(messages.length===0){
 
-<div class="msg ${
-mine ? "me" : "them"
-}">
+const profile=
+getAllProfiles()
+.find(p=>p.id===currentChat);
 
-${escapeHTML(message.text)}
+container.innerHTML=`
+
+<div style="
+margin:auto;
+text-align:center;
+color:#777;
+font-size:13px;
+">
+
+❤️ Ume-match na
+${escapeHTML(profile.name)}
+
+<br><br>
+
+Anza mazungumzo.
 
 </div>
 
 `;
 
-}).join("");
+return;
 
-container.scrollTop =
+}
+
+
+container.innerHTML=
+messages.map(m=>`
+
+<div class="message ${m.sender}">
+
+${escapeHTML(m.text)}
+
+<span class="message-time">
+
+${m.time}
+
+${m.sender==="me"
+? " ✓✓"
+: ""}
+
+</span>
+
+</div>
+
+`).join("");
+
+
+container.scrollTop=
 container.scrollHeight;
 
 }
 
 
-/* SEND MESSAGE */
+/* ===============================
+SEND MESSAGE
+=============================== */
 
-document
-.getElementById("chatForm")
-.addEventListener("submit", async event => {
+function sendMessage(event){
 
 event.preventDefault();
 
 if(!currentChat){
 
-alert("Chagua match kwanza ❤️");
+alert(
+"❤️ Chagua match kwanza."
+);
+
 return;
 
 }
 
-const input =
-document.getElementById("messageInput");
 
-const text =
-input.value.trim();
-
-if(!text) return;
-
-const result =
-await api(
-"/api/messages/" + currentChat,
-{
-method:"POST",
-body:JSON.stringify({
-text:text
-})
-}
+const input=
+document.getElementById(
+"messageInput"
 );
 
-if(result.success){
+const text=
+input.value.trim();
 
-input.value = "";
+if(!text)return;
+
+
+const messages=
+getMessages();
+
+messages.push({
+
+sender:"me",
+
+text:text,
+
+time:getTime()
+
+});
+
+saveMessages(messages);
+
+input.value="";
+
+loadMessages();
+
+
+setTimeout(()=>{
+
+autoReply(text);
+
+},900);
+
+}
+
+
+/* ===============================
+AUTO REPLY AI STYLE
+=============================== */
+
+function autoReply(message){
+
+const text=
+message.toLowerCase();
+
+let reply="❤️ Nimefurahi kupata ujumbe wako. Tuendelee kuongea 😊";
+
+
+if(
+text.includes("hello") ||
+text.includes("hi") ||
+text.includes("mambo") ||
+text.includes("habari") ||
+text.includes("vipi")
+){
+
+reply=
+"Hey ❤️ Niko vizuri! Nimefurahi umenitumia ujumbe 😊 Wewe je?";
+
+}
+
+
+else if(
+text.includes("nakupenda") ||
+text.includes("love")
+){
+
+reply=
+"Awww ❤️ Hilo ni jambo zuri sana. Tuendelee kufahamiana vizuri kwanza 😊💕";
+
+}
+
+
+else if(
+text.includes("upo wapi") ||
+text.includes("uko wapi")
+){
+
+reply=
+"Nipo hapa 😊❤️ Na wewe uko wapi?";
+
+}
+
+
+else if(
+text.includes("jina")
+){
+
+reply=
+"Jina langu ni lile uliloliona kwenye profile 😊❤️ Na wewe napenda kukufahamu zaidi.";
+
+}
+
+
+else if(
+text.includes("umri") ||
+text.includes("miaka")
+){
+
+reply=
+"Umri wangu upo kwenye profile yangu 😊❤️ Lakini muhimu zaidi ni kufahamiana vizuri.";
+
+}
+
+
+else if(
+text.includes("ndio")
+){
+
+reply=
+"Sawa kabisa 😊❤️ Nimefurahi kusikia hivyo.";
+
+}
+
+
+else if(
+text.includes("hapana")
+){
+
+reply=
+"Sawa 😊❤️ Hakuna shida, naelewa.";
+
+}
+
+
+else if(
+text.includes("siku njema") ||
+text.includes("good morning")
+){
+
+reply=
+"Good morning ❤️😊 Natumaini umeamka salama na siku yako inaanza vizuri.";
+
+}
+
+
+else if(
+text.includes("usiku mwema") ||
+text.includes("good night")
+){
+
+reply=
+"Usiku mwema ❤️😊 Lala salama na uwe na ndoto nzuri.";
+
+}
+
+
+else if(
+text.includes("asante") ||
+text.includes("thanks")
+){
+
+reply=
+"Karibu sana ❤️😊 Nimefurahi kuzungumza na wewe.";
+
+}
+
+
+else if(
+text.includes("movie") ||
+text.includes("filamu")
+){
+
+reply=
+"Napenda movies pia 😊🎬 Ni genre gani unapenda zaidi?";
+
+}
+
+
+else if(
+text.includes("music") ||
+text.includes("muziki") ||
+text.includes("wimbo")
+){
+
+reply=
+"Oooh music! 🎵❤️ Mimi pia napenda muziki. Unapenda msanii gani?";
+
+}
+
+
+else if(
+text.includes("football") ||
+text.includes("mpira")
+){
+
+reply=
+"Hahaha ⚽😊 Mpira ni mzuri sana! Timu yako ni ipi?";
+
+}
+
+
+else if(
+text.includes("date") ||
+text.includes("kukutana")
+){
+
+reply=
+"Hiyo inaweza kuwa nzuri 😊❤️ Tuendelee kufahamiana kwanza, halafu tunaweza kupanga.";
+
+}
+
+
+const messages=
+getMessages();
+
+messages.push({
+
+sender:"them",
+
+text:reply,
+
+time:getTime()
+
+});
+
+saveMessages(messages);
 
 loadMessages();
 
 }
 
-});
 
+/* ===============================
+TIME
+=============================== */
 
-/* PREMIUM */
+function getTime(){
 
-async function activatePremium(){
-
-const result =
-await api(
-"/api/premium/activate",
+return new Date()
+.toLocaleTimeString(
+[],
 {
-method:"POST"
+hour:"2-digit",
+minute:"2-digit"
 }
 );
 
-alert(result.message);
+}
 
-if(result.user){
 
-currentUser =
-result.user;
+/* ===============================
+MATCH POPUP
+=============================== */
+
+function showMatch(profile){
+
+document
+.getElementById("matchText")
+.textContent=
+
+`Wewe na ${profile.name} mme-match! ❤️`;
+
+document
+.getElementById("matchPopup")
+.classList.add("active");
+
+}
+
+
+function startMatchChat(){
+
+document
+.getElementById("matchPopup")
+.classList.remove("active");
+
+if(lastMatch){
+
+openChat(lastMatch.id);
 
 }
 
 }
 
 
-/* LOGOUT */
+/* ===============================
+PREMIUM
+=============================== */
+
+function activatePremium(){
+
+if(!currentUser)return;
+
+currentUser.premium=true;
+
+saveCurrentUser(currentUser);
+
+
+let users=
+getUsers();
+
+const index=
+users.findIndex(
+u=>u.id===currentUser.id
+);
+
+if(index!==-1){
+
+users[index].premium=true;
+
+saveUsers(users);
+
+}
+
+alert(
+"💎 NIA PREMIUM imewashwa! (DEMO MODE)"
+);
+
+}
+
+
+/* ===============================
+LOGOUT
+=============================== */
 
 function logout(){
 
-localStorage.removeItem("niaToken");
+localStorage.removeItem(
+"niaCurrentUser"
+);
 
-token = null;
-currentUser = null;
+currentUser=null;
+
+currentChat=null;
+
 
 document
 .getElementById("app")
@@ -1339,60 +2448,58 @@ document
 .getElementById("authPage")
 .classList.remove("hidden");
 
+
+document
+.getElementById("loginForm")
+.reset();
+
 showLogin();
 
 }
 
 
-/* ESCAPE */
+/* ===============================
+ESCAPE HTML
+=============================== */
 
 function escapeHTML(text){
 
-const div =
+const div=
 document.createElement("div");
 
-div.textContent = text || "";
+div.textContent=
+text || "";
 
 return div.innerHTML;
 
 }
 
 
-/* AUTO LOGIN */
+/* ===============================
+AUTO LOGIN
+=============================== */
 
-async function checkLogin(){
+window.addEventListener(
+"load",
+()=>{
 
-if(!token) return;
+const user=
+getCurrentUser();
 
-try{
-
-const result =
-await api("/api/me");
-
-if(result.success){
-
-currentUser =
-result.user;
+if(user){
 
 openApp();
 
 }else{
 
-logout();
-
-}
-
-}catch(error){
-
-logout();
+showLogin();
 
 }
 
 }
-
-checkLogin();
+);
 
 </script>
 
 </body>
-  </html>
+</html>
