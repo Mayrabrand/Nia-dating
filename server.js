@@ -1,1499 +1,494 @@
-import express from "express";
-import dotenv from "dotenv";
-import crypto from "crypto";
-import path from "path";
-import { fileURLToPath } from "url";
+require("dotenv").config();
 
-dotenv.config();
+const express = require("express");
+const cors = require("cors");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const fs = require("fs");
+const path = require("path");
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
-const PREMIUM_PRICE = Number(process.env.PREMIUM_PRICE || 5000);
-const CURRENCY = process.env.CURRENCY || "TZS";
-
-const SNIPPE_API_URL =
-  process.env.SNIPPE_API_URL || "https://api.snippe.sh";
-
-const SNIPPE_API_KEY =
-  process.env.SNIPPE_API_KEY || "";
-
-const APP_URL =
-  process.env.APP_URL || `http://localhost:${PORT}`;
-
-const WEBHOOK_SECRET =
-  process.env.SNIPPE_WEBHOOK_SECRET || "";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-
-/* ==========================================
-   BASIC DATABASE - DEMO
-========================================== */
-
-const users = new Map();
-const payments = new Map();
-const processedWebhooks = new Set();
-
-
-/* ==========================================
-   MIDDLEWARE
-========================================== */
-
+app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.urlencoded({
-  extended: true
-}));
+const PORT = process.env.PORT || 3000;
+const SECRET = process.env.JWT_SECRET || "NIA_DATING_SECRET";
 
-app.use(express.static(
-  path.join(__dirname, "public")
-));
+const DB_FILE = path.join(__dirname, "database.json");
 
+/* =========================
+DATABASE
+========================= */
 
-/* ==========================================
-   HOME
-========================================== */
+function getDB() {
+  if (!fs.existsSync(DB_FILE)) {
+    const data = {
+      users: [],
+      messages: [],
+      likes: [],
+      matches: []
+    };
 
-app.get("/", (req, res) => {
-
-  res.sendFile(
-    path.join(__dirname, "public", "index.html")
-  );
-
-});
-
-
-/* ==========================================
-   HEALTH CHECK
-========================================== */
-
-app.get("/api/health", (req, res) => {
-
-  res.json({
-    success: true,
-    app: "NIA DATING",
-    status: "online",
-    time: new Date().toISOString()
-  });
-
-});
-
-
-/* ==========================================
-   SIGNUP
-========================================== */
-
-app.post("/api/signup", (req, res) => {
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+    return data;
+  }
 
   try {
+    return JSON.parse(fs.readFileSync(DB_FILE, "utf8"));
+  } catch (error) {
+    return {
+      users: [],
+      messages: [],
+      likes: [],
+      matches: []
+    };
+  }
+}
 
+function saveDB(data) {
+  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+}
+
+function userPublic(user) {
+  return {
+    id: user.id,
+    name: user.name,
+    age: user.age,
+    location: user.location,
+    bio: user.bio,
+    emoji: user.emoji || "👤",
+    gender: user.gender || "",
+    premium: user.premium || false,
+    createdAt: user.createdAt
+  };
+}
+
+/* =========================
+AUTH MIDDLEWARE
+========================= */
+
+function auth(req, res, next) {
+  const header = req.headers.authorization;
+
+  if (!header) {
+    return res.status(401).json({
+      success: false,
+      message: "Huja-login."
+    });
+  }
+
+  const token = header.split(" ")[1];
+
+  try {
+    const decoded = jwt.verify(token, SECRET);
+    req.userId = decoded.id;
+    next();
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: "Session imeisha. Login tena."
+    });
+  }
+}
+
+/* =========================
+SIGNUP
+========================= */
+
+app.post("/api/signup", async (req, res) => {
+  try {
     const {
       name,
       email,
-      password
+      password,
+      age,
+      location,
+      bio,
+      gender
     } = req.body;
 
     if (!name || !email || !password) {
-
       return res.status(400).json({
         success: false,
-        message: "Jaza taarifa zote."
+        message: "Jaza Jina, Email na Password."
       });
-
     }
 
+    const db = getDB();
 
-    const normalizedEmail =
-      String(email)
-        .trim()
-        .toLowerCase();
+    const exists = db.users.find(
+      user => user.email.toLowerCase() === email.toLowerCase()
+    );
 
-
-    if (users.has(normalizedEmail)) {
-
-      return res.status(409).json({
+    if (exists) {
+      return res.status(400).json({
         success: false,
         message: "Email hii tayari imesajiliwa."
       });
-
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = {
-
-      id: crypto.randomUUID(),
-
-      name: String(name).trim(),
-
-      email: normalizedEmail,
-
-      /*
-       * DEMO ONLY.
-       * Production tutatumia bcrypt/hash.
-       */
-      password: String(password),
-
+      id: "user_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8),
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      password: hashedPassword,
+      age: age || "",
+      location: location || "Tanzania",
+      bio: bio || "Karibu NIA DATING ❤️",
+      gender: gender || "",
+      emoji: gender === "Female" ? "👩" : gender === "Male" ? "👨" : "👤",
       premium: false,
-
-      premiumUntil: null,
-
       createdAt: new Date().toISOString()
-
     };
 
+    db.users.push(user);
+    saveDB(db);
 
-    users.set(
-      normalizedEmail,
-      user
+    const token = jwt.sign(
+      { id: user.id },
+      SECRET,
+      { expiresIn: "30d" }
     );
 
-
     res.json({
-
       success: true,
-
-      message: "Account imetengenezwa.",
-
-      user: {
-
-        id: user.id,
-
-        name: user.name,
-
-        email: user.email,
-
-        premium: user.premium
-
-      }
-
+      message: "Account imetengenezwa! Karibu NIA DATING ❤️",
+      token,
+      user: userPublic(user)
     });
 
   } catch (error) {
-
-    console.error(
-      "SIGNUP ERROR:",
-      error
-    );
+    console.error(error);
 
     res.status(500).json({
-
       success: false,
-
       message: "Server error."
-
     });
-
   }
-
 });
 
+/* =========================
+LOGIN
+========================= */
 
-/* ==========================================
-   LOGIN
-========================================== */
-
-app.post("/api/login", (req, res) => {
-
+app.post("/api/login", async (req, res) => {
   try {
+    const { email, password } = req.body;
 
-    const {
-      email,
-      password
-    } = req.body;
+    const db = getDB();
 
-
-    if (!email || !password) {
-
-      return res.status(400).json({
-
-        success: false,
-
-        message:
-          "Weka email na password."
-
-      });
-
-    }
-
-
-    const normalizedEmail =
-      String(email)
-        .trim()
-        .toLowerCase();
-
-
-    const user =
-      users.get(normalizedEmail);
-
+    const user = db.users.find(
+      user => user.email.toLowerCase() === String(email).toLowerCase()
+    );
 
     if (!user) {
-
       return res.status(401).json({
-
         success: false,
-
-        message:
-          "Email au password sio sahihi."
-
+        message: "Email au password sio sahihi."
       });
-
     }
 
+    const correct = await bcrypt.compare(
+      password,
+      user.password
+    );
 
-    if (user.password !== String(password)) {
-
+    if (!correct) {
       return res.status(401).json({
-
         success: false,
-
-        message:
-          "Email au password sio sahihi."
-
+        message: "Email au password sio sahihi."
       });
-
     }
 
+    const token = jwt.sign(
+      { id: user.id },
+      SECRET,
+      { expiresIn: "30d" }
+    );
 
     res.json({
-
       success: true,
-
-      message: "Login successful.",
-
-      user: {
-
-        id: user.id,
-
-        name: user.name,
-
-        email: user.email,
-
-        premium: user.premium,
-
-        premiumUntil:
-          user.premiumUntil
-
-      }
-
+      message: "Umefanikiwa ku-login ❤️",
+      token,
+      user: userPublic(user)
     });
 
   } catch (error) {
-
-    console.error(
-      "LOGIN ERROR:",
-      error
-    );
-
     res.status(500).json({
-
       success: false,
-
       message: "Server error."
-
     });
-
   }
-
 });
 
-
-/* ==========================================
-   PREMIUM STATUS
-========================================== */
-
-app.get(
-  "/api/premium/:email",
-  (req, res) => {
-
-    const email =
-      String(req.params.email)
-        .trim()
-        .toLowerCase();
-
-
-    const user =
-      users.get(email);
-
-
-    if (!user) {
-
-      return res.status(404).json({
-
-        success: false,
-
-        message: "User hajapatikana."
-
-      });
-
-    }
-
-
-    res.json({
-
-      success: true,
-
-      premium: user.premium,
-
-      premiumUntil:
-        user.premiumUntil
-
-    });
-
-  }
-);
-
-
-/* ==========================================
-   CREATE PAYMENT
-========================================== */
-
-app.post(
-  "/api/payment/create",
-  async (req, res) => {
-
-    try {
-
-      const {
-        name,
-        email,
-        phone
-      } = req.body;
-
-
-      if (!name || !email || !phone) {
-
-        return res.status(400).json({
-
-          success: false,
-
-          message:
-            "Jaza jina, email na namba ya simu."
-
-        });
-
-      }
-
-
-      if (!SNIPPE_API_KEY) {
-
-        return res.status(500).json({
-
-          success: false,
-
-          message:
-            "SNIPPE_API_KEY haijawekwa kwenye .env."
-
-        });
-
-      }
-
-
-      const normalizedEmail =
-        String(email)
-          .trim()
-          .toLowerCase();
-
-
-      const user =
-        users.get(normalizedEmail);
-
-
-      if (!user) {
-
-        return res.status(404).json({
-
-          success: false,
-
-          message:
-            "Jisajili kwanza kabla ya kulipia Premium."
-
-        });
-
-      }
-
-
-      /*
-       * Payment reference yetu
-       */
-
-      const orderId =
-        "NIA-" +
-        Date.now() +
-        "-" +
-        crypto
-          .randomBytes(4)
-          .toString("hex")
-          .toUpperCase();
-
-
-      /*
-       * Save pending payment
-       */
-
-      payments.set(orderId, {
-
-        orderId,
-
-        email: normalizedEmail,
-
-        name,
-
-        phone,
-
-        amount: PREMIUM_PRICE,
-
-        currency: CURRENCY,
-
-        status: "pending",
-
-        createdAt:
-          new Date().toISOString()
-
-      });
-
-
-      /*
-       * Idempotency key
-       *
-       * Max 30 characters according
-       * to Snippe documentation.
-       */
-
-      const idempotencyKey =
-        orderId.slice(0, 30);
-
-
-      /*
-       * Webhook URL
-       */
-
-      const webhookUrl =
-        `${APP_URL}/webhooks/snippe`;
-
-
-      /*
-       * Snippe payment request
-       */
-
-      const paymentResponse =
-        await fetch(
-          `${SNIPPE_API_URL}/v1/payments`,
-          {
-
-            method: "POST",
-
-            headers: {
-
-              "Authorization":
-                `Bearer ${SNIPPE_API_KEY}`,
-
-              "Content-Type":
-                "application/json",
-
-              "Idempotency-Key":
-                idempotencyKey
-
-            },
-
-            body: JSON.stringify({
-
-              payment_type: "mobile",
-
-              details: {
-
-                amount:
-                  PREMIUM_PRICE,
-
-                currency:
-                  CURRENCY
-
-              },
-
-              phone_number:
-                normalizePhone(phone),
-
-              customer: {
-
-                firstname:
-                  getFirstName(name),
-
-                lastname:
-                  getLastName(name),
-
-                email:
-                  normalizedEmail
-
-              },
-
-              webhook_url:
-                webhookUrl,
-
-              metadata: {
-
-                order_id:
-                  orderId,
-
-                product:
-                  "NIA DATING PREMIUM",
-
-                plan:
-                  "MONTHLY",
-
-                price:
-                  PREMIUM_PRICE
-
-              }
-
-            })
-
-          }
-        );
-
-
-      const data =
-        await paymentResponse.json();
-
-
-      console.log(
-        "SNIPPE RESPONSE:",
-        data
-      );
-
-
-      if (!paymentResponse.ok) {
-
-        payments.delete(orderId);
-
-
-        return res.status(
-          paymentResponse.status
-        ).json({
-
-          success: false,
-
-          message:
-            data.message ||
-            "Payment haijaanzishwa.",
-
-          error: data
-
-        });
-
-      }
-
-
-      const paymentData =
-        data.data || data;
-
-
-      const reference =
-        paymentData.reference;
-
-
-      /*
-       * Update payment
-       */
-
-      const savedPayment =
-        payments.get(orderId);
-
-
-      if (savedPayment) {
-
-        savedPayment.reference =
-          reference;
-
-        savedPayment.status =
-          paymentData.status ||
-          "pending";
-
-      }
-
-
-      /*
-       * Return response to frontend
-       */
-
-      res.json({
-
-        success: true,
-
-        message:
-          "Payment imeanzishwa. Angalia simu yako kwa USSD push.",
-
-        orderId,
-
-        reference,
-
-        status:
-          paymentData.status ||
-          "pending",
-
-        amount:
-          PREMIUM_PRICE,
-
-        currency:
-          CURRENCY
-
-      });
-
-    } catch (error) {
-
-      console.error(
-        "PAYMENT CREATE ERROR:",
-        error
-      );
-
-
-      res.status(500).json({
-
-        success: false,
-
-        message:
-          "Imeshindikana kuanzisha payment.",
-
-        error:
-          process.env.NODE_ENV === "development"
-            ? error.message
-            : undefined
-
-      });
-
-    }
-
-  }
-);
-
-
-/* ==========================================
-   CHECK PAYMENT STATUS
-========================================== */
-
-app.get(
-  "/api/payment/status/:reference",
-  async (req, res) => {
-
-    try {
-
-      const reference =
-        req.params.reference;
-
-
-      if (!SNIPPE_API_KEY) {
-
-        return res.status(500).json({
-
-          success: false,
-
-          message:
-            "SNIPPE_API_KEY haijawekwa."
-
-        });
-
-      }
-
-
-      const response =
-        await fetch(
-          `${SNIPPE_API_URL}/v1/payments/${encodeURIComponent(reference)}`,
-          {
-
-            method: "GET",
-
-            headers: {
-
-              "Authorization":
-                `Bearer ${SNIPPE_API_KEY}`,
-
-              "Content-Type":
-                "application/json"
-
-            }
-
-          }
-        );
-
-
-      const data =
-        await response.json();
-
-
-      if (!response.ok) {
-
-        return res.status(
-          response.status
-        ).json({
-
-          success: false,
-
-          error: data
-
-        });
-
-      }
-
-
-      const payment =
-        data.data || data;
-
-
-      res.json({
-
-        success: true,
-
-        status:
-          payment.status,
-
-        reference:
-          payment.reference,
-
-        amount:
-          payment.amount,
-
-        provider:
-          payment.channel?.provider ||
-          null
-
-      });
-
-    } catch (error) {
-
-      console.error(
-        "STATUS ERROR:",
-        error
-      );
-
-
-      res.status(500).json({
-
-        success: false,
-
-        message:
-          "Imeshindikana kuangalia status."
-
-      });
-
-    }
-
-  }
-);
-
-
-/* ==========================================
-   SNIPPE WEBHOOK
-========================================== */
-
-/*
- * NOTE:
- *
- * Production webhook should verify
- * X-Webhook-Signature using the
- * signing secret from Snippe.
- *
- * We keep raw body here so signature
- * verification can be added safely.
- */
-
-app.post(
-  "/webhooks/snippe",
-  express.raw({
-    type: "application/json"
-  }),
-  async (req, res) => {
-
-    try {
-
-      const rawBody =
-        req.body;
-
-
-      /*
-       * Verify webhook signature
-       */
-
-      if (WEBHOOK_SECRET) {
-
-        const signature =
-          req.headers[
-            "x-webhook-signature"
-          ];
-
-        const timestamp =
-          req.headers[
-            "x-webhook-timestamp"
-          ];
-
-
-        if (!signature || !timestamp) {
-
-          return res.status(401).json({
-
-            success: false,
-
-            message:
-              "Webhook signature missing."
-
-          });
-
-        }
-
-
-        const valid =
-          verifyWebhookSignature(
-            rawBody,
-            signature,
-            timestamp,
-            WEBHOOK_SECRET
-          );
-
-
-        if (!valid) {
-
-          return res.status(401).json({
-
-            success: false,
-
-            message:
-              "Invalid webhook signature."
-
-          });
-
-        }
-
-      }
-
-
-      const body =
-        JSON.parse(
-          rawBody.toString()
-        );
-
-
-      console.log(
-        "SNIPPE WEBHOOK:",
-        JSON.stringify(
-          body,
-          null,
-          2
-        )
-      );
-
-
-      /*
-       * Current event format
-       */
-
-      const eventType =
-        body.type ||
-        body.event ||
-        req.headers[
-          "x-webhook-event"
-        ];
-
-
-      const eventId =
-        body.id ||
-        body.data?.reference ||
-        body.reference;
-
-
-      /*
-       * Prevent duplicate webhook
-       */
-
-      if (eventId) {
-
-        if (
-          processedWebhooks.has(eventId)
-        ) {
-
-          return res.json({
-
-            success: true,
-
-            message:
-              "Webhook already processed."
-
-          });
-
-        }
-
-      }
-
-
-      const data =
-        body.data || body;
-
-
-      const reference =
-        data.reference ||
-        body.reference;
-
-
-      /*
-       * PAYMENT COMPLETED
-       */
-
-      if (
-        eventType ===
-        "payment.completed"
-      ) {
-
-        const orderId =
-          data.metadata?.order_id ||
-          data.metadata?.url_metadata?.order_id;
-
-
-        const amount =
-          Number(
-            data.amount?.value ??
-            data.amount ??
-            0
-          );
-
-
-        const currency =
-          data.amount?.currency ||
-          CURRENCY;
-
-
-        /*
-         * Security:
-         * Premium only activates if
-         * amount and currency match.
-         */
-
-        if (
-          amount !== PREMIUM_PRICE ||
-          currency !== CURRENCY
-        ) {
-
-          console.error(
-            "Invalid payment amount:",
-            {
-              amount,
-              currency
-            }
-          );
-
-
-          return res.status(400).json({
-
-            success: false,
-
-            message:
-              "Invalid payment amount."
-
-          });
-
-        }
-
-
-        let payment = null;
-
-
-        /*
-         * Find our payment by orderId
-         */
-
-        if (orderId) {
-
-          payment =
-            payments.get(orderId);
-
-        }
-
-
-        /*
-         * If payment not found,
-         * search by reference.
-         */
-
-        if (!payment && reference) {
-
-          for (
-            const item
-            of payments.values()
-          ) {
-
-            if (
-              item.reference ===
-              reference
-            ) {
-
-              payment = item;
-
-              break;
-
-            }
-
-          }
-
-        }
-
-
-        if (payment) {
-
-          payment.status =
-            "completed";
-
-          payment.completedAt =
-            new Date().toISOString();
-
-          payment.reference =
-            reference;
-
-
-          /*
-           * Activate Premium
-           */
-
-          const user =
-            users.get(payment.email);
-
-
-          if (user) {
-
-            user.premium =
-              true;
-
-
-            /*
-             * 30 days Premium
-             */
-
-            const expiry =
-              new Date();
-
-            expiry.setDate(
-              expiry.getDate() + 30
-            );
-
-
-            user.premiumUntil =
-              expiry.toISOString();
-
-          }
-
-        }
-
-
-        console.log(
-          "NIA PREMIUM ACTIVATED:",
-          {
-            orderId,
-            reference,
-            email:
-              payment?.email
-          }
-        );
-
-      }
-
-
-      /*
-       * PAYMENT FAILED
-       */
-
-      if (
-        eventType ===
-        "payment.failed"
-      ) {
-
-        if (reference) {
-
-          for (
-            const item
-            of payments.values()
-          ) {
-
-            if (
-              item.reference ===
-              reference
-            ) {
-
-              item.status =
-                "failed";
-
-            }
-
-          }
-
-        }
-
-
-        console.log(
-          "NIA PAYMENT FAILED:",
-          reference
-        );
-
-      }
-
-
-      /*
-       * PAYMENT EXPIRED
-       */
-
-      if (
-        eventType ===
-        "payment.expired"
-      ) {
-
-        if (reference) {
-
-          for (
-            const item
-            of payments.values()
-          ) {
-
-            if (
-              item.reference ===
-              reference
-            ) {
-
-              item.status =
-                "expired";
-
-            }
-
-          }
-
-        }
-
-      }
-
-
-      if (eventId) {
-
-        processedWebhooks.add(
-          eventId
-        );
-
-      }
-
-
-      /*
-       * Always respond quickly
-       */
-
-      res.status(200).json({
-
-        success: true,
-
-        received: true
-
-      });
-
-    } catch (error) {
-
-      console.error(
-        "WEBHOOK ERROR:",
-        error
-      );
-
-
-      res.status(400).json({
-
-        success: false,
-
-        message:
-          "Invalid webhook."
-
-      });
-
-    }
-
-  }
-);
-
-
-/* ==========================================
-   WEBHOOK SIGNATURE
-========================================== */
-
-function verifyWebhookSignature(
-  rawBody,
-  signature,
-  timestamp,
-  secret
-) {
-
-  try {
-
-    /*
-     * Prevent replay attacks.
-     *
-     * Five minutes.
-     */
-
-    const now =
-      Math.floor(
-        Date.now() / 1000
-      );
-
-    const webhookTime =
-      Number(timestamp);
-
-
-    if (
-      !Number.isFinite(
-        webhookTime
-      )
-    ) {
-
-      return false;
-
-    }
-
-
-    if (
-      Math.abs(
-        now - webhookTime
-      ) > 300
-    ) {
-
-      return false;
-
-    }
-
-
-    /*
-     * HMAC SHA256
-     */
-
-    const signedPayload =
-      `${timestamp}.${rawBody.toString()}`;
-
-
-    const expected =
-      crypto
-        .createHmac(
-          "sha256",
-          secret
-        )
-        .update(
-          signedPayload
-        )
-        .digest("hex");
-
-
-    /*
-     * Some providers prefix
-     * signatures.
-     */
-
-    const cleanSignature =
-      String(signature)
-        .replace(/^sha256=/i, "")
-        .trim();
-
-
-    if (
-      expected.length !==
-      cleanSignature.length
-    ) {
-
-      return false;
-
-    }
-
-
-    return crypto.timingSafeEqual(
-
-      Buffer.from(expected),
-
-      Buffer.from(cleanSignature)
-
-    );
-
-  } catch (error) {
-
-    console.error(
-      "SIGNATURE ERROR:",
-      error
-    );
-
-    return false;
-
-  }
-
-}
-
-
-/* ==========================================
-   PHONE NORMALIZER
-========================================== */
-
-function normalizePhone(phone) {
-
-  let value =
-    String(phone)
-      .trim()
-      .replace(/\s+/g, "")
-      .replace(/-/g, "");
-
-
-  if (
-    value.startsWith("+255")
-  ) {
-
-    value =
-      value.substring(1);
-
-  }
-
-
-  if (
-    value.startsWith("0")
-  ) {
-
-    value =
-      "255" +
-      value.substring(1);
-
-  }
-
-
-  return value;
-
-}
-
-
-/* ==========================================
-   NAME HELPERS
-========================================== */
-
-function getFirstName(name) {
-
-  const parts =
-    String(name)
-      .trim()
-      .split(/\s+/);
-
-
-  return parts[0] || "NIA";
-
-}
-
-
-function getLastName(name) {
-
-  const parts =
-    String(name)
-      .trim()
-      .split(/\s+/);
-
-
-  if (parts.length < 2) {
-
-    return "User";
-
-  }
-
-
-  return parts
-    .slice(1)
-    .join(" ");
-
-}
-
-
-/* ==========================================
-   404
-========================================== */
-
-app.use(
-  (req, res) => {
-
-    res.status(404).json({
-
+/* =========================
+MY PROFILE
+========================= */
+
+app.get("/api/me", auth, (req, res) => {
+  const db = getDB();
+
+  const user = db.users.find(
+    user => user.id === req.userId
+  );
+
+  if (!user) {
+    return res.status(404).json({
       success: false,
-
-      message:
-        "Route haijapatikana."
-
+      message: "User hakupatikana."
     });
-
   }
-);
 
+  res.json({
+    success: true,
+    user: userPublic(user)
+  });
+});
 
-/* ==========================================
-   ERROR HANDLER
-========================================== */
+/* =========================
+DISCOVER USERS
+========================= */
 
-app.use(
-  (error, req, res, next) => {
+app.get("/api/users", auth, (req, res) => {
+  const db = getDB();
 
-    console.error(
-      "SERVER ERROR:",
-      error
-    );
+  const search = String(req.query.search || "").toLowerCase();
 
+  const users = db.users
+    .filter(user => user.id !== req.userId)
+    .filter(user => {
+      return (
+        user.name.toLowerCase().includes(search) ||
+        String(user.location || "").toLowerCase().includes(search)
+      );
+    })
+    .map(userPublic)
+    .reverse();
 
-    res.status(500).json({
+  res.json({
+    success: true,
+    users
+  });
+});
 
+/* =========================
+LIKE + MATCH
+========================= */
+
+app.post("/api/like/:id", auth, (req, res) => {
+  const targetId = req.params.id;
+  const db = getDB();
+
+  const target = db.users.find(
+    user => user.id === targetId
+  );
+
+  if (!target || targetId === req.userId) {
+    return res.status(404).json({
       success: false,
-
-      message:
-        "Internal server error."
-
+      message: "Profile haijapatikana."
     });
-
   }
-);
 
+  const alreadyLiked = db.likes.find(
+    like =>
+      like.from === req.userId &&
+      like.to === targetId
+  );
 
-/* ==========================================
-   START SERVER
-========================================== */
-
-app.listen(
-  PORT,
-  () => {
-
-    console.log("");
-    console.log(
-      "===================================="
-    );
-
-    console.log(
-      "❤️  NIA DATING SERVER"
-    );
-
-    console.log(
-      "===================================="
-    );
-
-    console.log(
-      `🌐 http://localhost:${PORT}`
-    );
-
-    console.log(
-      `💎 Premium: TZS ${PREMIUM_PRICE}`
-    );
-
-    console.log(
-      "📱 M-Pesa"
-    );
-
-    console.log(
-      "🔴 Airtel Money"
-    );
-
-    console.log(
-      "🔵 Mixx by Yas"
-    );
-
-    console.log(
-      "🟠 HaloPesa"
-    );
-
-    console.log(
-      "===================================="
-    );
-
+  if (!alreadyLiked) {
+    db.likes.push({
+      from: req.userId,
+      to: targetId,
+      createdAt: new Date().toISOString()
+    });
   }
-);
+
+  const reverseLike = db.likes.find(
+    like =>
+      like.from === targetId &&
+      like.to === req.userId
+  );
+
+  let isMatch = false;
+
+  if (reverseLike) {
+    const matchId = [req.userId, targetId].sort().join("_");
+
+    const exists = db.matches.find(
+      match => match.id === matchId
+    );
+
+    if (!exists) {
+      db.matches.push({
+        id: matchId,
+        users: [req.userId, targetId],
+        createdAt: new Date().toISOString()
+      });
+    }
+
+    isMatch = true;
+  }
+
+  saveDB(db);
+
+  res.json({
+    success: true,
+    isMatch,
+    message: isMatch
+      ? "IT'S A MATCH! ❤️"
+      : "Like imetumwa ❤️"
+  });
+});
+
+/* =========================
+GET MATCHES
+========================= */
+
+app.get("/api/matches", auth, (req, res) => {
+  const db = getDB();
+
+  const matches = db.matches
+    .filter(match =>
+      match.users.includes(req.userId)
+    )
+    .map(match => {
+      const otherId = match.users.find(
+        id => id !== req.userId
+      );
+
+      const user = db.users.find(
+        user => user.id === otherId
+      );
+
+      return user ? userPublic(user) : null;
+    })
+    .filter(Boolean);
+
+  res.json({
+    success: true,
+    matches
+  });
+});
+
+/* =========================
+GET MESSAGES
+========================= */
+
+app.get("/api/messages/:id", auth, (req, res) => {
+  const otherId = req.params.id;
+
+  const db = getDB();
+
+  const messages = db.messages.filter(message =>
+    (
+      message.from === req.userId &&
+      message.to === otherId
+    ) ||
+    (
+      message.from === otherId &&
+      message.to === req.userId
+    )
+  );
+
+  res.json({
+    success: true,
+    messages
+  });
+});
+
+/* =========================
+SEND MESSAGE
+========================= */
+
+app.post("/api/messages/:id", auth, (req, res) => {
+  const otherId = req.params.id;
+  const text = String(req.body.text || "").trim();
+
+  if (!text) {
+    return res.status(400).json({
+      success: false,
+      message: "Andika ujumbe."
+    });
+  }
+
+  const db = getDB();
+
+  const otherUser = db.users.find(
+    user => user.id === otherId
+  );
+
+  if (!otherUser) {
+    return res.status(404).json({
+      success: false,
+      message: "User hajapatikana."
+    });
+  }
+
+  const message = {
+    id: "msg_" + Date.now(),
+    from: req.userId,
+    to: otherId,
+    text,
+    createdAt: new Date().toISOString()
+  };
+
+  db.messages.push(message);
+  saveDB(db);
+
+  res.json({
+    success: true,
+    message
+  });
+});
+
+/* =========================
+PREMIUM DEMO
+========================= */
+
+app.post("/api/premium/activate", auth, (req, res) => {
+  const db = getDB();
+
+  const user = db.users.find(
+    user => user.id === req.userId
+  );
+
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      message: "User hajapatikana."
+    });
+  }
+
+  user.premium = true;
+  user.premiumSince = new Date().toISOString();
+
+  saveDB(db);
+
+  res.json({
+    success: true,
+    message: "NIA PREMIUM imewashwa 💎",
+    user: userPublic(user)
+  });
+});
+
+/* =========================
+START SERVER
+========================= */
+
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "public", "index.html")
+  );
+});
+
+app.listen(PORT, () => {
+  console.log("");
+  console.log("❤️ NIA DATING RUNNING");
+  console.log("http://localhost:" + PORT);
+  console.log("");
+});
